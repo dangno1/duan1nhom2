@@ -1,0 +1,54 @@
+.admin {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    /* grid-gap: 20px; */
+}
+
+.category {
+    background-color: rgb(214, 210, 205);
+    padding-top: 50px;
+    padding-left: 20px;
+}
+
+.category-1 h2{
+    height: 100px;
+    color: rgb(13, 23, 117);
+}
+
+.category-1 h2:hover{
+    color: rgb(243, 22, 22);
+}
+
+.kind {
+    padding-top: 20px;
+}
+
+.logout h2{
+    color: rgb(121, 15, 15);
+}
+
+.logout h2:hover{
+    color: rgb(11, 242, 250);
+}
+
+.content {
+    background-color: rgb(255, 255, 255);
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.content h1 {
+    box-sizing: border-box;
+    padding: 0px;
+    border: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1), 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de;
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.content h1:hover{
+    text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+}
