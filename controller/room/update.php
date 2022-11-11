@@ -14,7 +14,6 @@
         $upload_path= $upaload_dir . $_FILES['anh']['name'];
         // $extension_file = pathinfo($_FILES['anh']['name'], PATHINFO_EXTENSION); duoi anh
         move_uploaded_file($_FILES['anh']['tmp_name'], $upload_path);
-        // die;
 
         $anh = $upload_path;
 
