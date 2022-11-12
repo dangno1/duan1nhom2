@@ -32,13 +32,12 @@ class Room
         $id = $roomId['room_id'];
 
         $ten = $data['kind_of_room'];
-        $anh = $data['image_room'];
         $moTa = $data['describe_room'];
         $gia = $data['price_room'];
         $idKindRoom = $data['kind_of_room_id'];
         $trangThai = $data['status'];
 
-        $sql = "UPDATE `room` SET `kind_of_room` = '{$ten}', `image_room` = '{$anh}',
+        $sql = "UPDATE `room` SET `kind_of_room` = '{$ten}',
         `describe_room` = '{$moTa}', `price_room` = '{$gia}', `kind_of_room_id` = '{$idKindRoom}', `status` = '{$trangThai}' 
         WHERE `room`.`room_id` = {$id}";
 
