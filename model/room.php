@@ -54,4 +54,19 @@ class Room
 
         return $result;
     }
+    public function show_kindRoom_whereID($id)
+    {
+        $sql = "SELECT * FROM `kindRoom` where kind_of_room_id = '$id'";
+        $result = $GLOBALS['connect']->query($sql);
+        $list_kindromm_id = $result->fetch();
+        return $list_kindromm_id;
+    }
+
+    public function show_room_whereID($id)
+    {
+        $sql = "SELECT * FROM room where room_id='$id'";
+        $result = $GLOBALS['connect']->query($sql);
+        $list_room = $result->fetch();
+        return $list_room;
+    }
 }

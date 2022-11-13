@@ -1,11 +1,13 @@
 <?php
     require('../../model/room.php');
+    require('../../model/kindRoom.php');
     $id = (int)$_GET['id'];
-    $sql = "SELECT * FROM `kindRoom`";
-    $show = $connect->query($sql);
-    $show->execute();
-    $list = $show->fetchAll();
-
+    $room = new Room();
+    $kindRoom = new KindRoom();
+    $list_room = $room->show_room_whereID($id);
+    $id_kindroom = $list_room['kind_of_room_id'];
+    $list_kindroom = $kindRoom->show_kindRoom();
+    $list_kindroom_id = $room->show_kindRoom_whereID($id_kindroom);
     if(isset($_POST['btn_submit'])) {
         $ten = $_POST['title'];
         $moTa = $_POST['moTa'];
@@ -23,26 +25,12 @@
             'status' => $trangThai,
         ];
 
-        $room = new Room();
         $room->update($roomId, $data);
-        if($connect) {
+        if(isset($connect)) {
             header('location:room.php');
         }
 
     }
-$sql = "SELECT * FROM `room` where room_id = '$id'";
-$show = $connect->query($sql);
-$show->execute();
-$list_room = $show->fetch();
-$kindroom = $list_room['kind_of_room_id'];
-
-//-------------------------------------------------
-
-$sql = "SELECT * FROM `kindRoom` where kind_of_room_id = '$kindroom'";
-$show = $connect->query($sql);
-$show->execute();
-$list_kindroom = $show->fetch();
-
 
 ?>
 <!DOCTYPE html>
@@ -97,9 +85,9 @@ $list_kindroom = $show->fetch();
                 <div>
                     <label for="">Kind Of Room ID</label>
                     <select name="idKindRoom" id="" required>
-                        <option selected value="<?=$list_kindroom['kind_of_room_id']?>"><?=$list_kindroom['kind_of_room']?></option>
+                        <option selected value="<?=$list_kindroom_id['kind_of_room_id']?>"><?=$list_kindroom_id['kind_of_room']?></option>
                         <?php
-                        foreach ($list as $value) {
+                        foreach ($list_kindroom as $value) {
                             ?>
                                 <option value="<?=$value['kind_of_room_id'] ?>"><?=$value['kind_of_room'] ?></option>
                             <?php
