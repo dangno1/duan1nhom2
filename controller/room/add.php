@@ -52,6 +52,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../quanTri.css">
     <link rel="stylesheet" href="./room.css">
+    <link rel="stylesheet" href="add.css">
     <title>Add</title>
 </head>
 <body>
@@ -62,9 +63,9 @@
             </div>
             <hr>
             <div class="category-1">
-                <h2 class="kind">Kind Of Romm</h2>
-                <h2>Room</h2>
-                <h2>User</h2>
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a>
+                <a href="../room/room.php"><h2>Room</h2></a> <br>
+                <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
                 <h2>Comment</h2>
                 <h2>Statistical</h2>
@@ -78,23 +79,23 @@
             <hr>
             <form action=""method="POST" enctype="multipart/form-data">
                 <div>
-                    <label for="">Name Room</label>
-                    <input type="text" name="title" id="">
+                    <label for="">Name Room</label> <br>
+                    <input type="text" name="title" id="" placeholder="name room">
                 </div>
                 <div>
-                    <label for="">Img Room</label>
-                    <input type="file" name="anh" id="">
+                    <label for="">Img Room</label> <br> 
+                    <input class="file" type="file" name="anh" id="">
                 </div>
                 <div>
-                    <label for="">Describe Room</label>
-                    <input type="text" name="moTa" id="">
+                    <label for="">Describe Room</label> <br>
+                    <input type="text" name="moTa" id="" placeholder="Describe Room">
                 </div>
                 <div>
-                    <label for="">Price_Room</label>
-                    <input type="text" name="gia" id="">
+                    <label for="">Price_Room</label> <br>
+                    <input type="text" name="gia" id="" placeholder="Price_Room">
                 </div>
                 <div>
-                    <label for="">Kind Of Room ID</label>
+                    <label for="">Kind Of Room ID</label> <br>
                     <select name="idKindRoom" id="">
                         <?php
                         foreach ($list as $value) {
@@ -103,14 +104,14 @@
                             <?php
                         }
                         ?>
-                    </select>
+                    </select> 
                 </div>
                 <div>
-                    <label for="">Status_Room</label>
-                    <input type="text" name="trangThai" id="">
+                    <label for="">Status_Room</label> <br>
+                    <input type="text" name="trangThai" id="" placeholder="Status_Room">
                 </div>
                 <div class="submit">
-                    <input type="submit" name="btn_submit" id="" value = "ADD">
+                    <input class="nut" type="submit" name="btn_submit" id="" value = "ADD">
                 </div>
             </form>
         </div>

@@ -5,9 +5,9 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="./kindRoom/kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a>
-                <a href="./room/room.php"><h2>Room</h2></a>
-                <h2>User</h2>
+                <a href="./kindRoom/kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a> <br>
+                <a href="./room/room.php"><h2>Room</h2></a> <br>
+                <a href="./user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
                 <h2>Comment</h2>
                 <h2>Statistical</h2>
