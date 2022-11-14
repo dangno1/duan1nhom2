@@ -45,11 +45,8 @@ $list = $show->fetchAll();
             </div>
             <hr>
             <div class="hangHoa">
-                <div class="quanLi">
-                    <h2>Kind Of Room </h2>
-                </div>
                 <button class="nut-add">
-                    <a href="add.php">Thêm Loại Phòng</a>
+                    <a href="add.php">ADD</a>
                 </button>
                 <table>
                     <thead>

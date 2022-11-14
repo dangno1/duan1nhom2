@@ -36,11 +36,11 @@
             </div>
         </div>
         <div class="content">
-            <h1>Our Room</h1>
+            <h1>Room</h1>
             <hr>
             <div class="hangHoa1">
                 <button class="nut-add">
-                    <a href="add.php">Thêm room</a>
+                    <a href="add.php">ADD Room</a>
                 </button>
                 <table>
                     <thead>

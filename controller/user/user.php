@@ -38,13 +38,10 @@ $list = $show->fetchAll();
     </div>
     <div class="content">
         <div>
-            <h1>Kind Of Room</h1>
+            <h1>USER</h1>
         </div>
         <hr>
         <div class="hangHoa">
-            <div class="quanLi">
-                <h2>User </h2>
-            </div>
             <table>
                 <thead>
                 <tr>
