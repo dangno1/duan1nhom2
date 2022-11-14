@@ -19,13 +19,4 @@ class user
 
         return $result;
     }
-
-    // public function delete($maKhachHang)
-    // {
-    //     $id = $maKhachHang['ma_kh'];
-    //     $sql = "DELETE FROM `khachHang` WHERE `khachHang`.`ma_kh` = {$id}";
-    //     $result = $GLOBALS['connect']->query($sql);
-
-    //     return $result;
-    // }
 }
