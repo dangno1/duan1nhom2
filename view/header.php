@@ -1,7 +1,7 @@
 <div class="container">
     <header>
         <div class="logo">
-            <img src="./view/img/logo.png" alt="">
+            <a href="./index.php"><img src="./view/img/logo.png" alt=""></a>
         </div>
         <nav>
             <ul>

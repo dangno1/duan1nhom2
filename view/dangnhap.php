@@ -40,25 +40,23 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="cat">
-            <h2>Đăng Nhập Tài Khoản</h2>
-            <div>
-                <form action=""method="POST">
-                    <div class="row">
-                        Tên đăng nhập <br>
-                        <input type="text" name="user">
-                    </div>
-                    <div class="row">
-                        Mật khẩu <br>
-                        <input type="password" name="pass">
-                    </div>
-                    <div class="row">
-                    <input type="submit" name="btn_submit" id="" value = "DangNhap">
-                    </div>
-                </form> 
-        </div> 
+<div class="cat">
+    <h2>Đăng Nhập Tài Khoản</h2>
+    <div>
+        <form action=""method="POST">
+            <div class="row">
+                Tên đăng nhập <br>
+                <input type="text" name="user">
+            </div>
+            <div class="row">
+                Mật khẩu <br>
+                <input type="password" name="pass">
+            </div>
+            <div class="row">
+            <input type="submit" name="btn_submit" id="" value = "DangNhap">
+            </div>
+        </form> 
+    </div> 
 </div>
-
-    
 </body>
 </html>

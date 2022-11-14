@@ -1,6 +1,6 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `kindRoom`";
+    $sql = "SELECT * FROM `comment`";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quan Tri Kind Of Room</title>
+    <title>Comment</title>
     <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../quanTri.css">
-    <link rel="stylesheet" href="./kindRoom.css">
+    <link rel="stylesheet" href="./cmt.css">
 </head>
 <body>
     <div class="admin">
@@ -24,11 +24,11 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="./kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
                 <a href="../room/room.php"><h2>Room</h2></a>
                 <h2>User</h2>
                 <h2>Roombooked</h2>
-                <a href="../comment/cmt.php"><h2>Comment</h2></a>
+                <a href="./comt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
             </div>
             <div class="logout">
@@ -36,18 +36,18 @@
             </div>
         </div>
         <div class="content">
-            <h1>Kind Of Room</h1>
+            <h1>Comment</h1>
             <hr>
-            <div class="hangHoa">
-                <button class="add">
-                    <a href="add.php">Add</a>
-                </button>
+            <div class="hangHoa1">
                 <table>
                     <thead>
                         <tr>
-                            <th>Kind Of Room ID</th>
-                            <th>Kind Of Room</th>
-                            <th>Delete and Update</th>
+                            <th>Comment_id</th>
+                            <th>ID Room</th>
+                            <th>ID User</th>
+                            <th>Noi Dung</th>
+                            <th>Ngay Comment</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,11 +55,13 @@
                             foreach ($list as $item) {
                         ?>
                         <tr>
-                            <td><?php echo $item['kind_of_room_id'] ?></td>
-                            <td><?php echo $item['kind_of_room'] ?></td>
+                            <td><?php echo $item['comment_id'] ?></td>
+                            <td><?php echo $item['room_id'] ?></td>
+                            <td><?php echo $item['user_id'] ?></td>
+                            <td><?php echo $item['content_comment'] ?></td>
+                            <td><?php echo $item['date_created_comment'] ?></td>
                             <td>
-                                <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['kind_of_room_id'] ?>">Delete</a>
-                                <a href="update.php?id=<?php echo $item['kind_of_room_id'] ?>">Update</a>
+                                <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['comment_id'] ?>">Delete</a>
                             </td>
                         </tr>
                         <?php

@@ -9,11 +9,12 @@
     if(isset($_POST['btn_submit'])) {
 
         //gọi ảnh
-        $upaload_dir= 'uploads/';
+        $upaload_dir= './uploads/';
         $upload_path= $upaload_dir . $_FILES['anh']['name'];
         // $extension_file = pathinfo($_FILES['anh']['name'], PATHINFO_EXTENSION); duoi anh
         move_uploaded_file($_FILES['anh']['tmp_name'], $upload_path);
-        // die;
+
+        // die('123');
 
         $anh = $upload_path;
 
