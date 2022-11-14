@@ -62,7 +62,7 @@
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><img src="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . '/duAn1_nhom2/controller/room/' . $item['image_room'] ?>" width="100px" height="100px"></td>
+                            <td><img src="<?=$item['image_room']?>" width="100px" height="100px"></td>
                             <td><?php echo $item['describe_room'] ?></td>
                             <td><?php echo $item['price_room'] ?></td>
                             <td><?php echo $item['kind_of_room_id'] ?></td>

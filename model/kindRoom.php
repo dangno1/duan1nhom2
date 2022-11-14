@@ -35,4 +35,12 @@ class KindRoom
 
         return $result;
     }
+
+    public function show_kindRoom()
+    {
+        $sql = "SELECT * FROM `kindRoom`";
+        $result = $GLOBALS['connect']->query($sql);
+        $list = $result->fetchAll();
+        return $list;
+    }
 }
