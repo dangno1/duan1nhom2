@@ -36,27 +36,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>dangnhap</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://kit.fontawesome.com/e123c1a84c.js"crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="cat">
-    <h2>Đăng Nhập Tài Khoản</h2>
-    <div>
-        <form action=""method="POST">
-            <div class="row">
-                Tên đăng nhập <br>
-                <input type="text" name="user">
+    <div class="wrapper">
+        <form action="" class="form-login">
+            <h1 class="form-heading">Đăng Nhập</h1>
+            <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" class="form-input" placeholder="Tên đăng nhập" required>
             </div>
-            <div class="row">
-                Mật khẩu <br>
-                <input type="password" name="pass">
+            <div class="form-group">
+                <i class="fas fa-key"></i>
+                <input type="password" class="form-input" placeholder="Mật Khẩu" required>
+               
             </div>
-            <div class="row">
-            <input type="submit" name="btn_submit" id="" value = "DangNhap">
-            </div>
-        </form> 
-    </div> 
-</div>
+            <input type="submit" value="Đăng Nhập" class="form-submit">
+        </form>
+    </div>
 </body>
 </html>
