@@ -1,49 +1,36 @@
 <?php
-require('../../model/room.php');
-
-$sql = "SELECT * FROM `kindRoom`";
-$show = $connect->query($sql);
-$show->execute();
-$list = $show->fetchAll();
-if (isset($_POST['btn_submit'])) {
-
+    require('../../model/room.php');
+    require('../../model/kindRoom.php');
     $id = (int)$_GET['id'];
-    //gọi ảnh
-    $upaload_dir = 'uploads/';
-    $upload_path = $upaload_dir . $_FILES['anh']['name'];
-    // $extension_file = pathinfo($_FILES['anh']['name'], PATHINFO_EXTENSION); duoi anh
-    move_uploaded_file($_FILES['anh']['tmp_name'], $upload_path);
-
-    $anh = $upload_path;
-
-    $ten = $_POST['title'];
-    $moTa = $_POST['moTa'];
-    $gia = $_POST['gia'];
-    $idKindRoom = $_POST['idKindRoom'];
-    $trangThai = $_POST['trangThai'];
-
-    if ($ten == "") {
-        $err = "phải nhập hết các cột";
-    } else {
+    $room = new Room();
+    $kindRoom = new KindRoom();
+    $list_room = $room->show_room_whereID($id);
+    $id_kindroom = $list_room['kind_of_room_id'];
+    $list_kindroom = $kindRoom->show_kindRoom();
+    $list_kindroom_id = $room->show_kindRoom_whereID($id_kindroom);
+    if(isset($_POST['btn_submit'])) {
+        $ten = $_POST['title'];
+        $moTa = $_POST['moTa'];
+        $gia = $_POST['gia'];
+        $idKindRoom = $_POST['idKindRoom'];
+        $trangThai = $_POST['trangThai'];
         $roomId = [
             'room_id' => $id,
         ];
         $data = [
             'kind_of_room' => $ten,
-            'image_room' => $anh,
             'describe_room' => $moTa,
             'price_room' => $gia,
             'kind_of_room_id' => $idKindRoom,
             'status' => $trangThai,
         ];
 
-        $room = new Room();
         $room->update($roomId, $data);
-        if ($connect) {
+        if(isset($connect)) {
             header('location:room.php');
         }
+
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,35 +72,40 @@ if (isset($_POST['btn_submit'])) {
             <form action="" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="">Name Room</label>
-                    <input type="text" name="title" id=""  >
+                    <input type="text" name="title" id="" required value="<?=$list_room['kind_of_room']?>">
                 </div>
                 <div>
-                    <label for="">Img Room</label>
-                    <input type="file" name="anh" id="">
+                    <label for="">Img Room</label><br>
+                    <img src="<?=$list_room['image_room']?>" width="30%" alt=""><br>
                 </div>
                 <div>
                     <label for="">Describe Room</label>
-                    <input type="text" name="moTa" id=""  >
+                    <input type="text" name="moTa" id="" required value="<?=$list_room['describe_room']?>">
                 </div>
                 <div>
                     <label for="">Price_Room</label>
-                    <input type="text" name="gia" id=""  >
+                    <input type="text" name="gia" id="" required value="<?=$list_room['price_room']?>">
                 </div>
                 <div>
-                    <label for="">Kind Of Room ID</label> <br>
-                    <select name="idKindRoom" id="">
+                    <label for="">Kind Of Room ID</label>
+                    <select name="idKindRoom" id="" required>
+                        <option selected value="<?=$list_kindroom_id['kind_of_room_id']?>"><?=$list_kindroom_id['kind_of_room']?></option>
                         <?php
-                        foreach ($list as $value) {
-                        ?>
-                            <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?></option>
-                        <?php
+                        foreach ($list_kindroom as $value) {
+                            ?>
+                                <option value="<?=$value['kind_of_room_id'] ?>"><?=$value['kind_of_room'] ?></option>
+                            <?php
                         }
                         ?>
                     </select>
                 </div>
                 <div>
                     <label for="">Status_Room</label>
-                    <input type="text" name="trangThai" id="" >
+                    <select name="trangThai">
+                        <option selected value="<?=$list_room['status']?>"><?=$list_room['status']?></option>
+                        <option value="Còn trống">Còn trống</option>
+                        <option value="Đã được đặt">Đã được đặt</option>
+                    </select>
                 </div>
                 <?php
                     if (isset($_POST['btn_submit'])) {

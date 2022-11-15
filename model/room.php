@@ -32,13 +32,12 @@ class Room
         $id = $roomId['room_id'];
 
         $ten = $data['kind_of_room'];
-        $anh = $data['image_room'];
         $moTa = $data['describe_room'];
         $gia = $data['price_room'];
         $idKindRoom = $data['kind_of_room_id'];
         $trangThai = $data['status'];
 
-        $sql = "UPDATE `room` SET `kind_of_room` = '{$ten}', `image_room` = '{$anh}',
+        $sql = "UPDATE `room` SET `kind_of_room` = '{$ten}',
         `describe_room` = '{$moTa}', `price_room` = '{$gia}', `kind_of_room_id` = '{$idKindRoom}', `status` = '{$trangThai}' 
         WHERE `room`.`room_id` = {$id}";
 
@@ -54,5 +53,20 @@ class Room
         $result = $GLOBALS['connect']->query($sql);
 
         return $result;
+    }
+    public function show_kindRoom_whereID($id)
+    {
+        $sql = "SELECT * FROM `kindRoom` where kind_of_room_id = '$id'";
+        $result = $GLOBALS['connect']->query($sql);
+        $list_kindromm_id = $result->fetch();
+        return $list_kindromm_id;
+    }
+
+    public function show_room_whereID($id)
+    {
+        $sql = "SELECT * FROM room where room_id='$id'";
+        $result = $GLOBALS['connect']->query($sql);
+        $list_room = $result->fetch();
+        return $list_room;
     }
 }

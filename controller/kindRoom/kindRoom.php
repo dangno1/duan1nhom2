@@ -30,7 +30,7 @@ $list = $show->fetchAll();
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../user/user.php"><h2>User</h2></a><br>
                 <h2>Roombooked</h2>
-                <h2>Comment</h2>
+                <a href="../comment/cmt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
             </div>
             <div class="logout">

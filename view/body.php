@@ -1,89 +1,50 @@
+<?php 
+    require('model/connect.php');
+    $sql = "SELECT * FROM `kindRoom`";
+    $show = $connect->query($sql);
+    $show->execute();
+    $list = $show->fetchAll();
+
+    $sql1 = "SELECT * FROM `room`";
+    $show1 = $connect->query($sql1);
+    $show1->execute();
+    $list_room = $show1->fetchAll();
+?>
 <main>
     <div class="category">
         <h2>Kind of room</h2>
-        <div class="cate-room">
-            <div class="name-room">
-                <div><input type="checkbox"></div>
-                <div><p>Phong Don</p></div>
+        <?php 
+            foreach ($list as $item){
+        ?>
+            <div class="cate-room">
+                <div class="name-room">
+                    <div><input type="checkbox"></div>
+                    <div><p> <?php echo $item['kind_of_room']?></p></div>
+                </div>
             </div>
-        </div>
-        <div class="cate-room">
-            <div class="name-room">
-                <div><input type="checkbox"></div>
-                <div><p>Phong Doi</p></div>
-            </div>
-        </div>
-        <div class="cate-room">
-            <div class="name-room">
-                <div><input type="checkbox"></div>
-                <div><p>Phong Gia Dinh</p></div>
-            </div>
-        </div>
-        <div class="cate-room">
-            <div class="name-room">
-                <div><input type="checkbox"></div>
-                <div><p>Phong Don Vip</p></div>
-            </div>
-        </div>
-        <div class="cate-room">
-            <div class="name-room">
-                <div><input type="checkbox"></div>
-                <div><p>Phong Doi Vip</p></div>
-            </div>
-        </div>
+        <?php
+            }
+        ?>
     </div>
     <div class="room">
         <h2>our room</h2>
         <div class="content">
+        <?php
+            foreach ($list_room as $item) {
+        ?>
             <div class="content_item">
-                
-                <div class="content_item_img">
-                    <img src="./view/img/room1.jpg" alt="">
-                </div>
-                <p class="loaiphong">SINGLE ROOM</p>
-                <span class="price">$255.00/Đêm</span>
+                <a href="./chitiet.php?room_id=<?php echo $item['room_id'] ?>">
+                    <div class="content_item_img">
+                        <img src="<?='controller/room/' . $item['image_room'] ?>">
+                    </div>
+                </a>
+                <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
+                <span class="price"><?php echo $item['price_room'] ?></span>
                 <a><button>ĐẶT PHÒNG</button></a>
             </div>
-            <div class="content_item">
-                <div class="content_item_img">
-                    <img src="./view/img/room2.jpg" alt="">
-                </div>
-                <p class="loaiphong">FAMILY ROOM</p>
-                <span class="price">$255.00/Đêm</span>
-                    <a><button>ĐẶT PHÒNG</button></a>
-            </div>
-            <div class="content_item">
-                <div class="content_item_img">
-                    <img src="./view/img/room3.jpg" alt="">
-                </div>
-                <p class="loaiphong">STANDARD ROOM</p>
-                <span class="price">$255.00/Đêm</span>
-                <a><button>ĐẶT PHÒNG</button></a>
-            </div>
-            <div class="content_item">
-                <div class="content_item_img">
-                    <img src="./view/img/room1.jpg" alt="">
-                </div>
-                <p class="loaiphong">SINGLE ROOM</p>
-                <span class="price">$255.00/Đêm</span>
-                <a><button>ĐẶT PHÒNG</button></a>
-            </div>
-            <div class="content_item">
-                <div class="content_item_img">
-                    <img src="./view/img/room2.jpg" alt="">
-                </div>
-                <p class="loaiphong">FAMILY ROOM</p>
-                <span class="price">$255.00/Đêm</span>
-                <a><button>ĐẶT PHÒNG</button></a>
-            </div>
-            <div class="content_item">
-                <div class="content_item_img">
-                    <img src="./view/img/room3.jpg" alt="">
-                </div>
-                <p class="loaiphong">STANDARD ROOM</p>
-                <span class="price">$255.00/Đêm</span>
-                <a><button>ĐẶT PHÒNG</button></a>
-            </div>
+        <?php
+            }
+        ?>
         </div>
     </div>
 </main>

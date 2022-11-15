@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 @font-face {
     font-family: roboto;
     src: url(font/Roboto/Roboto-Regular.ttf);
@@ -12,16 +13,21 @@
 body {
     font-family: roboto;
 }
-.logo{
+
+.logo {
     display: none;
 }
-ul{
+
+ul {
     display: none;
 }
-.sign-in__sign-out{
+
+.sign-in__sign-out {
     display: none;
 }
-.sign-in ,.sign-up{
+
+.sign-in,
+.sign-up {
     width: 80px;
     margin-left: 20px;
     height: 30px;
@@ -33,6 +39,7 @@ ul{
     color: #F54748;
     text-transform: capitalize;
 }
+
 .banner_item h2 {
     font-weight: 1000;
     font-size: 20px;
@@ -61,6 +68,7 @@ ul{
     letter-spacing: 1px;
     margin: 10px 0;
 }
+
 .banner_item input {
     border: 1px solid#3252DF;
     border-radius: 4px 0 0 4px;
@@ -75,6 +83,7 @@ ul{
     border: none;
     color: rgb(255, 255, 255);
 }
+
 .banner_item .banner_search button:hover {
     background-color: rgb(255, 97, 97);
     border: 0;
@@ -82,25 +91,28 @@ ul{
 }
 
 .banner_item img {
-   max-width: 100%;
+    max-width: 100%;
     border-radius: 100px 15px 15px 15px;
 }
 
-.category{
+.category {
     width: 100%;
     margin: auto;
     height: 300px;
-    background-color: #878d99;
-    box-shadow: 0px 8px 15px rgba(130, 130, 131, 0.3);
-    border-radius: 4px;
-    border: none; 
+    background-color: white;
     margin-top: 200px;
 }
-.category h2{
-text-align: center;
+
+.category h2 {
+    font-size: 33px;
 }
-.name-room{
-margin-left: 20px;
+
+.name-room {
+    font-size: 20px;
+    margin-left: 10px;
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 20px 1fr;
 }
 
 .banner_item .banner_search button {
@@ -111,7 +123,8 @@ margin-left: 20px;
     border: none;
     color: rgb(255, 255, 255);
 }
-.content_item_img img{
+
+.content_item_img img {
     max-width: 100%;
 }
 
@@ -126,6 +139,7 @@ margin-left: 20px;
     background-color: rgb(244, 244, 244);
     border-radius: 10px;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .content_item:hover {
@@ -135,7 +149,7 @@ margin-left: 20px;
 
 .room .content {
     display: grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     gap: 20px;
 }
 
@@ -145,7 +159,7 @@ margin-left: 20px;
 }
 
 .content_item_img img {
-   max-width: 100%;
+    max-width: 100%;
     display: block;
     transition: all 0.4s;
 }
@@ -155,7 +169,6 @@ margin-left: 20px;
 }
 
 .content_item p {
-    margin: 25px 0;
     font-size: 20px
 }
 
@@ -169,63 +182,71 @@ footer {
     color: rgb(215, 215, 219);
     text-align: center;
 }
-  .topnav {
+
+.topnav {
     overflow: hidden;
     background-color: #333;
     position: relative;
-  }
+}
 
-  .topnav #myLinks {
+.topnav #myLinks {
     display: none;
-  }
-  
-  .topnav a {
+}
+
+.topnav a {
     color: white;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
     display: block;
-  }
-  
-  .topnav a.icon {
+}
+
+.topnav a.icon {
     background: black;
     display: block;
     position: absolute;
     right: 0;
     top: 0;
-  }
-  
-  .topnav a:hover {
+}
+
+.topnav a:hover {
     background-color: #ddd;
     color: black;
-  }
-  
-  .active {
+}
+
+.active {
     background-color: #707573;
     color: white;
-  }
-@media(min-width:768px){
-    .logo{
+}
+
+@media(min-width:768px) {
+    .logo {
         display: none;
     }
-    ul{
+
+    ul {
         display: none;
     }
-    .sign-in__sign-out{
+
+    .sign-in__sign-out {
         display: none;
     }
+
     .banner {
-       display: flex;
-       justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
     }
-    .banner{
-        width: 100%;
-        margin: auto;
-      }
-      header{
+
+    .banner {
         width: 100%;
         margin: auto;
     }
+
+    header {
+        width: 100%;
+        margin: auto;
+    }
+
     .banner_item h2 {
         font-weight: 1000;
         font-size: 35px;
@@ -233,15 +254,15 @@ footer {
         text-transform: capitalize;
         line-height: 100px;
     }
-    
+
     .banner_item p {
         font-size: 15px;
         color: #B0B0B0;
         font-weight: 200;
         margin: 15px 0 25px 0;
-    
+
     }
-    
+
     .banner_item>button {
         width: 180px;
         height: 30px;
@@ -254,7 +275,7 @@ footer {
         letter-spacing: 1px;
         margin: 30px 0;
     }
-    
+
     .banner_item input {
         border: 1px solid#3252DF;
         border-radius: 4px 0 0 4px;
@@ -262,33 +283,31 @@ footer {
         padding-left: 8px;
         font-size: 15px;
     }
-    
+
     .banner_item .banner_search {
         display: grid;
         grid-template-columns: 200px 70px;
         height: 30px;
     }
-    .category{
+
+    .category {
         width: 100%;
         margin: auto;
         height: 300px;
-        background-color: #878d99;
-        box-shadow: 0px 8px 15px rgba(130, 130, 131, 0.3);
-        border-radius: 4px;
-        border: none; 
+        background-color: white;
         margin-top: 200px;
     }
-.category h2{
-    text-align: center;
-}
-.name-room{
-    margin-left: 20px;
-}
-    main{
+
+    .name-room {
+        margin-left: 10px;
+    }
+
+    main {
         display: grid;
         grid-template-columns: 20% 80%;
         grid-gap: 30px;
     }
+
     .banner_item .banner_search button {
         width: 70px;
         height: 30px;
@@ -297,25 +316,27 @@ footer {
         border: none;
         color: rgb(255, 255, 255);
     }
-    .content_item_img img{
+
+    .content_item_img img {
         max-width: 100%;
     }
+
     .banner_item .banner_search button:hover {
         background-color: rgb(255, 97, 97);
         border: 0;
         color: rgb(255, 255, 255);
     }
-    
+
     .banner_item img {
-       max-width: 100%;
+        max-width: 100%;
         border-radius: 100px 15px 15px 15px;
     }
-    
+
     .room {
         width: 100%;
         margin: auto;
     }
-    
+
     .room h2 {
         width: 200px;
         font-size: 30px;
@@ -325,46 +346,46 @@ footer {
         text-transform: capitalize;
         border-bottom: 3px solid #000;
     }
-    
+
     .content_item {
         background-color: rgb(244, 244, 244);
         height: 250px;
         border-radius: 10px;
         text-align: center;
+        margin-bottom: 50px;
     }
-    
+
     .content_item:hover {
         box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.392);
         transition: all 0.4s;
     }
-    
+
     .room .content {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 20px;
     }
-    
+
     .content_item_img {
         overflow: hidden;
         border-radius: 10px 10px 0 0;
     }
-    
+
     .content_item_img img {
-       max-width: 100%;
+        max-width: 100%;
         display: block;
         transition: all 0.4s;
     }
-    
+
     .content_item:hover .content_item_img img {
         transform: scale(1.1);
     }
-    
+
     .content_item p {
-        margin: 25px 0;
         font-size: 20px
     }
-    
-    
+
+
     footer {
         width: 100%;
         margin: auto;
@@ -376,21 +397,22 @@ footer {
         color: rgb(215, 215, 219);
         text-align: center;
     }
-    
-   
+
+
 }
 
-@media (min-width:1280px){
- 
-    
+@media (min-width:1280px) {
+
+
     @font-face {
         font-family: roboto;
         src: url(font/Roboto/Roboto-Regular.ttf);
     }
-    
+
     body {
         font-family: roboto;
     }
+
     .logo {
         display: inline-block;
     }
@@ -398,17 +420,20 @@ footer {
     ul {
         display: inline-block;
     }
-    .menu_mobile{
+
+    .menu_mobile {
         display: none;
     }
-    .sign-in__sign-out{
+
+    .sign-in__sign-out {
         display: block;
     }
+
     .container {
         width: 1440px;
         margin: 0 auto;
     }
-    
+
     header {
         display: flex;
         justify-content: space-between;
@@ -419,38 +444,38 @@ footer {
         margin-bottom: 69px;
         border-bottom: 1px solid #E5E5E5;
     }
-    
+
     .logo img {
         width: 148px;
     }
-    
+
     nav ul li {
         display: inline-block;
     }
-    
+
     nav ul li:not(:first-child) {
         margin-left: 40px;
     }
-    
+
     nav ul li:hover {
         border-bottom: 2px solid #3252DF;
-    
+
     }
-    
+
     nav ul li a {
         text-decoration: 0;
         color: #152C5B;
         font-size: 20px;
         font-weight: 900;
         text-transform: uppercase;
-    
+
     }
-    
+
     nav ul li a:hover {
         color: #3252DF;
         text-shadow: 0 0 2px #002fff;
     }
-    
+
     .sign-in__sign-out button {
         width: 100px;
         margin-left: 20px;
@@ -463,37 +488,31 @@ footer {
         color: #F54748;
         text-transform: capitalize;
     }
-    
+
     .sign-in__sign-out button:hover {
         background-color: #F54748;
         border: 0;
         color: #fff;
     }
-    .category{
+
+    .category {
         width: 100%;
         margin: auto;
         height: 300px;
-        background-color: #878d99;
-        box-shadow: 0px 8px 15px rgba(130, 130, 131, 0.3);
-        border-radius: 4px;
-        border: none; 
+        background-color: white;
+        border: none;
         margin-top: 200px;
     }
-.category h2{
-    text-align: center;
-}
-.name-room{
-    margin-left: 20px;
-}
-    /* main{
-        display: grid;
-        grid-template-columns: 180px 1330px;
-    } */
+
+    .name-room {
+        margin-left: 10px;
+    }
+
     .banner {
         display: grid;
         grid-template-columns: 1fr 1.5fr;
     }
-    
+
     .banner_item h2 {
         width: 400px;
         font-weight: 1000;
@@ -502,16 +521,16 @@ footer {
         text-transform: capitalize;
         line-height: 100px;
     }
-    
+
     .banner_item p {
         font-size: 18px;
         color: #B0B0B0;
         width: 400px;
         font-weight: 200;
         margin: 20px 0 30px 0;
-    
+
     }
-    
+
     .banner_item>button {
         width: 210px;
         height: 50px;
@@ -524,7 +543,7 @@ footer {
         letter-spacing: 1px;
         margin: 30px 0;
     }
-    
+
     .banner_item input {
         width: 350px;
         height: 50px;
@@ -534,13 +553,13 @@ footer {
         padding-left: 20px;
         font-size: 18px;
     }
-    
+
     .banner_item .banner_search {
         display: grid;
         grid-template-columns: 350px 100px;
         height: 50px;
     }
-    
+
     .banner_item .banner_search button {
         width: 100px;
         height: 50px;
@@ -549,23 +568,23 @@ footer {
         border: none;
         color: rgb(255, 255, 255);
     }
-    
+
     .banner_item .banner_search button:hover {
         background-color: rgb(255, 97, 97);
         border: 0;
         color: rgb(255, 255, 255);
     }
-    
+
     .banner_item img {
         width: 100%;
         border-radius: 100px 15px 15px 15px;
     }
-    
+
     .room {
         width: 1100px;
         margin: 0 auto;
     }
-    
+
     .room h2 {
         width: 230px;
         font-size: 50px;
@@ -575,49 +594,45 @@ footer {
         text-transform: capitalize;
         border-bottom: 3px solid #000;
     }
-    
+
     .content_item {
         background-color: rgb(244, 244, 244);
         height: 350px;
         border-radius: 10px;
         text-align: center;
+        margin-bottom: 50px;
     }
-    
+
     .content_item:hover {
         box-shadow: 0 0 10px 5px rgba(128, 128, 128, 0.392);
         transition: all 0.4s;
     }
-    
+
     .room .content {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 40px;
     }
-    
+
     .content_item_img {
         overflow: hidden;
         border-radius: 10px 10px 0 0;
     }
-    
+
     .content_item_img img {
         width: 100%;
         display: block;
         transition: all 0.4s;
     }
-    
+
     .content_item:hover .content_item_img img {
         transform: scale(1.1);
     }
-    
+
     .content_item p {
-        margin: 25px 0;
         font-size: 20px
     }
-    
-    
-    
-    
-    
+
     footer {
         padding: 50px;
         padding-top: 48px;
@@ -627,12 +642,10 @@ footer {
         color: rgb(215, 215, 219);
         text-align: center;
     }
-    
+
     .footer {
         max-width: 1506px;
         margin: 0 auto;
     }
-    
-    
-    
+
 }

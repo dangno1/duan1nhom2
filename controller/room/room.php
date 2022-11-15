@@ -28,7 +28,7 @@
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
-                <h2>Comment</h2>
+                <a href="../comment/cmt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
             </div>
             <div class="logout">
@@ -62,7 +62,7 @@
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><img src="<?php echo '/duAn1nhom2/controller/room/' . $item['image_room'] ?>" width="100px" height="100px"></td>
+                            <td><img src="<?php echo $item['image_room'] ?>" width="100px" height="100px"></td>
                             <td><?php echo $item['describe_room'] ?></td>
                             <td><?php echo $item['price_room'] ?></td>
                             <td><?php echo $item['kind_of_room_id'] ?></td>
