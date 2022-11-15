@@ -23,7 +23,11 @@
             </div>
             <hr>
             <div class="category-1">
+<<<<<<< Updated upstream
                 <a href="../kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
+=======
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
+>>>>>>> Stashed changes
                 <a href="../room/room.php"><h2>Room</h2></a>
                 <a href="./img.php"><h2>Image Room</h2></a>
                 <h2>User</h2>
