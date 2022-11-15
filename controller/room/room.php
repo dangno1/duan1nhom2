@@ -24,7 +24,7 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a> <br>
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a> <br>
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
@@ -62,7 +62,7 @@
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><img src="<?php echo 'http://' . $_SERVER['SERVER_NAME'] . '/duAn1_nhom2/controller/room/' . $item['image_room'] ?>" width="100px" height="100px"></td>
+                            <td><img src="<?php echo '/duAn1nhom2/controller/room/' . $item['image_room'] ?>" width="100px" height="100px"></td>
                             <td><?php echo $item['describe_room'] ?></td>
                             <td><?php echo $item['price_room'] ?></td>
                             <td><?php echo $item['kind_of_room_id'] ?></td>

@@ -23,7 +23,7 @@ if (isset($_POST['btn_submit'])) {
     $trangThai = $_POST['trangThai'];
 
     if ($ten == "") {
-        echo "phai nhap het cac cot";
+        $err = "phải nhập hết các cột";
     } else {
         $roomId = [
             'room_id' => $id,
@@ -66,7 +66,7 @@ if (isset($_POST['btn_submit'])) {
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a>
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
@@ -115,6 +115,12 @@ if (isset($_POST['btn_submit'])) {
                     <label for="">Status_Room</label>
                     <input type="text" name="trangThai" id="" >
                 </div>
+                <?php
+                    if (isset($_POST['btn_submit'])) {
+                        echo $err;
+                    }
+
+                    ?>
                 <div class="submit">
                     <input class="nut" type="submit" name="btn_submit" id="" value="Update">
                 </div>

@@ -7,7 +7,7 @@
         $name = $_POST['title'];
 
         if($name == "") {
-            echo "phai nhap het cac cot";
+            $err = "phải nhập hết các cột";
         }
         $id_kindRoom = [
             'kind_of_room_id' => $id,
@@ -43,7 +43,7 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="./kindRoom.php"><h2 class="kind">Kind Of Romm</h2></a>
+                <a href="./kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
@@ -61,6 +61,12 @@
                 <div>
                     <label class="tin" for="">Kind Of Room</label> <br>
                     <input class="the" type="text" name="title">
+                    <?php
+                    if (isset($_POST['btn_submit'])) {
+                        echo $err;
+                    }
+
+                    ?>
                 </div>
                 <div>
                     <input class="nut" name= "btn_submit" type="submit" value="Updata">
