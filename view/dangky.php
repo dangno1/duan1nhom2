@@ -36,24 +36,24 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="" class="form-login">
+        <form action="" method="POST" class="form-login">
             <h1 class="form-heading">Đăng Ký Tài Khoản</h1>
             <div class="form-group">
          
-                <input type="text" class="form-input" placeholder="Tên đăng nhập">
+                <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập">
             </div>
             <div class="form-group">
                 
-                <input type="email" class="form-input" placeholder="Email">
+                <input type="email" class="form-input" name="email" placeholder="Email">
             </div>
             <div class="form-group">
                
-                <input type="text" class="form-input" placeholder="Số điện thoại">
+                <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại">
             </div>
             <div class="form-group">
-                <input type="password" class="form-input" placeholder="Mật Khẩu">
+                <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu">
             </div>
-            <input type="submit" value="Đăng kí" class="form-submit">
+            <input type="submit" value="Đăng kí" name="btn_submit" class="form-submit">
             <input type="reset" value="Nhập lại" class="form-submit">
         </form>
     </div>

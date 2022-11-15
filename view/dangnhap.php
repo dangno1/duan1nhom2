@@ -42,18 +42,18 @@
 </head>
 <body>
     <div class="wrapper">
-        <form action="" class="form-login">
+        <form action="" method="POST" class="form-login">
             <h1 class="form-heading">Đăng Nhập</h1>
             <div class="form-group">
                 <i class="fas fa-user"></i>
-                <input type="text" class="form-input" placeholder="Tên đăng nhập" required>
+                <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập" required>
             </div>
             <div class="form-group">
                 <i class="fas fa-key"></i>
-                <input type="password" class="form-input" placeholder="Mật Khẩu" required>
+                <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu" required>
                
             </div>
-            <input type="submit" value="Đăng Nhập" class="form-submit">
+            <input type="submit" value="Đăng Nhập" name="btn_submit" class="form-submit">
         </form>
     </div>
 </body>
