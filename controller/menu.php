@@ -7,6 +7,7 @@
             <div class="category-1">
                 <a href="./kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
                 <a href="./room/room.php"><h2>Room</h2></a>
+                <a href="./imgRoom/img.php"><h2>Image Room</h2></a>
                 <h2>User</h2>
                 <h2>Roombooked</h2>
                 <a href="./comment/cmt.php"><h2>Comment</h2></a>

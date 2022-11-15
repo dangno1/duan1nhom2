@@ -1,5 +1,6 @@
 <?php
     require('../../model/room.php');
+    // require('../../model/imageRoom.php');
 
     $sql = "SELECT * FROM `kindRoom`";
     $show = $connect->query($sql);
@@ -11,12 +12,14 @@
         //gọi ảnh
         $upaload_dir= './uploads/';
         $upload_path= $upaload_dir . $_FILES['anh']['name'];
-        // $extension_file = pathinfo($_FILES['anh']['name'], PATHINFO_EXTENSION); duoi anh
         move_uploaded_file($_FILES['anh']['tmp_name'], $upload_path);
-
-        // die('123');
-
         $anh = $upload_path;
+        // 
+
+        // nhieu anh
+        // $upload_path_images= $upaload_dir . $_FILES['images']['name'];
+        // move_uploaded_file($_FILES['images']['tmp_name'], $upload_path_images);
+        // $imgs = $upload_path_images;
 
         $ten = $_POST['title'];
         $moTa = $_POST['moTa'];
@@ -36,9 +39,17 @@
                 'kind_of_room_id' => $idKindRoom,
                 'status' => $trangThai,
             ];
+
+            // Img Room
+            // $data1 = [
+            //     'image_room' => $imgs,
+            // ];
            
-            $room = new Room();
-            $room->add($data);
+            // $room = new Room();
+            // $room->add($data);
+
+            $imageRoom = new imageRoom();
+            $imageRoom-> add($data1);
             if($connect) {
                 header('location:room.php');
             }
@@ -83,9 +94,15 @@
                     <input type="text" name="title" id="">
                 </div>
                 <div>
-                    <label for="">Img Room</label>
+                    <label for="">Thumbnail</label>
                     <input type="file" name="anh" id="">
                 </div>
+                <!-- nhieu anh  -->
+                <!-- <div>
+                    <label for="">Img Room</label>
+                    <input type="file" name="images" id="">
+                </div> -->
+                <!--  -->
                 <div>
                     <label for="">Describe Room</label>
                     <input type="text" name="moTa" id="">

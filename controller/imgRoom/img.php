@@ -1,6 +1,6 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `room`";
+    $sql = "SELECT * FROM `roomImage`";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -11,10 +11,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room</title>
-    <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
+    <title>Room Img</title>
     <link rel="stylesheet" href="../quanTri.css">
-    <link rel="stylesheet" href="./room.css">
+    <link rel="stylesheet" href="img.css">
 </head>
 <body>
     <div class="admin">
@@ -24,8 +23,9 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
-                <a href="./room.php"><h2>Room</h2></a>
+                <a href="../kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
+                <a href="../room/room.php"><h2>Room</h2></a>
+                <a href="./img.php"><h2>Image Room</h2></a>
                 <h2>User</h2>
                 <h2>Roombooked</h2>
                 <a href="../comment/cmt.php"><h2>Comment</h2></a>
@@ -36,22 +36,18 @@
             </div>
         </div>
         <div class="content">
-            <h1>Our Room</h1>
+            <h1>Room Image</h1>
             <hr>
-            <div class="hangHoa1">
+            <div class="hangHoa">
                 <button class="add">
                     <a href="add.php">Add</a>
                 </button>
                 <table>
                     <thead>
                         <tr>
-                            <th>ID Room</th>
-                            <th>Name Room</th>
-                            <th>Thumbnail</th>
-                            <th>Describe Room</th>
-                            <th>Price Room</th>
-                            <th>Kind Of Room ID</th>
-                            <th>Status Room</th>
+                            <th>Room Image ID</th>
+                            <th>Room ID</th>
+                            <th>Room Image</th>
                             <th>Delete and Update</th>
                         </tr>
                     </thead>
@@ -60,16 +56,12 @@
                             foreach ($list as $item) {
                         ?>
                         <tr>
+                            <td><?php echo $item['room_image_id'] ?></td>
                             <td><?php echo $item['room_id'] ?></td>
-                            <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><img src="<?php echo $item['image_room'] ?>" width="100px" height="100px"></td>
-                            <td><?php echo $item['describe_room'] ?></td>
-                            <td><?php echo $item['price_room'] ?></td>
-                            <td><?php echo $item['kind_of_room_id'] ?></td>
-                            <td><?php echo $item['status'] ?></td>
+                            <td><img src="<?php echo $item['image_room'] ?>" alt=""width="100px" height="100px"></td>
                             <td>
-                                <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_id'] ?>">Delete</a>
-                                <a href="update.php?id=<?php echo $item['room_id'] ?>">Update</a>
+                                <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_image_id'] ?>">Delete</a>
+                                <a href="update.php?id=<?php echo $item['room_image_id'] ?>">Update</a>
                             </td>
                         </tr>
                         <?php
