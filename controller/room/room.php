@@ -24,9 +24,9 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
-                <a href="./room.php"><h2>Room</h2></a>
-                <h2>User</h2>
+                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a> <br>
+                <a href="../room/room.php"><h2>Room</h2></a> <br>
+                <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
                 <a href="../comment/cmt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
@@ -36,11 +36,11 @@
             </div>
         </div>
         <div class="content">
-            <h1>Our Room</h1>
+            <h1>Room</h1>
             <hr>
             <div class="hangHoa1">
-                <button class="add">
-                    <a href="add.php">Add</a>
+                <button class="nut-add">
+                    <a href="add.php">ADD Room</a>
                 </button>
                 <table>
                     <thead>
