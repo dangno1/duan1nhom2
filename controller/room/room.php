@@ -47,7 +47,7 @@
                         <tr>
                             <th>ID Room</th>
                             <th>Name Room</th>
-                            <th>Img Room</th>
+                            <th>Thumbnail</th>
                             <th>Describe Room</th>
                             <th>Price Room</th>
                             <th>Kind Of Room ID</th>

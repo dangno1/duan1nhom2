@@ -10,6 +10,12 @@
         $result->execute();
         $room = $result->fetch();
 
+        // anh room
+        $sql_img = "SELECT * FROM `roomImage` WHERE `room_id` = $id_room";
+        $result = $connect->query($sql_img);
+        $result->execute();
+        $room_img = $result->fetchAll();
+
         //get comment
         $commentSql = "SELECT comment.content_comment, user.name_user FROM comment INNER JOIN user ON comment.user_id = user.user_id WHERE comment.room_id = $id_room";
         $result = $connect->query($commentSql);
@@ -44,10 +50,15 @@
                 <div class="banner-left">
                     <img src="./controller/room/<?php echo $room['image_room'] ?>" alt="">
                 </div>
-                <div class="banner-right">
-                    <img src="./view/img/deitail/banner2.png" alt="">
-                    <img src="./view/img/deitail/banner3.png" alt="">
-                </div>
+                    <div class="banner-right">
+                    <?php 
+                        foreach ($room_img as $item) {
+                    ?>
+                        <img src="./controller/room/<?php echo $item['image_room'] ?>" alt="" width="100%" height="335px">
+                    <?php 
+                        }
+                    ?>
+                    </div>
             </div>
         </div>
     <main>

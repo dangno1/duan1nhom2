@@ -75,7 +75,8 @@ ul {
 }
 
 .banner img {
-    max-width: 100%;
+    border-radius: 22px;
+    margin: 5px;
 }
 
 .price h4 {
@@ -312,7 +313,7 @@ footer {
     }
 
     .banner img {
-        max-width: 100%;
+        border-radius: 22px;
     }
 
     .produc {
@@ -609,6 +610,7 @@ footer {
         margin-left: 20px;
         display: flex;
         justify-content: space-between;
+        margin-top: 50px;
     }
 
     .room-desc {
