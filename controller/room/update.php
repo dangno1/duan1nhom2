@@ -1,6 +1,8 @@
 <?php
     require('../../model/room.php');
     require('../../model/kindRoom.php');
+    require('../../library/Image.php');
+
     $id = (int)$_GET['id'];
     $room = new Room();
     $kindRoom = new KindRoom();
@@ -9,16 +11,24 @@
     $list_kindroom = $kindRoom->show_kindRoom();
     $list_kindroom_id = $room->show_kindRoom_whereID($id_kindroom);
     if(isset($_POST['btn_submit'])) {
+
         $ten = $_POST['title'];
         $moTa = $_POST['moTa'];
         $gia = $_POST['gia'];
+
         $idKindRoom = $_POST['idKindRoom'];
         $trangThai = $_POST['trangThai'];
+
+        // upload thumnail
+        $uploadThumnail = new Image();
+        $uploadPathThumnail = $uploadThumnail->upload($_FILES['thumbnail']['tmp_name'], $_FILES['thumbnail']['name']);
+
         $roomId = [
             'room_id' => $id,
         ];
         $data = [
             'kind_of_room' => $ten,
+            'image_room' => $uploadPathThumnail,
             'describe_room' => $moTa,
             'price_room' => $gia,
             'kind_of_room_id' => $idKindRoom,
@@ -71,8 +81,15 @@
                     <input type="text" name="title" id="" required value="<?=$list_room['kind_of_room']?>">
                 </div>
                 <div>
-                    <label for="">Img Room</label><br>
-                    <img src="<?=$list_room['image_room']?>" width="30%" alt=""><br>
+                    <label for="">Thumbnail</label><br>
+                    <input type="file" name="thumbnail" id="" required value="<?=$list_room['image_room']?>">
+                    <img src="<?=$list_room['image_room']?>" width="100px" height="100px">
+                </div>
+                <div>
+                    <label for="">Image Room</label><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id="">
                 </div>
                 <div>
                     <label for="">Describe Room</label>

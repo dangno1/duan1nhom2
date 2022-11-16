@@ -1,6 +1,7 @@
 <?php
     require('../../model/room.php');
-    // require('../../model/imageRoom.php');
+    require('../../model/imageRoom.php');
+    require('../../library/Image.php');
 
     $sql = "SELECT * FROM `kindRoom`";
     $show = $connect->query($sql);
@@ -8,19 +9,6 @@
     $list = $show->fetchAll();
 
     if(isset($_POST['btn_submit'])) {
-
-        //gọi ảnh
-        $upaload_dir= './uploads/';
-        $upload_path= $upaload_dir . $_FILES['anh']['name'];
-        move_uploaded_file($_FILES['anh']['tmp_name'], $upload_path);
-        $anh = $upload_path;
-        // 
-
-        // nhieu anh
-        // $upload_path_images= $upaload_dir . $_FILES['images']['name'];
-        // move_uploaded_file($_FILES['images']['tmp_name'], $upload_path_images);
-        // $imgs = $upload_path_images;
-
         $ten = $_POST['title'];
         $moTa = $_POST['moTa'];
         $gia = $_POST['gia'];
@@ -30,26 +18,44 @@
         if($ten == "") {
             echo "phai nhap het cac cot";
         } else {
+            // upload thumnail
+            $uploadThumnail = new Image();
+            $uploadPathThumnail = $uploadThumnail->upload($_FILES['thumbnail']['tmp_name'], $_FILES['thumbnail']['name']);
 
-            $data = [
+            // upload Image
+            $imageNames = [];
+            foreach ($_FILES['images']['name'] as $key => $name) {
+                // $uploadPathImage= $upaloadDir . $name;
+                // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
+                if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
+                    $uploadImage = new Image();
+                    $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                    $imageNames[] = $uploadPathImage;
+                }
+            }
+
+            $roomData = [
                 'kind_of_room' => $ten,
-                'image_room' => $anh,
+                'image_room' => $uploadPathThumnail,
                 'describe_room' => $moTa,
                 'price_room' => $gia,
                 'kind_of_room_id' => $idKindRoom,
                 'status' => $trangThai,
             ];
 
-            // Img Room
-            // $data1 = [
-            //     'image_room' => $imgs,
-            // ];
-           
-            // $room = new Room();
-            // $room->add($data);
+            $room = new Room();
+            $roomId = $room->add($roomData);
 
-            $imageRoom = new imageRoom();
-            $imageRoom-> add($data1);
+            // Img Room
+            foreach($imageNames as $imagePath) {
+                $imageRoomData = [
+                    'room_id' => $roomId,
+                    'image_room' => $imagePath,
+                ];
+                $imageRoom = new imageRoom();
+                $imageRoom-> add($imageRoomData);
+            }
+            
             if($connect) {
                 header('location:room.php');
             }
@@ -95,13 +101,15 @@
                 </div>
                 <div>
                     <label for="">Thumbnail</label>
-                    <input type="file" name="anh" id="">
+                    <input type="file" name="thumbnail" id="">
                 </div>
                 <!-- nhieu anh  -->
-                <!-- <div>
-                    <label for="">Img Room</label>
-                    <input type="file" name="images" id="">
-                </div> -->
+                <div>
+                    <label for="">Image Room</label><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id="">
+                </div>
                 <!--  -->
                 <div>
                     <label for="">Describe Room</label>

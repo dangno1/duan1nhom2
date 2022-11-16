@@ -54,7 +54,7 @@
                     <?php 
                         foreach ($room_img as $item) {
                     ?>
-                        <img src="./controller/imgRoom/<?php echo $item['image_room'] ?>" alt="" width="100%" height="300px">
+                        <img src="./controller/room/<?php echo $item['image_room'] ?>" alt="" width="100%" height="335px">
                     <?php 
                         }
                     ?>
