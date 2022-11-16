@@ -30,36 +30,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>dangky</title>
+    <link rel="stylesheet" href="css/login.css">
+   
 </head>
 <body>
-<div class="cat">
-        <h2>Đăng ký thành viên</h2>
-        <div>
-            <form action=""method="POST">
-                <div class="row">
-                    Email <br>
-                    <input type="email" name="email"> 
-                </div>
-                <div class="row">
-                    Số điện thoại <br>
-                    <input type="phone" name="phone">
-                </div>
-                <div class="row">
-                    Tên đăng nhập <br>
-                    <input type="text" name="user">
-                </div>
-                <div class="row">
-                    Mật khẩu <br>
-                    <input type="password" name="pass">
-                </div>
-                <div class="row">
-                    <input type="submit" name="btn_submit" id="" value = "DangKy">
-                    <!-- <input type="reset" value="Nhập lại">  -->
-                </div>
-            </form> 
+    <div class="wrapper">
+        <form action="" method="POST" class="form-login">
+            <h1 class="form-heading">Đăng Ký Tài Khoản</h1>
+            <div class="form-group">
+         
+                <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập">
+            </div>
+            <div class="form-group">
+                
+                <input type="email" class="form-input" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+               
+                <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu">
+            </div>
+            <input type="submit" value="Đăng kí" name="btn_submit" class="form-submit">
+            <input type="reset" value="Nhập lại" class="form-submit">
+        </form>
     </div>
-</div> 
 </body>
 </html>

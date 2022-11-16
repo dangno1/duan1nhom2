@@ -7,7 +7,7 @@
         $name = $_POST['title'];
 
         if($name == "") {
-            echo "phai nhap het cac cot";
+            $err = "phải nhập hết các cột";
         }
         $id_kindRoom = [
             'kind_of_room_id' => $id,
@@ -32,6 +32,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../quanTri.css">
     <link rel="stylesheet" href="./kindRoom.css">
+    <link rel="stylesheet" href="add.css">
     <title>Update</title>
 </head>
 <body>
@@ -42,9 +43,9 @@
             </div>
             <hr>
             <div class="category-1">
-                <h2 class="kind">Kind Of Romm</h2>
-                <h2>Room</h2>
-                <h2>User</h2>
+                <a href="./kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
+                <a href="../room/room.php"><h2>Room</h2></a> <br>
+                <a href="../user/user.php"><h2>User</h2></a> <br>
                 <h2>Roombooked</h2>
                 <h2>Comment</h2>
                 <h2>Statistical</h2>
@@ -58,11 +59,17 @@
             <hr>
             <form action="" method="POST">
                 <div>
-                    <label for="">Kind Of Room</label>
-                    <input type="text" name="title">
+                    <label class="tin" for="">Kind Of Room</label> <br>
+                    <input class="the" type="text" name="title">
+                    <?php
+                    if (isset($_POST['btn_submit'])) {
+                        echo $err;
+                    }
+
+                    ?>
                 </div>
                 <div>
-                    <input class="btn btn-submit" name= "btn_submit" type="submit" value="Updata">
+                    <input class="nut" name= "btn_submit" type="submit" value="Updata">
                 </div>
             </form>
         </div>
