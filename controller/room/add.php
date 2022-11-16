@@ -61,7 +61,6 @@ $list = $show->fetchAll();
             }
         }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
