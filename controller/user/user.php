@@ -1,10 +1,9 @@
-
 <?php
-require('../../model/connect.php');
-$sql = "SELECT * FROM `user`";
-$show = $connect->query($sql);
-$show->execute();
-$list = $show->fetchAll();
+    require('../../model/connect.php');
+    $sql = "SELECT * FROM `user`";
+    $show = $connect->query($sql);
+    $show->execute();
+    $list = $show->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,10 +25,11 @@ $list = $show->fetchAll();
         <hr>
         <div class="category-1">
             <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
-            <a href="../room/room.php"><h2>Room</h2></a> <br>
+            <a href="../room/room.php"><h2>Room</h2></a>
+            <a href="../roomImage/image.php"><h2>Room Image</h2></a> <br>
             <a href="../user/user.php"><h2>User</h2></a>
             <h2>Roombooked</h2>
-            <h2>Comment</h2>
+            <a href="../comment/cmt.php"><h2>Comment</h2></a>
             <h2>Statistical</h2>
         </div>
         <div class="logout">
