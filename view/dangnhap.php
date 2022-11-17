@@ -54,6 +54,7 @@
                
             </div>
             <input type="submit" value="Đăng Nhập" name="btn_submit" class="form-submit">
+            <a href="dangky.php"><input type="button" value="Đăng Ký" class="form-submit"></a>
         </form>
     </div>
 </body>

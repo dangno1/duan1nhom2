@@ -1,7 +1,8 @@
 <?php
-    session_start();
-    require('./model/connect.php');
-
+    
+        session_start();
+        require('./model/connect.php');
+        require('./model/roomBook.php');
     if(!empty($_GET['room_id'])) {
         $id_room = $_GET['room_id'];
 
@@ -112,29 +113,55 @@
                 </div>
             </div>
             <div class="room-price">
-                <div class="price">
-                    <h4>Bắt Đầu Đặt</h4>
-                    <span class="price-item"><?php echo $room['price_room']."VNĐ" ?></span><span class="night"> OVERNIGHT</span>
-                </div>
-                <div class="date-room">
-                    <span class="date">
-                        Bạn sẽ ở lại bao lâu?
-                    </span>
-                    <div class="buttons_added">
-                        <div class="room">
-                            <button id="reduce">-</button>
-                            <input type="number" min="1" value="1" id="number_room">
-                            <button id="add">+</button>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <div class="price">
+                        <h4>Bắt Đầu Đặt</h4>
+                        <input readonly="False"  name="price_room" id="price_room" value="<?=$room['price_room']?>" class="price-item">
+                        <div class="night">VND OVERNIGHT</div>
+                    </div>
+                    <div class="date-room">
+                        <div class="pick-date">
+                        <h4>Chọn ngày Vào</h4>
+                        <input name ="date_star" type="date" class="calendar" value="" required>
+                    </div>
+                        <h4>Số ngày muốn ở lại</h4>
+                        <div class="buttons_added">
+                            <div class="room">
+                                <button id="reduce">-</button>
+                                <input name ="date_end" type="number" min="1" value="1" id="number_room">
+                                <button id="add">+</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="pick-date">
-                    <h4>Chọn ngày đặt</h4>
-                    <input type="date" class="calendar" value="">
-                </div>
-                <div class="book">
-                    <button class="book-room">Đặt Phòng Ngay</button>
-                </div>
+                    
+                    <div class="book">
+                        <button type="submit" class="book-room">Đặt Phòng Ngay</button>
+                    </div>
+                    <?php
+                        date_default_timezone_set("Asia/Ho_Chi_Minh");
+                        if (isset($_POST['date_star']) && isset($_POST['date_end']) && isset($_POST['price_room'])) {
+
+                            if (isset($_SESSION['user_id'])) {
+                                $user_id = $_SESSION['user_id'];
+                                $room_book = new BookRoom(); 
+                                $date_star = $_POST['date_star'];
+                                $date_end = $_POST['date_end'];
+                                $date_star = date($date_star);
+                                $date_end = date ( "Y-m-d" , strtotime ('+'.$date_end.'day' , strtotime($date_star)));                           
+                                $price_room = $_POST['price_room'];
+                                $room_book->add($id_room,$user_id,$date_star,$date_end, $price_room,);
+                            } else{
+                    ?>
+                                <script>                                    
+                                        if (confirm('Đăng nhập để tiếp tục')) {
+                                        window.location="view/dangnhap.php";                                        
+                                    }
+                                </script>
+                    <?php
+                            }                            
+                        }
+                    ?>
+                </form>
             </div>
         </div>
         <h3> Khám phá Khách sạn</h3>
@@ -169,17 +196,21 @@
     <?php require('./view/footer.php'); ?>
 
     <script>
-        document.getElementById('add').onclick = function () {
-            let number_room = document.getElementById('number_room')
+    let price = document.getElementById('price_room');
+        document.getElementById('add').onclick = function (event) {
+            event.preventDefault()
+            let number_room = document.getElementById('number_room')           
             number_room.value++
+            price.value = <?=$room['price_room']?> * number_room.value;
         }
-        document.getElementById('reduce').onclick = function () {
+        document.getElementById('reduce').onclick = function (event) {
+            event.preventDefault()
             let number_room = document.getElementById('number_room')
             if (number_room.value > 1) {
                 number_room.value--
+                price.value = price.value - <?=$room['price_room']?>;
             }
         }
-
         var checkbox_toggle = document.getElementById('light-dark');
         checkbox_toggle.addEventListener('change', function(){
             // THêm class dark cho body
