@@ -149,11 +149,11 @@
                                 $date_star = date($date_star);
                                 $date_end = date ( "Y-m-d" , strtotime ('+'.$date_end.'day' , strtotime($date_star)));                           
                                 $price_room = $_POST['price_room'];
-                                $room_book->bookRoom($id_room,$user_id,$date_star,$date_end, $price_room,);
+                                $room_book->add($id_room,$user_id,$date_star,$date_end, $price_room,);
                             } else{
                     ?>
-                                <script>
-                                    if (confirm('Đăng nhập để tiếp tục')) {
+                                <script>                                    
+                                        if (confirm('Đăng nhập để tiếp tục')) {
                                         window.location="view/dangnhap.php";                                        
                                     }
                                 </script>
