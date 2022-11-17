@@ -35,12 +35,12 @@
             <div class="content_item">
                 <a href="./chitiet.php?room_id=<?php echo $item['room_id'] ?>">
                     <div class="content_item_img">
-                        <img src="<?='controller/room/' . $item['image_room'] ?>">
+                        <img src="<?='controller/room/' . $item['image_room'] ?>" width="100%" height="250px">
                     </div>
                 </a>
                 <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
-                <span class="price"><?php echo $item['price_room'] ?></span>
-                <a><button>ĐẶT PHÒNG</button></a>
+                <span class="price"><?php echo $item['price_room'] ?> VNĐ</span>
+                <a><button class="book_room">ĐẶT PHÒNG</button></a>
             </div>
         <?php
             }
