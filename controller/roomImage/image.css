@@ -1,3 +1,14 @@
+.nut-add a{
+    text-decoration: none;
+    color: black;
+}
+.nut-add{
+    height: 30px;
+    background: aqua;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
 table{
     width: 100%;
     font-size: 20px;

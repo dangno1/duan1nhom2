@@ -4,7 +4,7 @@
         <p>Chúng tôi cung cấp những gì bạn cần để tận hưởng kỳ nghỉ cùng gia đình. Đã đến lúc tạo nên những
             khoảnh khắc đáng nhớ
             khác.</p>
-        <button>book now</button>
+        <button id="myBtn">Book Now</button>
         <div class="banner_search">
             <input type="text" placeholder="Seach Enter...">
             <button>Search</button>
