@@ -143,8 +143,11 @@ $list = $show->fetchAll();
                     </select>
                 </div>
                 <div>
-                    <label for="">Status_Room</label> <br>
-                    <input type="text" name="trangThai" id="" placeholder="Status_Room">
+                    <label for="">Status_Room</label>
+                    <select name="trangThai">
+                        <option value="Còn trống">Còn trống</option>
+                        <option value="Đã được đặt">Đã được đặt</option>
+                    </select>
                 </div>
                 <?php
                 if (isset($_POST['btn_submit'])) {
