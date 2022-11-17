@@ -155,8 +155,6 @@
                                 <script>
                                     if (confirm('Đăng nhập để tiếp tục')) {
                                         window.location="view/dangnhap.php";                                        
-                                    } else {
-                                        window.location="https://stackoverflow.com/questions/9334636/how-to-create-a-dialog-with-ok-and-cancel-options";
                                     }
                                 </script>
                     <?php
