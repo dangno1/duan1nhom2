@@ -1,8 +1,7 @@
 <?php
-    
-        session_start();
-        require('./model/connect.php');
-        require('./model/roomBook.php');
+    session_start();
+    require('./model/connect.php');
+    require('./model/roomBook.php');
     if(!empty($_GET['room_id'])) {
         $id_room = $_GET['room_id'];
 
@@ -49,17 +48,17 @@
             </div>
             <div class="banner">
                 <div class="banner-left">
-                    <img src="./controller/room/<?php echo $room['image_room'] ?>" alt="">
+                    <img src="./controller/room/<?php echo $room['image_room'] ?>" width="1024px" height="683px">
                 </div>
                     <div class="banner-right">
                     <?php 
                         foreach ($room_img as $item) {
                     ?>
-                        <img src="./controller/room/<?php echo $item['image_room'] ?>" alt="" width="100%" height="335px">
+                        <img src="./controller/room/<?php echo $item['image_room'] ?>" width="100%" height="335px">
                     <?php 
                         }
                     ?>
-                    </div>
+                </div>
             </div>
         </div>
     <main>

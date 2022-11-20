@@ -1,6 +1,7 @@
 <?php
     require('../../model/room.php');
     require('../../model/kindRoom.php');
+    require('../../model/imageRoom.php');
     require('../../library/Image.php');
 
     $id = (int)$_GET['id'];
@@ -23,6 +24,19 @@
         $uploadThumnail = new Image();
         $uploadPathThumnail = $uploadThumnail->upload($_FILES['thumbnail']['tmp_name'], $_FILES['thumbnail']['name']);
 
+
+         // upload Image
+        $imageNames = [];
+        foreach ($_FILES['images']['name'] as $key => $name) {
+            // $uploadPathImage= $upaloadDir . $name;
+            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
+            if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
+                $uploadImage = new Image();
+                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                $imageNames[] = $uploadPathImage;
+            }
+        }
+
         $roomId = [
             'room_id' => $id,
         ];
@@ -36,6 +50,23 @@
         ];
 
         $room->update($roomId, $data);
+
+        // Img Room
+        $Id = [
+            'room_image_id' => $id,
+        ];
+
+        foreach($imageNames as $imagePath) {
+            $imageRoomData = [
+                // 'room_id' => $roomId,
+                'image_room' => $imagePath,
+            ];
+            $imageRoom = new imageRoom();
+            $imageRoom->update($Id, $imageRoomData);
+        }
+        // echo "<pre/>";
+        // var_dump($imageNames);
+        // die;
         if(isset($connect)) {
             header('location:room.php');
         }
@@ -82,12 +113,12 @@
             <form action="" method="POST" enctype="multipart/form-data">
                 <div>
                     <label for="">Name Room</label>
-                    <input type="text" name="title" id="" required value="<?=$list_room['kind_of_room']?>">
+                    <input type="text" name="title" id="" required value="<?php echo $list_room['kind_of_room']?>">
                 </div>
                 <div>
                     <label for="">Thumbnail</label><br>
-                    <input type="file" name="thumbnail" id="" required value="<?=$list_room['image_room']?>">
-                    <img src="<?=$list_room['image_room']?>" width="100px" height="100px">
+                    <input type="file" name="thumbnail" id="" required value="<?php echo $list_room['image_room']?>">
+                    <img src="<?php echo $list_room['image_room']?>" width="100px" height="100px">
                 </div>
                 <div>
                     <label for="">Image Room</label><br>
@@ -97,29 +128,29 @@
                 </div>
                 <div>
                     <label for="">Describe Room</label>
-                    <input type="text" name="moTa" id="" required value="<?=$list_room['describe_room']?>">
+                    <input type="text" name="moTa" id="" required value="<?php echo $list_room['describe_room']?>">
                 </div>
                 <div>
                     <label for="">Price_Room</label>
-                    <input type="text" name="gia" id="" required value="<?=$list_room['price_room']?>">
+                    <input type="text" name="gia" id="" required value="<?php echo $list_room['price_room']?>">
                 </div>
                 <div>
                     <label for="">Kind Of Room ID</label>
                     <select name="idKindRoom" id="" required>
-                        <option selected value="<?=$list_kindroom_id['kind_of_room_id']?>"><?=$list_kindroom_id['kind_of_room']?></option>
+                        <option selected value="<?php echo $list_kindroom_id['kind_of_room_id']?>"><?php echo $list_kindroom_id['kind_of_room']?></option>
                         <?php
-                        foreach ($list_kindroom as $value) {
-                            ?>
-                                <option value="<?=$value['kind_of_room_id'] ?>"><?=$value['kind_of_room'] ?></option>
-                            <?php
-                        }
+                            foreach ($list_kindroom as $value) {
+                        ?>
+                            <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?></option>
+                        <?php
+                            }
                         ?>
                     </select>
                 </div>
                 <div>
                     <label for="">Status_Room</label>
                     <select name="trangThai">
-                        <option selected value="<?=$list_room['status']?>"><?=$list_room['status']?></option>
+                        <option selected value="<?php echo $list_room['status']?>"><?php echo $list_room['status']?></option>
                         <option value="Còn trống">Còn trống</option>
                         <option value="Đã được đặt">Đã được đặt</option>
                     </select>
@@ -128,8 +159,7 @@
                     if (isset($_POST['btn_submit'])) {
                         echo $err;
                     }
-
-                    ?>
+                ?>
                 <div class="submit">
                     <input class="nut" type="submit" name="btn_submit" id="" value="Update">
                 </div>

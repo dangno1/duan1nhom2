@@ -18,23 +18,24 @@ class imageRoom
         return $result;
     }
 
-    // public function update($data) 
-    // {
-    //     $id = $id_ImageRoom['room_image_id'];
-    //     $imgs = $data['image_room'];
-    //     $idRoom = $data['room_id'];
+    public function update($Id, $imageRoomData) 
+    {
+        $id = $Id['room_image_id'];
 
-    //     $sql = "UPDATE `roomImage` SET `room_id` = '{$idRoom}', `image_room` = '{$imgs}' 
-    //     WHERE `roomImage`.`room_image_id` = {$id}";
+        // $idRoom = $data['room_id'];
+        $imgs = $imageRoomData['image_room'];
+        
+        $sql = "UPDATE `roomImage` SET  `image_room` = '{$imgs}' 
+        WHERE `roomImage`.`room_id` = {$id}";
 
-    //     // $result = $GLOBALS['connect']->query($sql);
-    //     // return $result;
-    //     $conn = $GLOBALS['connect'];
-    //     $conn->exec($sql);
+        $result = $GLOBALS['connect']->query($sql);
+        return $result;
+        // $conn = $GLOBALS['connect'];
+        // $conn->exec($sql);
 
-    //     return $conn->lastInsertId();
+        // return $conn->lastInsertId();
 
-    // }
+    }
 
     public function delete($id_ImageRoom)
     {
