@@ -53,7 +53,7 @@ $list = $show->fetchAll();
                     'image_room' => $imagePath,
                 ];
                 $imageRoom = new imageRoom();
-                $imageRoom-> add($imageRoomData);
+                $imageRoom->add($imageRoomData);
             }
             
             if($connect) {
