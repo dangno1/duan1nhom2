@@ -1,18 +1,54 @@
 <?php
 require('../../model/kindRoom.php');
+require('../../model/imageRoom.php');
+require('../../library/Image.php');
 
 if (isset($_POST['btn_submit'])) {
+
     $title = $_POST['title'];
+    $price = $_POST['price'];
+    $describe = $_POST['describe'];
 
     if ($title == "") {
         $err = "phải nhập hết các cột";
     } else {
+
+        // upload thumnail
+        $uploadThumnail = new Image();
+        $uploadPathThumnail = $uploadThumnail->upload($_FILES['anh']['tmp_name'], $_FILES['anh']['name']);
+
+        // upload Image
+        $imageNames = [];
+        foreach ($_FILES['images']['name'] as $key => $name) {
+            // $uploadPathImage= $upaloadDir . $name;
+            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
+            if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
+                $uploadImage = new Image();
+                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                $imageNames[] = $uploadPathImage;
+            }
+        }
+
         $data = [
             'kind_of_room' => $title,
+            'price' => $price,
+            'describe' => $describe,
+            'image' => $uploadPathThumnail,
         ];
 
         $kindRoom = new KindRoom();
-        $kindRoom->add($data);
+        $roomId = $kindRoom->add($data);
+
+        // Img Room
+        foreach($imageNames as $imagePath) {
+            $imageRoomData = [
+                'kind_of_room_id' => $roomId,
+                'image_room' => $imagePath,
+            ];
+            $imageRoom = new imageRoom();
+            $imageRoom->add($imageRoomData);
+        }
+
         if ($connect) {
             header('location:kindRoom.php');
         }
@@ -62,18 +98,31 @@ if (isset($_POST['btn_submit'])) {
         <div class="content">
             <h1>Kind Of Room</h1>
             <hr>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div>
-                    <div class="tin"><label for="">Kind Of Room</label> </div>
+                    <label class="tin" for="">Kind Of Room</label> 
                     <input class="the" type="text" name="title" id="">
                 </div>
-                <?php
-                    if (isset($_POST['btn_submit'])) {
-                        echo $err;
-                    }
-
-                    ?>
                 <div>
+                    <label class="tin" for="">Price</label>
+                    <input class="the" type="text" name="price" id="">
+                </div>
+                <div>
+                    <label class="tin" for="">Describe</label>
+                    <input class="the" type="text" name="describe" id="">
+                </div>
+                <div>
+                    <label class="tin" for="">Thumbnail</label>
+                    <input class="the" type="file" name="anh" id="">
+                </div>
+                <!-- nhieu anh  -->
+                <div>
+                    <label for="">Image Room</label><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id="">
+                </div>
+                <!--  -->
                     <input class="nut" type="submit" name="btn_submit" id="" value="Thêm">
                 </div>
             </form>

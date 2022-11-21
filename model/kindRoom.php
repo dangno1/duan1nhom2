@@ -7,19 +7,28 @@ class KindRoom
     public function add($data)
     {
         $title = $data['kind_of_room'];
+        $price = $data['price'];
+        $describe = $data['describe'];
+        $image = $data['image'];
 
-        $sql = "INSERT INTO `kindRoom` (`kind_of_room_id`, `kind_of_room`) 
-        VALUES (NULL, '{$title}')";
-        $result = $GLOBALS['connect']->query($sql);
+        $sql = "INSERT INTO `kindRoom` (`kind_of_room_id`, `kind_of_room`, `price`, `describe`, `image`) 
+        VALUES (NULL, '{$title}', '{$price}', '{$describe}', '{$image}')";
 
-        return $result;
+        $conn = $GLOBALS['connect'];
+        $conn->exec($sql);
+
+        return $conn->lastInsertId();
     }
     public function update($id_kindRoom, $kind_of_room)
     {
         $id = $id_kindRoom['kind_of_room_id'];
-        $name = $kind_of_room['kind_of_room'];
 
-        $sql = "UPDATE `kindRoom` SET `kind_of_room` = '{$name}' 
+        $title = $kind_of_room['kind_of_room'];
+        $price = $kind_of_room['price'];
+        $describe = $kind_of_room['describe'];
+        $image = $kind_of_room['image'];
+
+        $sql = "UPDATE `kindRoom` SET `kind_of_room` = '{$title}', `price` = '{$price}', `describe` = '{$describe}', `image` = '{$image}' 
         WHERE `kindRoom`.`kind_of_room_id` = {$id}";
         
         $result = $GLOBALS['connect']->query($sql);

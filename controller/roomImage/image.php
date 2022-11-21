@@ -58,7 +58,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $item['room_image_id'] ?></td>
-                                <td><?php echo $item['room_id'] ?></td>
+                                <td><?php echo $item['kind_of_room_id'] ?></td>
                                 <td><img src="<?php echo "../room/" . $item['image_room'] ?>" width="200px" height="100px"></td>
                                 <td>
                                     <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_image_id'] ?>">Delete</a>

@@ -4,13 +4,13 @@ require('connect.php');
 
 class imageRoom
 {
-    public function add($data)
+    public function add($imageRoomData)
     {
-        $imgs = $data['image_room'];
-        $idRoom = $data['room_id'];
+        $imgs = $imageRoomData['image_room'];
+        $idRoom = $imageRoomData['kind_of_room_id'];
 
-        $sql = "INSERT INTO `roomImage` (`room_image_id`, `room_id`, `image_room`) 
-        VALUES (NULL, '{$idRoom}', '{$imgs}')";
+        $sql = "INSERT INTO `roomImage`(`room_image_id`, `kind_of_room_id`, `image_room`)
+        VALUES (NULL,'{$idRoom}','{$imgs}')";
 
         //Call global variable
         $result = $GLOBALS['connect']->query($sql);
@@ -21,20 +21,13 @@ class imageRoom
     public function update($Id, $imageRoomData) 
     {
         $id = $Id['room_image_id'];
-
-        // $idRoom = $data['room_id'];
         $imgs = $imageRoomData['image_room'];
         
         $sql = "UPDATE `roomImage` SET  `image_room` = '{$imgs}' 
-        WHERE `roomImage`.`room_id` = {$id}";
+        WHERE `roomImage`.`kind_of_room_id` = {$id}";
 
         $result = $GLOBALS['connect']->query($sql);
         return $result;
-        // $conn = $GLOBALS['connect'];
-        // $conn->exec($sql);
-
-        // return $conn->lastInsertId();
-
     }
 
     public function delete($id_ImageRoom)

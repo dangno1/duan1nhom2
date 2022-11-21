@@ -1,23 +1,68 @@
 <?php
     require('../../model/kindRoom.php');
+    require('../../model/imageRoom.php');
+    require('../../library/Image.php');
+
+    $id = (int)$_GET['id'];
+    // lay du lieu cu
+    $sql = "SELECT * FROM `kindRoom` WHERE kind_of_room_id = {$id}";
+    $result = $GLOBALS['connect']->query($sql);
+    $listKindRoom = $result->fetch();
 
     if(isset($_POST['btn_submit'])) {
 
-        $id = (int)$_GET['id'];
-        $name = $_POST['title'];
+        $title = $_POST['title'];
+        $price = $_POST['price'];
+        $describe = $_POST['describe'];
+    
+        // upload thumnail
+        $uploadThumnail = new Image();
+        $uploadPathThumnail = $uploadThumnail->upload($_FILES['anh']['tmp_name'], $_FILES['anh']['name']);
 
-        if($name == "") {
+        // upload Image
+        $imageNames = [];
+        foreach ($_FILES['images']['name'] as $key => $name) {
+            // $uploadPathImage= $upaloadDir . $name;
+            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
+            if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
+                $uploadImage = new Image();
+                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                $imageNames[] = $uploadPathImage;
+            }
+        }
+
+        if($title == "") {
             $err = "phải nhập hết các cột";
         }
         $id_kindRoom = [
             'kind_of_room_id' => $id,
         ];
         $kind_of_room = [
-            'kind_of_room' => $name,
+            'kind_of_room' => $title,
+            'price' => $price,
+            'describe' => $describe,
+            'image' => $uploadPathThumnail,
         ];
 
         $kindRoom = new KindRoom();
         $kindRoom->update($id_kindRoom, $kind_of_room);
+
+        // Img Room
+        $Id = [
+            'room_image_id' => $id,
+        ];
+
+        foreach($imageNames as $imagePath) {
+            $imageRoomData = [
+                // 'room_id' => $roomId,
+                'image_room' => $imagePath,
+            ];
+            $imageRoom = new imageRoom();
+            $imageRoom->update($Id, $imageRoomData);
+        }
+        // echo "<pre/>";
+        // var_dump($imageNames);
+        // die;
 
         if($connect) {
             header('location:kindRoom.php');
@@ -57,16 +102,29 @@
         <div class="content">
             <h1>Kind Of Room</h1>
             <hr>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div>
                     <label class="tin" for="">Kind Of Room</label> <br>
-                    <input class="the" type="text" name="title">
-                    <?php
-                    if (isset($_POST['btn_submit'])) {
-                        echo $err;
-                    }
-
-                    ?>
+                    <input class="the" type="text" name="title" required value="<?php echo $listKindRoom['kind_of_room']?>">
+                </div>
+                <div>
+                    <label class="tin" for="">Price</label>
+                    <input class="the" type="text" name="price" required value="<?php echo $listKindRoom['price']?>">
+                </div>
+                <div>
+                    <label class="tin" for="">Describe</label>
+                    <input class="the" type="text" name="describe" required value="<?php echo $listKindRoom['describe']?>">
+                </div>
+                <div>
+                    <label class="tin" for="">Image</label>
+                    <input class="the" type="file" name="anh" required value="<?php echo $listKindRoom['image']?>">
+                    <img src="<?php echo $listKindRoom['image']?>" width="200px" height="200px">
+                </div>
+                <div>
+                    <label for="">Image Room</label><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id="">
                 </div>
                 <div>
                     <input class="nut" name= "btn_submit" type="submit" value="Updata">
