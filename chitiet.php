@@ -113,7 +113,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="room-price">
+            <div class="room-price" style="width: 300px; height: 480px;">
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="price">
                         <h4>Bắt Đầu Đặt</h4>
@@ -184,9 +184,7 @@
             require('./view/comment.php');
         ?>
     </main>
-    <div id="wrapper">
-        <input type="checkbox" name="" class="switch-toggle" id="light-dark">
-    </div>
+   
     <?php 
         } else {
     ?>
