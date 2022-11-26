@@ -1,3 +1,29 @@
+<?php
+            require('../model/connect.php');
+            session_start();
+            if(isset($_SESSION['name_user']) && isset($_SESSION['user_id']) ){
+                $username = $_SESSION['name_user'];
+                $userID = $_SESSION['user_id'];
+                
+                
+                $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
+                $result = $connect->query($sql_user);
+                $result->execute();
+                $user_infor = $result->fetch();
+                // ---------
+                $sql_room = "SELECT * FROM `roombooked` WHERE user_id = $userID";
+                $result = $connect->query($sql_room);
+                $result->execute();
+                $roombooked = $result->fetch();
+                // --
+                $sql_imageroom = "SELECT * FROM `roombooked` WHERE `room_id` = $userID";
+                
+            }
+             ?>
+                    
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +34,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel="stylesheet" href="./css/lichsudatphong.css">
     <link rel="stylesheet" href="./css/style.css">
+    
 </head>
+
 <body>
     
     <div class="container">
@@ -33,14 +61,14 @@
             if(!isset($_SESSION['name_user'])) {
         ?>
             <div class="sign-in__sign-out">
-                <a href="./dangnhap.php"><button>Login</button></a>
-                <a href="./dangky.php"><button>Sign up</button></a>
+                <a href="./view/dangnhap.php"><button>Login</button></a>
+                <a href="./view/dangky.php"><button>Sign up</button></a>
             </div>
         <?php
             } else {
         ?>
             <div class="sign-in__sign-out">
-                <a href="./dangxuat.php"><button>Logout</button></a>
+                <a href="./view/dangxuat.php"><button>Logout</button></a>
             </div>
         <?php
             }
@@ -49,18 +77,19 @@
         </div>
         <h1>LỊCH SỬ ĐẶT PHÒNG</h1>
         <div class="body">
-            <?php
-             ?>
+           <?php
+            if(!empty($user_infor)) {
+        ?>
             <div class="thongtinnguoidat">
                 <div class="infor">
                     <div class="infor_user">
-                        <p>Nguyễn hoàng linh</p>
+                        <p><?php echo $user_infor['name_user'] ?></p>
                     </div>
                     <div class="infor_email">
-                        <p>linhnhph24673@gmail.com</p>
+                        <p> <?php echo $user_infor['mail_user'] ?></p>
                     </div>
                     <div class="infor_sdt">
-                        <p>0123456789</p>
+                        <p><?php echo $user_infor['phone_number_user'] ?></p>
                     </div>
                 </div>
                 <div class="invoice">
@@ -71,6 +100,9 @@
                         <p><span>ngày đặt :</span>12/8/2023</p>
                     </div>
                 </div>
+                <?php
+            if(!empty($roombooked)) {
+        ?>
                 <div class="table_time">
                     <table  class="time">
                         <tr class="time_start">
@@ -78,12 +110,14 @@
                             <th>Ngày Đi</th>
                         </tr>
                         <tr>
-                            <td><span>12/9/2023</span></td>
-                            <td><span>19/9/2023</span></td>
+                            <?php foreach($roombooked as $book) ?> 
+                            <td><span><?php echo $book['start_time'] ?></span></td>
+                            <td><span><?php echo $book['end_time'] ?></span></td>
                         </tr>
                     </table>
                 </div>
             </div>
+            
             <div class="thongtinphong">
                 <table class="infor_phong">
                     <tr>
@@ -108,10 +142,13 @@
                         <th>Tổng Tiền</th>
                     </tr>
                     <tr>
-                        <td><span>$</span> <span>2500</span></td>
+                        <td><span>$</span> <span><?php echo $book['total_money'] ?></span></td>
                     </tr>
                 </table>
             </div>
+            <?php 
+            }
+            ?>
             <h2 style="text-align: center ;">chúng tôi sẽ liên hệ lại với bạn vào thời gian sớm nhất</h2>
          <footer>
 
@@ -134,7 +171,13 @@
             
          </footer>
     </div>
-
+    <?php 
+        } else {
+    ?>
+        <h2>bạn chưa đăng nhập</h2>
+    <?php
+        }
+    ?>
 
 </body>
 </html>
