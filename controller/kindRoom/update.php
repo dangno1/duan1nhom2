@@ -112,8 +112,8 @@
                     <input class="the" type="text" name="price" required value="<?php echo $listKindRoom['price']?>">
                 </div>
                 <div>
-                    <label class="tin" for="">Describe</label>
-                    <textarea class="the" name="describe" id="" cols="150" rows="5" required value="<?php echo $listKindRoom['describe']?>"></textarea>
+                    <label class="tin" for="">Describe</label> <br>
+                    <textarea class="the" name="describe" id="" cols="192" rows="7" required value="<?php echo $listKindRoom['describe']?>"></textarea>
                 </div>
                 <div>
                     <label class="tin" for="">Image</label>

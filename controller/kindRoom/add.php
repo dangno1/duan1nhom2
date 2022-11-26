@@ -106,8 +106,8 @@ if (isset($_POST['btn_submit'])) {
                     <input class="the" type="text" name="price" id="">
                 </div>
                 <div>
-                    <label class="tin" for="">Describe</label>
-                    <textarea name="moTa" id="" cols="150" rows="5" placeholder="Describe Room"></textarea>
+                    <label class="tin" for="">Describe</label><br>
+                    <textarea name="moTa" id="" cols="192" rows="7" placeholder="Describe Room"></textarea>
                 </div>
                 <div>
                     <label class="tin" for="">Thumbnail</label>
@@ -115,10 +115,10 @@ if (isset($_POST['btn_submit'])) {
                 </div>
                 <!-- nhieu anh  -->
                 <div>
-                    <label for="">Image Room</label><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id="">
+                    <label class="tin" for="">Image Room</label><br>
+                    <input class="the" type="file" name="images[]" id=""><br>
+                    <input class="the" type="file" name="images[]" id=""><br>
+                    <input class="the" type="file" name="images[]" id="">
                 </div>
                 <!--  -->
                     <input class="nut" type="submit" name="btn_submit" id="" value="Thêm">
