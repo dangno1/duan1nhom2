@@ -1,5 +1,6 @@
 <?php
             require('../model/connect.php');
+            require('../model/roomBook.php');
             session_start();
             if(isset($_SESSION['name_user']) && isset($_SESSION['user_id']) ){
                 $username = $_SESSION['name_user'];
@@ -16,8 +17,10 @@
                 $result->execute();
                 $roombooked = $result->fetch();
                 // --
-                $sql_imageroom = "SELECT * FROM `roombooked` WHERE `room_id` = $userID";
-                
+                $sql_imageroom = "SELECT room.kind_of_room,room.image_room,room.price_room,room.describe_room FROM room INNER JOIN roombooked ON room.kind_of_room_id = roombooked.kind_of_room_id  WHERE room.kind_of_room_id  = $userID";
+                $result = $connect->query($sql_imageroom);
+                $result->execute();
+                $room_infor = $result->fetch();
             }
              ?>
                     
@@ -42,12 +45,12 @@
     <div class="container">
         <div class="header">
             <div class="logo">
-            <a href="./index.php"><img src="./img/logo.png" alt=""></a>
+            <a href="../index.php"><img src="./img/logo.png" alt=""></a>
             </div>
                
                 <nav>
                     <ul>
-                        <li><a href="">home</a></li>
+                        <li><a href="../index.php">home</a></li>
                         <li><a href="">room</a></li>
                         <li><a href="">about</a></li>
                         <li><a href="./view/lichsudatphong.php">Hotel Booking History</a></li>
@@ -61,14 +64,14 @@
             if(!isset($_SESSION['name_user'])) {
         ?>
             <div class="sign-in__sign-out">
-                <a href="./view/dangnhap.php"><button>Login</button></a>
-                <a href="./view/dangky.php"><button>Sign up</button></a>
+                <a href="./dangnhap.php"><button>Login</button></a>
+                <a href="./dangky.php"><button>Sign up</button></a>
             </div>
         <?php
             } else {
         ?>
             <div class="sign-in__sign-out">
-                <a href="./view/dangxuat.php"><button>Logout</button></a>
+                <a href="./dangxuat.php"><button>Logout</button></a>
             </div>
         <?php
             }
@@ -110,14 +113,20 @@
                             <th>Ngày Đi</th>
                         </tr>
                         <tr>
-                            <?php foreach($roombooked as $book) ?> 
+                            <?php foreach($roombooked as $book){ ?> 
                             <td><span><?php echo $book['start_time'] ?></span></td>
                             <td><span><?php echo $book['end_time'] ?></span></td>
                         </tr>
                     </table>
+                    <?php
+                     }
+                    
+                    ?>
                 </div>
             </div>
-            
+            <?php
+            if(!empty($room_infor)){
+            ?>
             <div class="thongtinphong">
                 <table class="infor_phong">
                     <tr>
@@ -128,14 +137,21 @@
                         <th>địa chỉ</th>   
                     </tr>
                     <tr>
-                        <td>Phòng Tổng Thống</td>
-                        <td><span ><img src="room1.jpg" alt="" height="70%" width="60%" ></span></td>
+                        <?php 
+                        foreach($room_infor as $room){
+                        ?>
+                        <td><?php echo $room['kind_of_room'] ?></td>
+                        <td><span ><img src="./controller/kindRoom/<?php echo $room['image_room'] ?>" width="100%" height="335px"></span></td>
                         <td>3 người</td>
-                        <td><span>$</span><span>2000</span></td>
-                        <td>Tầng 2 tòa P</td>
+                        <td><span>$</span><span><?php echo $room['price_room'] ?></span></td>
+                        <td><?php echo $room['describe_room'] ?></td>
                     </tr>
                 </table>
+                <?php }?>
             </div>
+            <?php 
+            }
+            ?>
             <div class="footer_UP">
                 <table class="total">
                     <tr>
