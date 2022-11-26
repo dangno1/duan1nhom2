@@ -109,7 +109,7 @@ if (isset($_POST['btn_submit'])) {
                 </div>
                 <div>
                     <label class="tin" for="">Describe</label>
-                    <input class="the" type="text" name="describe" id="">
+                    <textarea name="moTa" id="" cols="150" rows="5" placeholder="Describe Room"></textarea>
                 </div>
                 <div>
                     <label class="tin" for="">Thumbnail</label>

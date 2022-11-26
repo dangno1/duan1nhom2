@@ -128,7 +128,7 @@
                 </div>
                 <div>
                     <label for="">Describe Room</label>
-                    <input type="text" name="moTa" id="" required value="<?php echo $list_room['describe_room']?>">
+                    <textarea name="moTa" id="" cols="150" rows="5" required value="<?php echo $list_room['describe_room']?>"></textarea>
                 </div>
                 <div>
                     <label for="">Price_Room</label>
