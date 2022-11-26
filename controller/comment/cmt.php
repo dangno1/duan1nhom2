@@ -44,8 +44,8 @@
                     <thead>
                         <tr>
                             <th>Comment_id</th>
-                            <th>ID Room</th>
-                            <th>ID User</th>
+                            <th>Kind Of Room</th>
+                            <th>User</th>
                             <th>Noi Dung</th>
                             <th>Ngay Comment</th>
                             <th>Delete</th>
@@ -57,7 +57,7 @@
                         ?>
                         <tr>
                             <td><?php echo $item['comment_id'] ?></td>
-                            <td><?php echo $item['room_id'] ?></td>
+                            <td><?php echo $item['kind_of_room_id'] ?></td>
                             <td><?php echo $item['user_id'] ?></td>
                             <td><?php echo $item['content_comment'] ?></td>
                             <td><?php echo $item['date_created_comment'] ?></td>

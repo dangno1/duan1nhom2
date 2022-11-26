@@ -26,7 +26,7 @@
             // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
             if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
                 $uploadImage = new Image();
-                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $_FILES['images']['name'][$key]);
                 $imageNames[] = $uploadPathImage;
             }
         }
