@@ -3,8 +3,7 @@
 
     if(isset($_POST['btn_submit'])) {
         $username = $_POST['user'];
-        $password = $_POST['pass'];
-        $password = md5($password);
+        $password = md5($_POST['pass']);
 
         $sql = "SELECT * FROM `user` WhERE `name_user` = '{$username}' AND `password_user` = '{$password}'";
         $show = $connect->query($sql);

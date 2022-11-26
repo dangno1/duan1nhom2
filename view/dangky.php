@@ -13,7 +13,7 @@
             $data = [
                 'name_user' => $name,
                 'phone_number_user' => $phone,
-                'password_user' => $pass,
+                'password_user' => md5($pass),
                 'mail_user' => $email,
             ];
             $user = new user();

@@ -20,8 +20,6 @@ if (isset($_POST['btn_submit'])) {
         // upload Image
         $imageNames = [];
         foreach ($_FILES['images']['name'] as $key => $name) {
-            // $uploadPathImage= $upaloadDir . $name;
-            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
             if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
                 $uploadImage = new Image();
                 $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);

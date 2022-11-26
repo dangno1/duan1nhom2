@@ -51,7 +51,7 @@
                 <div class="banner-left">
                     <img src="./controller/kindRoom/<?php echo $kindRoom['image'] ?>" width="1024px" height="683px">
                 </div>
-                    <div class="banner-right">
+                <div class="banner-right">
                     <?php 
                         foreach ($room_img as $item) {
                     ?>
@@ -195,7 +195,6 @@
         }
     ?>
     <?php require('./view/footer.php'); ?>
-
     <script>
         let price = document.getElementById('price_room');
         document.getElementById('add').onclick = function (event) {

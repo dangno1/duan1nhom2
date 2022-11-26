@@ -871,3 +871,20 @@ input.d1:hover {
     background-color: red;
     color: #f8f7f6;
 }
+
+/* .imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+img {
+    border-radius: 20px;
+    margin-left: 25px;
+} */
+/* 
+.banner-right {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+} */
