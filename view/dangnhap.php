@@ -4,6 +4,7 @@
     if(isset($_POST['btn_submit'])) {
         $username = $_POST['user'];
         $password = $_POST['pass'];
+        $password = md5($password);
 
         $sql = "SELECT * FROM `user` WhERE `name_user` = '{$username}' AND `password_user` = '{$password}'";
         $show = $connect->query($sql);
@@ -19,7 +20,7 @@
             session_start();
             $_SESSION['name_user'] = $hoTen;
             $_SESSION['user_id'] = $user['user_id'];
-            
+            $_SESSION['password_user'] = $password;
             if($role == 1) {
                 header('location:../controller/quanTri.php');
             } else {
