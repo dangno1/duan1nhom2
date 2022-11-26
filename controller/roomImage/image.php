@@ -1,6 +1,6 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `roomImage`";
+    $sql = "SELECT kindRoom.kind_of_room, roomImage.image_room FROM kindRoom INNER JOIN roomImage ON kindRoom.kind_of_room_id = roomImage.kind_of_room_id;";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -47,18 +47,20 @@
                     <thead>
                         <tr>
                             <th>Room Image ID</th>
-                            <th>Room ID</th>
                             <th>Room Image</th>
+                            <th>Kind Of Room</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $a = 0;
                         foreach ($list as $item) {
+                            $a++;
                         ?>
                             <tr>
-                                <td><?php echo $item['room_image_id'] ?></td>
-                                <td><?php echo $item['kind_of_room_id'] ?></td>
+                                <td><?php echo $a ?></td>
+                                <td><?php echo $item['kind_of_room'] ?></td>
                                 <td><img src="<?php echo "../room/" . $item['image_room'] ?>" width="200px" height="100px"></td>
                                 <td>
                                     <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_image_id'] ?>">Delete</a>
