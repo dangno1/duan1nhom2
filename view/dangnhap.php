@@ -43,6 +43,8 @@
 <body>
     <div class="wrapper">
         <form action="" method="POST" class="form-login">
+            <a href="../index.php"><i class="fas fa-times"></i></a>
+        
             <h1 class="form-heading">Đăng Nhập</h1>
             <div class="form-group">
                 <i class="fas fa-user"></i>

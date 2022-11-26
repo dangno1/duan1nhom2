@@ -26,10 +26,22 @@ body{
     margin-top: 15px;
     margin-bottom: 20px;
 }
+.form-login i{
+   color: white;
+   font-size: 25px;
+   padding-right: 7px;
+   float: right;
+   padding-right: 0;
+}
+.form-login i:hover{
+  
+    background-color: red;
+}
 .form-group i{
    color: white;
    font-size: 14px;
    padding-right: 7px;
+   float: left;
 }
 .form-input{
     background: transparent;
