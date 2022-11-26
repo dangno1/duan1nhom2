@@ -1,7 +1,7 @@
 <?php
     session_start();
     require('./model/connect.php');
-    require('./model/roomBook.php');
+    require('./model/bookedRoom.php');
     if(!empty($_GET['kind_of_room_id'])) {
 
         $kind_of_room_id = $_GET['kind_of_room_id'];
@@ -144,12 +144,12 @@
 
                             if (isset($_SESSION['user_id'])) {
                                 $user_id = $_SESSION['user_id'];
-                                $room_book = new BookRoom(); 
+                                $bookedRoom = new BookedRoom(); 
                                 $start_time = $_POST['start_time'];
                                 $end_time = $_POST['end_time'];
                                 $amount = $_POST['amount'];                       
                                 $price_room = $_POST['price_room'];
-                                $room_book->add($kind_of_room_id, $user_id, $start_time, $end_time, $amount, $price_room,);
+                                $bookedRoom->add($kind_of_room_id, $user_id, $start_time, $end_time, $amount, $price_room,);
                             } else{
                     ?>
                         <script>
