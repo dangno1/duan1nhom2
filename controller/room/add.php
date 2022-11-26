@@ -7,7 +7,6 @@ $sql = "SELECT * FROM `kindRoom`";
 $show = $connect->query($sql);
 $show->execute();
 $list = $show->fetchAll();
-
     if(isset($_POST['btn_submit'])) {
         $ten = $_POST['title'];
         $moTa = $_POST['moTa'];
@@ -16,7 +15,7 @@ $list = $show->fetchAll();
         $trangThai = $_POST['trangThai'];
 
         if($ten == "") {
-            echo "phai nhap het cac cot";
+            $err= "phai nhap het cac cot";
         } else {
             // upload thumnail
             $uploadThumnail = new Image();
@@ -124,11 +123,11 @@ $list = $show->fetchAll();
                 <!--  -->
                 <div>
                     <label for="">Describe Room</label> <br>
-                    <input type="text" name="moTa" id="" placeholder="Describe Room">
+                    <textarea name="moTa" id="" cols="150" rows="5" placeholder="Describe Room"></textarea>
                 </div>
                 <div>
                     <label for="">Price_Room</label> <br>
-                    <input type="text" name="gia" id="" placeholder="Price_Room">
+                    <input type="text"  name="gia" id="" placeholder="Price_Room">
                 </div>
                 <div>
                     <label for="">Kind Of Room ID</label> <br>
@@ -144,7 +143,7 @@ $list = $show->fetchAll();
                 </div>
                 <div>
                     <label for="">Status_Room</label>
-                    <select name="trangThai">
+                    <select name="trangThai"> <br>
                         <option value="Còn trống">Còn trống</option>
                         <option value="Đã được đặt">Đã được đặt</option>
                     </select>
