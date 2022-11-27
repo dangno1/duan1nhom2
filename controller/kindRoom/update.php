@@ -26,7 +26,7 @@
             // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
             if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
                 $uploadImage = new Image();
-                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
+                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $_FILES['images']['name'][$key]);
                 $imageNames[] = $uploadPathImage;
             }
         }
@@ -112,8 +112,8 @@
                     <input class="the" type="text" name="price" required value="<?php echo $listKindRoom['price']?>">
                 </div>
                 <div>
-                    <label class="tin" for="">Describe</label>
-                    <input class="the" type="text" name="describe" required value="<?php echo $listKindRoom['describe']?>">
+                    <label class="tin" for="">Describe</label> <br>
+                    <textarea class="the" name="describe" id="" cols="192" rows="7" required value="<?php echo $listKindRoom['describe']?>"></textarea>
                 </div>
                 <div>
                     <label class="tin" for="">Image</label>

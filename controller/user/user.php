@@ -33,7 +33,7 @@
             <h2>Statistical</h2>
         </div>
         <div class="logout">
-            <a href="../../home.php"><h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2></a>
+            <a href="../../index.php"><h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2></a>
         </div>
     </div>
     <div class="content">
@@ -49,7 +49,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Password</th>
-                    <th>Status</th>
+                    <!-- <th>Status</th> -->
                     <th>Vai trò</th>
                     <th>Email</th>
 
@@ -64,8 +64,15 @@
                         <td><?php echo $item['name_user'] ?></td>
                         <td><?php echo $item['phone_number_user'] ?></td>
                         <td><?php echo $item['password_user'] ?></td>
-                        <td><?php echo $item['status'] ?></td>
-                        <td><?php echo $item['id_role'] ?></td>
+                        <td>
+                        <?php 
+                            if($item['id_role'] == 1) {
+                                echo "Admin";
+                            } else {
+                                echo "Khach Hang";
+                            }
+                        ?>
+                        </td>
                         <td><?php echo $item['mail_user'] ?></td>
                     </tr>
                     <?php

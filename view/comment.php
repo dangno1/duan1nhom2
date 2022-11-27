@@ -4,11 +4,11 @@
     if(isset($_POST['btn_submit'])) {
         if(isset($_SESSION['user_id']) && !empty($_POST['cmt2'])) {
             $title = $_POST['cmt2'];
-            $id_room = $_GET['room_id'];
+            $id_room = $_GET['kind_of_room_id'];
             $today = date("Y/m/d");
             $maKH = $_SESSION['user_id'];
     
-            $sql = "INSERT INTO `comment` (`comment_id`, `room_id`, `user_id`, `content_comment`, `date_created_comment`) 
+            $sql = "INSERT INTO `comment` (`comment_id`, `kind_of_room_id`, `user_id`, `content_comment`, `date_created_comment`) 
             VALUES (NULL, '{$id_room}', '{$maKH}', '{$title}', '{$today}')";
             $result = $connect->query($sql);
             

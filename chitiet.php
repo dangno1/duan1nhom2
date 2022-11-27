@@ -18,10 +18,10 @@
         $room_img = $result->fetchAll();
 
         //get comment
-        // $commentSql = "SELECT comment.content_comment, user.name_user FROM comment INNER JOIN user ON comment.user_id = user.user_id WHERE comment.room_id = $kind_of_room_id";
-        // $result = $connect->query($commentSql);
-        // $result->execute();
-        // $comments = $result->fetchAll();
+        $commentSql = "SELECT comment.content_comment, user.name_user FROM comment INNER JOIN user ON comment.user_id = user.user_id WHERE comment.kind_of_room_id = $kind_of_room_id";
+        $result = $connect->query($commentSql);
+        $result->execute();
+        $comments = $result->fetchAll();
     }
 ?>
 <!DOCTYPE html>
@@ -197,9 +197,8 @@
         <?php
         }
     ?>
-        <?php require('./view/footer.php'); ?>
-
-        <script>
+    <?php require('./view/footer.php'); ?>
+    <script>
         let price = document.getElementById('price_room');
 
         document.getElementById('add').onclick = function(event) {

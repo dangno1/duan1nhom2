@@ -20,8 +20,6 @@ if (isset($_POST['btn_submit'])) {
         // upload Image
         $imageNames = [];
         foreach ($_FILES['images']['name'] as $key => $name) {
-            // $uploadPathImage= $upaloadDir . $name;
-            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
             if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
                 $uploadImage = new Image();
                 $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
@@ -108,8 +106,8 @@ if (isset($_POST['btn_submit'])) {
                     <input class="the" type="text" name="price" id="">
                 </div>
                 <div>
-                    <label class="tin" for="">Describe</label>
-                    <input class="the" type="text" name="describe" id="">
+                    <label class="tin" for="">Describe</label><br>
+                    <textarea name="describe" id="" cols="192" rows="7" placeholder="Describe Room"></textarea>
                 </div>
                 <div>
                     <label class="tin" for="">Thumbnail</label>
@@ -117,10 +115,10 @@ if (isset($_POST['btn_submit'])) {
                 </div>
                 <!-- nhieu anh  -->
                 <div>
-                    <label for="">Image Room</label><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id="">
+                    <label class="tin" for="">Image Room</label><br>
+                    <input class="the" type="file" name="images[]" id=""><br>
+                    <input class="the" type="file" name="images[]" id=""><br>
+                    <input class="the" type="file" name="images[]" id="">
                 </div>
                 <!--  -->
                     <input class="nut" type="submit" name="btn_submit" id="" value="Thêm">

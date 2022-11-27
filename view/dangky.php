@@ -13,7 +13,7 @@
             $data = [
                 'name_user' => $name,
                 'phone_number_user' => $phone,
-                'password_user' => $pass,
+                'password_user' => md5($pass),
                 'mail_user' => $email,
             ];
             $user = new user();
@@ -32,11 +32,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dangky</title>
     <link rel="stylesheet" href="css/login.css">
-   
+    <script src="https://kit.fontawesome.com/e123c1a84c.js"crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="wrapper">
         <form action="" method="POST" class="form-login">
+        <a href="../index.php"><i class="fas fa-times"></i></a>
             <h1 class="form-heading">Đăng Ký Tài Khoản</h1>
             <div class="form-group">
          
@@ -53,8 +54,8 @@
             <div class="form-group">
                 <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu">
             </div>
-            <input type="submit" value="Đăng kí" name="btn_submit" class="form-submit">
-            <input type="reset" value="Nhập lại" class="form-submit">
+            <input type="submit" value="Đăng ký" name="btn_submit" class="form-submit">
+            <a href="dangnhap.php"><input type="button" value="Đăng Nhập" class="form-submit"></a>
         </form>
     </div>
 </body>
