@@ -1,34 +1,29 @@
 <?php
-            require('../model/connect.php');
-            require('../model/roomBook.php');
-            session_start();
-            if(isset($_SESSION['name_user']) && isset($_SESSION['user_id']) ){
-                $username = $_SESSION['name_user'];
-                $userID = $_SESSION['user_id'];
-                
-                
-                $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
-                $result = $connect->query($sql_user);
-                $result->execute();
-                $user_infor = $result->fetch();
-                // ---------
-                $sql_room = "SELECT * FROM `roombooked` WHERE user_id = $userID";
-                $result = $connect->query($sql_room);
-                $result->execute();
-                $roombooked = $result->fetchAll();
-                // --
-                
-                $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,kindroom.price,kindroom.describe FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id  WHERE roombooked.user_id  = $userID";
-                $result = $connect->query($sql_imageroom);
-                $result->execute();
-                $room_infor = $result->fetchAll();
-                }
-            
-             ?>
-                    
-
-
-
+    require('../model/connect.php');
+    session_start();
+    if(isset($_SESSION['name_user']) && isset($_SESSION['user_id']) ){
+        $username = $_SESSION['name_user'];
+        $userID = $_SESSION['user_id'];
+        
+        
+        $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
+        $result = $connect->query($sql_user);
+        $result->execute();
+        $user_infor = $result->fetch();
+        // ---------
+        $sql_room = "SELECT * FROM `roombooked` WHERE user_id = $userID";
+        $result = $connect->query($sql_room);
+        $result->execute();
+        $roombooked = $result->fetchAll();
+        // --
+        
+        $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,kindroom.price,kindroom.describe FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id  WHERE roombooked.user_id  = $userID";
+        $result = $connect->query($sql_imageroom);
+        $result->execute();
+        $room_infor = $result->fetchAll();
+        }
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -137,7 +132,7 @@
                         <th>Ảnh</th>
                         <th>số người</th>
                         <th>Gía Phòng </th> 
-                        <th>địa chỉ</th>  
+                        <th>Mô tả</th>  
                         <th>Tổng Tiền</th> 
                     </tr>
                     <tr>
@@ -154,14 +149,14 @@
                 </table>
                         <?php 
                          }
-                          ?>
+                        ?>
                   
                          <?php 
                            }
-                           ?>    
+                        ?>    
         </div>
                     <?php 
-                    }
+                        }
                     ?>             
             <?php 
             }
@@ -188,9 +183,7 @@
                 </button>
                  </form>
             </div>
-        </section>  
-            
-                     
+        </section>         
          <footer>
 
             <div class="footer">

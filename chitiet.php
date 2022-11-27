@@ -129,7 +129,7 @@
                                 <input name="end_time" type="date" id="de" class="calendar" onchange="dateEnd()"
                                     required>
                             </div>
-                            <h4>Số ngày muốn ở lại</h4>
+                            <h4>Số Người</h4>
                             <div class="buttons_added">
                                 <div class="room">
                                     <button id="reduce">-</button>
