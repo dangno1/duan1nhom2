@@ -1,6 +1,6 @@
 <?php
     $hostName = 'localhost';
-    $db_name = 'du_an_1';
+    $db_name = 'test_loi';
     $username = 'root';
     $password = '';
 
