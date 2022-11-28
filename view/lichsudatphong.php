@@ -17,7 +17,7 @@
         $roombooked = $result->fetchAll();
         // --
         
-        $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,kindroom.price,kindroom.describe FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id  WHERE roombooked.user_id  = $userID";
+        $sql_imageroom = "SELECT kindRoom.kind_of_room,kindRoom.image,kindRoom.price,kindRoom.describe FROM kindRoom INNER JOIN roombooked ON kindRoom.kind_of_room_id = roombooked.kind_of_room_id  WHERE roombooked.user_id  = $userID";
         $result = $connect->query($sql_imageroom);
         $result->execute();
         $room_infor = $result->fetchAll();
