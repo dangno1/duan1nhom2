@@ -6,7 +6,7 @@ class Room
 {
     public function add($data)
     {
-        $ten = $data['kind_of_room'];
+        $ten = $data['name_room'];
         $anh = $data['image_room'];
 
         $moTa = null;
@@ -18,7 +18,7 @@ class Room
         $idKindRoom = $data['kind_of_room_id'];
         $trangThai = $data['status'];
 
-        $sql = "INSERT INTO `room` (`room_id`, `kind_of_room`, `image_room`, `describe_room`, `price_room`, `kind_of_room_id`, `status`) 
+        $sql = "INSERT INTO `room` (`room_id`, `name_room`, `image_room`, `describe_room`, `price_room`, `kind_of_room_id`, `status`) 
         VALUES (NULL, '{$ten}', '{$anh}', '{$moTa}', '{$gia}', '{$idKindRoom}', '{$trangThai}')";
         
         //Call global variable
@@ -32,14 +32,14 @@ class Room
     {
         $id = $roomId['room_id'];
 
-        $ten = $data['kind_of_room'];
+        $ten = $data['name_room'];
         $anh = $data['image_room'];
         $moTa = $data['describe_room'];
         $gia = $data['price_room'];
         $idKindRoom = $data['kind_of_room_id'];
         $trangThai = $data['status'];
 
-        $sql = "UPDATE `room` SET `kind_of_room` = '{$ten}',`image_room`='{$anh}',`describe_room` = '{$moTa}', 
+        $sql = "UPDATE `room` SET `name_room` = '{$ten}',`image_room`='{$anh}',`describe_room` = '{$moTa}', 
         `price_room` = '{$gia}', `kind_of_room_id` = '{$idKindRoom}', `status` = '{$trangThai}' 
         WHERE `room`.`room_id` = {$id}";
 

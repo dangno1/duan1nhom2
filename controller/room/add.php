@@ -34,7 +34,7 @@ $list = $show->fetchAll();
             }
 
             $roomData = [
-                'kind_of_room' => $ten,
+                'name_room' => $ten,
                 'image_room' => $uploadPathThumnail,
                 'describe_room' => $moTa,
                 'price_room' => $gia,
@@ -127,7 +127,7 @@ $list = $show->fetchAll();
                 </div>
                 <div>
                     <label for="">Price_Room</label> <br>
-                    <input type="text"  name="gia" id="" placeholder="Price_Room">
+                    <input type="text" name="gia" id="" placeholder="Price_Room">
                 </div>
                 <div>
                     <label for="">Kind Of Room ID</label> <br>
@@ -135,7 +135,8 @@ $list = $show->fetchAll();
                         <?php
                         foreach ($list as $value) {
                         ?>
-                            <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?></option>
+                        <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?>
+                        </option>
                         <?php
                         }
                         ?>
