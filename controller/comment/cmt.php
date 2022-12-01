@@ -29,7 +29,6 @@
                 <a href="../roomImage/image.php"><h2>Room Image</h2></a>
                 <a href="../user/user.php"><h2>User</h2></a>
                 <a href="../bookedRoom/bookedroom.php"><h2>Roombooked</h2></a>
-                <a href="../orderDetails/order.php"><h2>Order Details</h2></a>
                 <a href="./cmt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
             </div>
