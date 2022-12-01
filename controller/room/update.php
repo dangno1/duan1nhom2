@@ -21,7 +21,10 @@
             'room_id' => $id,
         ];
         $data = [
-            'kind_of_room' => $ten,
+            'name_room' => $ten,
+            'image_room' => $uploadPathThumnail,
+            'describe_room' => $moTa,
+            'price_room' => $gia,
             'kind_of_room_id' => $idKindRoom,
             'status' => $trangThai,
         ];
@@ -55,9 +58,15 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
-                <a href="../room/room.php"><h2>Room</h2></a> <br>
-                <a href="../user/user.php"><h2>User</h2></a> <br>
+                <a href="../kindRoom/kindRoom.php">
+                    <h2 class="kind">Kind Of Room</h2>
+                </a>
+                <a href="../room/room.php">
+                    <h2>Room</h2>
+                </a> <br>
+                <a href="../user/user.php">
+                    <h2>User</h2>
+                </a> <br>
                 <h2>Roombooked</h2>
                 <h2>Comment</h2>
                 <h2>Statistical</h2>
@@ -77,13 +86,35 @@
                     <input type="text" name="title" id="" required value="<?php echo $list_room['name_room']?>">
                 </div>
                 <div>
+                    <label for="">Thumbnail</label><br>
+                    <input type="file" name="thumbnail" id="" required value="<?php echo $list_room['image_room']?>">
+                    <img src="<?php echo $list_room['image_room']?>" width="100px" height="100px">
+                </div>
+                <div>
+                    <label for="">Image Room</label><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id=""><br>
+                    <input type="file" name="images[]" id="">
+                </div>
+                <div>
+                    <label for="">Describe Room</label>
+                    <textarea name="moTa" id="" cols="150" rows="5" required
+                        value="<?php echo $list_room['describe_room']?>"></textarea>
+                </div>
+                <div>
+                    <label for="">Price_Room</label>
+                    <input type="text" name="gia" id="" required value="<?php echo $list_room['price_room']?>">
+                </div>
+                <div>
                     <label for="">Kind Of Room ID</label>
                     <select name="idKindRoom" id="" required>
-                        <option selected value="<?php echo $list_kindroom_id['kind_of_room_id']?>"><?php echo $list_kindroom_id['kind_of_room']?></option>
+                        <option selected value="<?php echo $list_kindroom_id['kind_of_room_id']?>">
+                            <?php echo $list_kindroom_id['kind_of_room']?></option>
                         <?php
                             foreach ($list_kindroom as $value) {
                         ?>
-                            <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?></option>
+                        <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?>
+                        </option>
                         <?php
                             }
                         ?>
@@ -92,7 +123,8 @@
                 <div>
                     <label for="">Status_Room</label>
                     <select name="trangThai">
-                        <option selected value="<?php echo $list_room['status']?>"><?php echo $list_room['status']?></option>
+                        <option selected value="<?php echo $list_room['status']?>"><?php echo $list_room['status']?>
+                        </option>
                         <option value="Còn trống">Còn trống</option>
                         <option value="Đã được đặt">Đã được đặt</option>
                     </select>
