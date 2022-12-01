@@ -20,6 +20,9 @@
             <a href="./bookedRoom/bookedroom.php">
                 <h2>Booked Room</h2>
             </a> <br>
+            <a href="./orderDetails/order.php">
+                <h2>Order Details</h2>
+            </a> <br>
             <a href="./comment/cmt.php">
                 <h2>Comment</h2>
             </a>
