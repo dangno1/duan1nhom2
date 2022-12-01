@@ -72,6 +72,9 @@ if (isset($_POST['search_detailed'])){
                     <h2>Comment</h2>
                 </a>
                 <a href="../order_detailed/order_detailed.php">
+                    <h2>Order Detailed</h2>
+                </a>
+                <a href="#">
                     <h2>Statistical</h2>
                 </a>
             </div>
