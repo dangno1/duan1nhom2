@@ -1,6 +1,6 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `room`";
+    $sql = "SELECT room.room_id,room.name_room,kindRoom.kind_of_room, room.status FROM room INNER JOIN kindRoom ON room.kind_of_room_id = kindRoom.kind_of_room_id;";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -28,7 +28,7 @@
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../roomImage/image.php"><h2>Room Image</h2></a>
                 <a href="../user/user.php"><h2>User</h2></a> <br>
-                <h2>Roombooked</h2>
+                <a href="../bookedRoom/bookedroom.php"><h2>Roombooked</h2></a>
                 <a href="../comment/cmt.php"><h2>Comment</h2></a>
                 <h2>Statistical</h2>
             </div>
@@ -48,9 +48,6 @@
                         <tr>
                             <th>ID Room</th>
                             <th>Name Room</th>
-                            <th>Thumbnail</th>
-                            <th>Describe Room</th>
-                            <th>Price Room</th>
                             <th>Kind Of Room ID</th>
                             <th>Status Room</th>
                             <th>Delete and Update</th>
@@ -62,11 +59,8 @@
                         ?>
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
+                            <td><?php echo $item['name_room'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><img src="<?php echo $item['image_room'] ?>" width="100px" height="100px"></td>
-                            <td><?php echo $item['describe_room'] ?></td>
-                            <td><?php echo $item['price_room'] ?></td>
-                            <td><?php echo $item['kind_of_room_id'] ?></td>
                             <td><?php echo $item['status'] ?></td>
                             <td>
                                 <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_id'] ?>">Delete</a>

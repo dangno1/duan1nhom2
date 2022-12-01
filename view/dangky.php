@@ -40,15 +40,12 @@
         <a href="../index.php"><i class="fas fa-times"></i></a>
             <h1 class="form-heading">Đăng Ký Tài Khoản</h1>
             <div class="form-group">
-         
                 <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập">
             </div>
             <div class="form-group">
-                
                 <input type="email" class="form-input" name="email" placeholder="Email">
             </div>
             <div class="form-group">
-               
                 <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại">
             </div>
             <div class="form-group">
