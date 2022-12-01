@@ -16,9 +16,6 @@
         } else {
             $roomData = [
                 'name_room' => $ten,
-                'image_room' => $uploadPathThumnail,
-                'describe_room' => $moTa,
-                'price_room' => $gia,
                 'kind_of_room_id' => $idKindRoom,
                 'status' => $trangThai,
             ];
@@ -79,26 +76,6 @@
                 <div>
                     <label for="">Name Room</label> <br>
                     <input type="text" name="title" id="" placeholder="name room">
-                </div>
-                <div>
-                    <label for="">Thumbnail</label>
-                    <input type="file" name="thumbnail" id="">
-                </div>
-                <!-- nhieu anh  -->
-                <div>
-                    <label for="">Image Room</label><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id="">
-                </div>
-                <!--  -->
-                <div>
-                    <label for="">Describe Room</label> <br>
-                    <textarea name="moTa" id="" cols="150" rows="5" placeholder="Describe Room"></textarea>
-                </div>
-                <div>
-                    <label for="">Price_Room</label> <br>
-                    <input type="text" name="gia" id="" placeholder="Price_Room">
                 </div>
                 <div>
                     <label for="">Kind Of Room ID</label> <br>

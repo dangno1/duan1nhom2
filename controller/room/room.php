@@ -74,10 +74,7 @@
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
                             <td><?php echo $item['name_room'] ?></td>
-                            <td><img src="<?php echo $item['image_room'] ?>" width="100px" height="100px"></td>
-                            <td><?php echo $item['describe_room'] ?></td>
-                            <td><?php echo $item['price_room'] ?></td>
-                            <td><?php echo $item['kind_of_room_id'] ?></td>
+                            <td><?php echo $item['kind_of_room'] ?></td>
                             <td><?php echo $item['status'] ?></td>
                             <td>
                                 <a onclick="return confirm('Do you want delete?')"

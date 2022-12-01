@@ -22,9 +22,6 @@
         ];
         $data = [
             'name_room' => $ten,
-            'image_room' => $uploadPathThumnail,
-            'describe_room' => $moTa,
-            'price_room' => $gia,
             'kind_of_room_id' => $idKindRoom,
             'status' => $trangThai,
         ];
@@ -84,26 +81,6 @@
                 <div>
                     <label for="">Name Room</label>
                     <input type="text" name="title" id="" required value="<?php echo $list_room['name_room']?>">
-                </div>
-                <div>
-                    <label for="">Thumbnail</label><br>
-                    <input type="file" name="thumbnail" id="" required value="<?php echo $list_room['image_room']?>">
-                    <img src="<?php echo $list_room['image_room']?>" width="100px" height="100px">
-                </div>
-                <div>
-                    <label for="">Image Room</label><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id=""><br>
-                    <input type="file" name="images[]" id="">
-                </div>
-                <div>
-                    <label for="">Describe Room</label>
-                    <textarea name="moTa" id="" cols="150" rows="5" required
-                        value="<?php echo $list_room['describe_room']?>"></textarea>
-                </div>
-                <div>
-                    <label for="">Price_Room</label>
-                    <input type="text" name="gia" id="" required value="<?php echo $list_room['price_room']?>">
                 </div>
                 <div>
                     <label for="">Kind Of Room ID</label>
