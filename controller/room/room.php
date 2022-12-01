@@ -1,6 +1,6 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `room`";
+    $sql = "SELECT room.room_id,room.name_room,kindRoom.kind_of_room, room.status FROM room INNER JOIN kindRoom ON room.kind_of_room_id = kindRoom.kind_of_room_id;";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -62,9 +62,6 @@
                         <tr>
                             <th>ID Room</th>
                             <th>Name Room</th>
-                            <th>Thumbnail</th>
-                            <th>Describe Room</th>
-                            <th>Price Room</th>
                             <th>Kind Of Room ID</th>
                             <th>Status Room</th>
                             <th>Delete and Update</th>

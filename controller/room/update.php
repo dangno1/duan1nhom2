@@ -1,41 +1,21 @@
 <?php
     require('../../model/room.php');
     require('../../model/kindRoom.php');
-    require('../../model/imageRoom.php');
-    require('../../library/Image.php');
 
     $id = (int)$_GET['id'];
+
     $room = new Room();
-    $kindRoom = new KindRoom();
     $list_room = $room->show_room_whereID($id);
     $id_kindroom = $list_room['kind_of_room_id'];
+
+    $kindRoom = new KindRoom();
     $list_kindroom = $kindRoom->show_kindRoom();
     $list_kindroom_id = $room->show_kindRoom_whereID($id_kindroom);
+
     if(isset($_POST['btn_submit'])) {
-
         $ten = $_POST['title'];
-        $moTa = $_POST['moTa'];
-        $gia = $_POST['gia'];
-
         $idKindRoom = $_POST['idKindRoom'];
         $trangThai = $_POST['trangThai'];
-
-        // upload thumnail
-        $uploadThumnail = new Image();
-        $uploadPathThumnail = $uploadThumnail->upload($_FILES['thumbnail']['tmp_name'], $_FILES['thumbnail']['name']);
-
-
-         // upload Image
-        $imageNames = [];
-        foreach ($_FILES['images']['name'] as $key => $name) {
-            // $uploadPathImage= $upaloadDir . $name;
-            // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
-            if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
-                $uploadImage = new Image();
-                $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
-                $imageNames[] = $uploadPathImage;
-            }
-        }
 
         $roomId = [
             'room_id' => $id,
@@ -51,23 +31,7 @@
 
         $room->update($roomId, $data);
 
-        // Img Room
-        $Id = [
-            'room_image_id' => $id,
-        ];
-
-        foreach($imageNames as $imagePath) {
-            $imageRoomData = [
-                // 'room_id' => $roomId,
-                'image_room' => $imagePath,
-            ];
-            $imageRoom = new imageRoom();
-            $imageRoom->update($Id, $imageRoomData);
-        }
-        // echo "<pre/>";
-        // var_dump($imageNames);
-        // die;
-        if(isset($connect)) {
+        if($connect) {
             header('location:room.php');
         }
 

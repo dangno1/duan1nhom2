@@ -1,38 +1,19 @@
 <?php
     require('../../model/room.php');
-    require('../../model/imageRoom.php');
-    require('../../library/Image.php');
 
-$sql = "SELECT * FROM `kindRoom`";
-$show = $connect->query($sql);
-$show->execute();
-$list = $show->fetchAll();
+    $sql = "SELECT * FROM `kindRoom`";
+    $show = $connect->query($sql);
+    $show->execute();
+    $list = $show->fetchAll();
+
     if(isset($_POST['btn_submit'])) {
         $ten = $_POST['title'];
-        $moTa = $_POST['moTa'];
-        $gia = $_POST['gia'];
         $idKindRoom = $_POST['idKindRoom'];
         $trangThai = $_POST['trangThai'];
 
         if($ten == "") {
             $err= "phai nhap het cac cot";
         } else {
-            // upload thumnail
-            $uploadThumnail = new Image();
-            $uploadPathThumnail = $uploadThumnail->upload($_FILES['thumbnail']['tmp_name'], $_FILES['thumbnail']['name']);
-
-            // upload Image
-            $imageNames = [];
-            foreach ($_FILES['images']['name'] as $key => $name) {
-                // $uploadPathImage= $upaloadDir . $name;
-                // move_uploaded_file($_FILES['images']['tmp_name'][$key], $uploadPathImage);
-                if(!empty($_FILES['images']['tmp_name'][$key]) && !empty($name)) {
-                    $uploadImage = new Image();
-                    $uploadPathImage = $uploadImage->upload($_FILES['images']['tmp_name'][$key], $name);
-                    $imageNames[] = $uploadPathImage;
-                }
-            }
-
             $roomData = [
                 'name_room' => $ten,
                 'image_room' => $uploadPathThumnail,
@@ -43,17 +24,7 @@ $list = $show->fetchAll();
             ];
 
             $room = new Room();
-            $roomId = $room->add($roomData);
-
-            // Img Room
-            foreach($imageNames as $imagePath) {
-                $imageRoomData = [
-                    'room_id' => $roomId,
-                    'image_room' => $imagePath,
-                ];
-                $imageRoom = new imageRoom();
-                $imageRoom->add($imageRoomData);
-            }
+            $room->add($roomData);
             
             if($connect) {
                 header('location:room.php');
@@ -133,12 +104,12 @@ $list = $show->fetchAll();
                     <label for="">Kind Of Room ID</label> <br>
                     <select name="idKindRoom" id="">
                         <?php
-                        foreach ($list as $value) {
+                            foreach ($list as $value) {
                         ?>
                         <option value="<?php echo $value['kind_of_room_id'] ?>"><?php echo $value['kind_of_room'] ?>
                         </option>
                         <?php
-                        }
+                            }
                         ?>
                     </select>
                 </div>
