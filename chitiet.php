@@ -95,7 +95,7 @@
                             <p>Giường ngủ</p>
                         </div>
                     </div>
-                    <div class="comment-list">
+                    <!-- <div class="comment-list">
                         <h3>Comment về sản phẩm</h3>
                         <?php 
                     if(!empty($comments)) :?>
@@ -111,15 +111,15 @@
                         <?php endforeach;?>
                         <?php endif;?>
                         <hr>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="room-price">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="price">
                             <h4>Bắt Đầu Đặt</h4>
                             <input readonly="False" name="price_room" id="price_room" value="<?=$kindRoom['price']?>"
-                                class="price-item">
-                            <div class="night">VND OVERNIGHT</div>
+                                class="price-item"><span class="night">VND</span>
+                            
                         </div>
                         <div class="date-room">
                             <div class="pick-date">

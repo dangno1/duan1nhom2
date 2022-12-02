@@ -20,6 +20,7 @@
                 </a>
                 <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
                 <span class="price"><?php echo $item['price'] ?> VNĐ</span>
+                <br>
                 <a><button class="book_room">ĐẶT PHÒNG</button></a>
             </div>
         <?php
