@@ -39,10 +39,13 @@
                     <h2>User</h2>
                 </a>
                 <a href="../bookedRoom/bookedroom.php">
-                    <h2>Roombooked</h2>
+                    <h2>Booked Room</h2>
                 </a><br>
                 <a href="./cmt.php">
                     <h2>Comment</h2>
+                </a>
+                <a href="../order_detailed/order_detailed.php">
+                    <h2>Order Detailed</h2>
                 </a>
                 <h2>Statistical</h2>
             </div>

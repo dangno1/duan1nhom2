@@ -2,35 +2,15 @@
     require('../../model/connect.php');
     require('../../model/bookedRoom.php');
     require('../../model/room.php');
-    // require('../../model/orderDetails.php');
     $bookedRoom = new BookedRoom();
     $list = $bookedRoom->getDataBookedRoom();
-if (isset($_POST['search_detailed'])){
-    $data_search = $_POST['search_detailed'];
-    $list = $bookedRoom->searchBookedRoom($data_search);
-} else if ($list < 0){
-    $list = '';
-}
-    date_default_timezone_set("Asia/Ho_Chi_Minh");
-
-    // $sql = "SELECT name_room FROM room LEFT JOIN roombooked ON room.kind_of_room_id = roombooked.kind_of_room_id";
-    // $show = $connect->query($sql);
-    // $show->execute();
-    // $list_room = $show->fetchAll();
-
-    if(isset($_POST['btn_submit'])) {
-        foreach ($list as $item) {
-            $idRoombooked = $item['rombooked_id'];
-            $kindOfRoom = $item['kind_of_room'];
-            $username = $item['name_user'];
-            $startTime = $item['start_time'];
-            $endTime = $item['end_time'];
-            $amount = $item['amount'];
-            $toalMoney =  $item['total_money'];
-        }
-        $nameRoom = $_POST['name_room_order'];
-        // echo $nameRoom;
+    if (isset($_POST['search_detailed'])){
+        $data_search = $_POST['search_detailed'];
+        $list = $bookedRoom->searchBookedRoom($data_search);
+    } else if ($list < 0){
+        $list = '';
     }
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +46,7 @@ if (isset($_POST['search_detailed'])){
                     <h2>User</h2>
                 </a><br>
                 <a href="bookedroom.php">
-                    <h2>Roombooked</h2>
+                    <h2>Booked Room</h2>
                 </a><br>
                 <a href="../comment/cmt.php">
                     <h2>Comment</h2>
