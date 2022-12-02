@@ -116,7 +116,7 @@
                     <textarea class="the" name="describe" id="" cols="192" rows="7" required value="<?php echo $listKindRoom['describe']?>"></textarea>
                 </div>
                 <div>
-                    <label class="tin" for="">Image</label>
+                    <label class="tin" for="">Thumbnail</label>
                     <input class="the" type="file" name="anh" required value="<?php echo $listKindRoom['image']?>">
                     <img src="<?php echo $listKindRoom['image']?>" width="200px" height="200px">
                 </div>

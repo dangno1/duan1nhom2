@@ -31,7 +31,6 @@ table th {
 td a {
     text-decoration: none;
     color: aliceblue;
-
 }
 
 tr {
@@ -48,8 +47,4 @@ tr td {
     color: aliceblue;
     height: 50px;
     border: 2px solid black;
-}
-
-#id {
-    width: 130px;
 }

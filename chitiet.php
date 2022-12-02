@@ -191,12 +191,12 @@
             <input type="checkbox" name="" class="switch-toggle" id="light-dark">
         </div>
         <?php 
-        } else {
-    ?>
+            } else {
+        ?>
         <h2>Phong ko ton tai</h2>
         <?php
-        }
-    ?>
+            }
+        ?>
     <?php require('./view/footer.php'); ?>
     <script>
         let price = document.getElementById('price_room');

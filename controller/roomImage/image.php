@@ -31,8 +31,11 @@
                 <a href="../room/room.php"><h2>Room</h2></a> <br>
                 <a href="../roomImage/image.php"><h2>Room Image</h2></a>
                 <a href="../user/user.php"><h2>User</h2></a><br>
-                <h2>Roombooked</h2>
+                <a href="../bookedRoom/bookedroom.php"><h2>Booked Room</h2></a>
                 <a href="../comment/cmt.php"><h2>Comment</h2></a>
+                <a href="../order_detailed/order_detailed.php">
+                    <h2>Order Detailed</h2>
+                </a>
                 <h2>Statistical</h2>
             </div>
             <div class="logout">
@@ -65,7 +68,7 @@
                             <tr>
                                 <td> <?php echo $a; ?></td>
                                 <td><?php echo $item['kind_of_room'] ?></td>
-                                <td><img src="<?php echo "../room/" . $item['image_room'] ?>" width="200px" height="100px"></td>
+                                <td><img src="<?php echo "../kindRoom/" . $item['image_room'] ?>" width="200px" height="100px"></td>
                                 <td>
                                     <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['room_image_id'] ?>">Delete</a>
                                 </td>

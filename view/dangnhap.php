@@ -53,8 +53,8 @@
             <div class="form-group">
                 <i class="fas fa-key"></i>
                 <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu" required>
-               
             </div>
+            <a href="./passWord.php"><h2>Quên Mật Khẩu</h2></a>
             <input type="submit" value="Đăng Nhập" name="btn_submit" class="form-submit">
             <a href="dangky.php"><input type="button" value="Đăng Ký" class="form-submit"></a>
         </form>
