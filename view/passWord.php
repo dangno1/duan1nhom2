@@ -19,7 +19,7 @@
             header('location:./user.php?user_id='.$mailUser['user_id']);
         } else {
             echo "Email Ban Nhap Khong Dung";
-        }   
+        }
     }
 ?>
 <!DOCTYPE html>
