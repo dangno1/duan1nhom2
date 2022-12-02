@@ -15,7 +15,7 @@
                 
                 // --
                 
-                $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,roombooked.total_money,kindroom.describe,roombooked.start_time,roombooked.end_time,roombooked.amount FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id WHERE roombooked.user_id = $userID";
+                $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,roombooked.total_money,kindroom.describe,roombooked.start_time,roombooked.end_time,roombooked.amount,roombooked.status FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id WHERE roombooked.user_id = $userID";
                 $result = $connect->query($sql_imageroom);
                 $result->execute();
                 $room_infor = $result->fetchAll();
@@ -118,6 +118,7 @@
                                 <th class="text-right" width="40%">MÔ TẢ</th>
                                 <th class="text-center" width="20%">ẢNH PHÒNG</th>
                                 <th class="text-center" width="10%">SỐ LƯỢNG </th>
+                                <th class="text-center" width="10%">Status </th>
 
 
                             </tr>
@@ -137,7 +138,7 @@
                                             height="70%" class="cangiua"></span></td>
 
                                 <td class="text-center"><?php echo $item['amount'] ?></td>
-
+                                <td class="text-center"><?php echo $item['status'] ?></td>
                             </tr>
 
 
