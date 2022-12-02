@@ -42,6 +42,7 @@
         </div>
         <hr>
         <div class="hangHoa">
+            <a href="add.php"><button>ADD Admin</button></a>
             <table>
                 <thead>
                 <tr>
