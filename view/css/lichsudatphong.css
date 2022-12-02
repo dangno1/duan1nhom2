@@ -1,251 +1,136 @@
-
-
-@font-face {
-    font-family: roboto;
-    src: url(font/Roboto/Roboto-Regular.ttf);
-}
-/* body {
-    
-    max-width: 1400px;
+body{
+    margin-top:50px;
+    background:#eee;
+    max-width: 1200px;
     margin: 0 auto;
+}
+
+.invoice {
+    background: #fff;
+    padding: 20px
+}
+
+.invoice-company {
+    font-size: 20px
+}
+
+.invoice-header {
+    margin: 0 -20px;
+    background: #f0f3f4;
+    padding: 20px
+}
+
+.invoice-date,
+.invoice-from,
+.invoice-to {
+    display: table-cell;
+    width: 1%
+}
+table.table table-invoice{
+    text-align: center;
+}
+.invoice-from,
+.invoice-to {
+    padding-right: 20px
+}
+
+.invoice-date .date,
+.invoice-from strong,
+.invoice-to strong {
+    font-size: 16px;
+    font-weight: 600
+}
+img.cangiua {display: block; margin-left: auto; margin-right: auto;}
+/* .roomimg img{
+   
     
+   
+    width: 150px;
 } */
-.container{
-    margin: 0 auto;
-    max-width: 1300px;
-    padding: 0;
-    margin-top: 60px;
-    width: 100%;
-    border: 1px solid gray;
-    
+th,td{
+    text-align: center;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    width: 100%;
-    height: 60px;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    max-width: 1100px;
-    border-bottom: 1px solid #E5E5E5;
-    /* padding: 1em; */
-    color: black;
-    background-color: white;
-    /* clear: left;
-     */
+.text-center{
+    width: 20%;
 }
-.logo img {
-    width: 148px;
+.invoice-date {
+    text-align: right;
+    padding-left: 20px
 }
 
-nav ul li {
-    display: inline-block;
+.invoice-price {
+    background: #f0f3f4;
+    display: table;
+    width: 100%
 }
 
-nav ul li:not(:first-child) {
-    margin-left: 40px;
-}
-
-nav ul li:hover {
-    border-bottom: 2px solid #3252DF;
-
-}
-
-nav ul li a {
-    text-decoration: 0;
-    color: #152C5B;
+.invoice-price .invoice-price-left,
+.invoice-price .invoice-price-right {
+    display: table-cell;
+    padding: 20px;
     font-size: 20px;
-    font-weight: 900;
-    text-transform: uppercase;
-
-}
-
-nav ul li a:hover {
-    color: #3252DF;
-    text-shadow: 0 0 2px #002fff;
-}
-
-.sign-in__sign-out button {
-    width: 100px;
-    margin-left: 20px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 8px;
-    border: 1px solid #F54748;
-    font-size: 15px;
     font-weight: 600;
-    color: #F54748;
-    text-transform: capitalize;
+    width: 75%;
+    position: relative;
+    vertical-align: middle
+    
 }
 
-.sign-in__sign-out button:hover {
-    background-color: #F54748;
-    border: 0;
+.invoice-price .invoice-price-left .sub-price {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20px
+}
+
+.invoice-price small {
+    font-size: 12px;
+    font-weight: 400;
+    display: block
+}
+
+.invoice-price .invoice-price-row {
+    display: table;
+    float: left
+}
+
+.invoice-price .invoice-price-right {
+    width: 25%;
+    background: #2d353c;
     color: #fff;
-}
-/* H1{
-    text-align: center;
-} */
-/* .body{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 60px;
-    margin-top: 100px;
-} */
-
-body { margin: 20px; }
-
-.marquee {
-  height: 40px;
-  width: 100%;
-  background-color: #444;
-  color: #dee2e6;
-  overflow: hidden;
-  position: relative;
- 
-  font-size: 20pt;
+    font-size: 28px;
+    text-align: right;
+    vertical-align: bottom;
+    font-weight: 300
 }
 
-.marquee div {
-  display: block;
-  width: 200%;
-  height: 30px;
-
-  position: absolute;
-  overflow: hidden;
-
-  animation: marquee 5s linear infinite;
+.invoice-price .invoice-price-right small {
+    display: block;
+    opacity: .6;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 12px
 }
 
-.marquee span {
-  float: left;
-  width: 50%;
+.invoice-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    font-size: 10px
 }
 
-@keyframes marquee {
-  0% { left: 0; }
-  100% { left: -100%; }
-}
-.container_body{
-    margin: 0 auto;
-    max-width: 1100px;
+.invoice-note {
+    color: #999;
+    margin-top: 80px;
+    font-size: 85%
 }
 
-.infor{
-    font-size: 15pt;
-    
-}
-.thongtinnguoidat{
-    margin-top: 60px;
+.invoice>div:not(.invoice-footer) {
+    margin-bottom: 20px
 }
 
-table,th,td{
-border: 1px solid;
-
-} 
-.the{
-    background-color: darkgray;
-    text-align: center;
-        color: black;
-     
+.btn.btn-white, .btn.btn-white.disabled, .btn.btn-white.disabled:focus, .btn.btn-white.disabled:hover, .btn.btn-white[disabled], .btn.btn-white[disabled]:focus, .btn.btn-white[disabled]:hover {
+    color: #2d353c;
+    background: #fff;
+    border-color: #d9dfe3;
 }
-.thongtinphong{
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
-table tr:nth-child(odd){
-    background-color:#eee;
-}
-table tr:nth-child(even){
-    background-color:white;
-}
-table tr:nth-child(1){
-    background-color:skyblue;
-}
-table.infor_nguoidat{
-    table-layout:fixed;
-	width:100%;
-    border-collapse:collapse;
-    text-align: center;
-}
-table.infor_phong{
-    table-layout:fixed;
-	width:100%;
-    border-collapse:collapse;
-    text-align: center;
-}
-
- th, td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #dee2e6; 
-     /* Ngăn chặn văn bản xuống dòng */
-}
- h1{
-    text-align: center;
-    font-style: italic;
-    margin-top: 20px;
- }
- 
-.responsive-table {
-    overflow-x: auto;
-    
-} 
-
-/* table.infor_phong.loaiphong{width: 15%;}
-table.infor_phong.image{width: 35%;}
-table.infor_phong.songuoi{width: 20%; text-align: center;}
-table.infor_phong.gia{width: 10%; text-align: center;}
-table.infor_phong.diachi{width: 20%; text-align: right;} */ */
-
-
-
-
-/* ------------------------ */
-
-footer>ul {
-    margin: 0px;
-    padding: 0px;
-}
-div.stars {
-    width: 270px;
-    display: inline-block;
-  }
-   
-  input.star { display: none; }
-   
-  label.star {
-    float: right;
-    padding: 10px;
-    font-size: 36px;
-    color: #444;
-    transition: all .2s;
-  }
-   
-  input.star:checked ~ label.star:before {
-    content: '\f005';
-    color: #FD4;
-    transition: all .25s;
-  }
-   
-  input.star-5:checked ~ label.star:before {
-    color: #FE7;
-    text-shadow: 0 0 20px #952;
-  }
-   
-  input.star-1:checked ~ label.star:before { color: #F62; }
-   
-  label.star:hover { transform: rotate(-15deg) scale(1.3); }
-   
-  label.star:before {
-    content: '\f006';
-    font-family: FontAwesome;
-  }
-
-/* ------------------------------ */
-
-  
