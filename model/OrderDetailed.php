@@ -8,9 +8,6 @@ class orderDetailed
     {
         $sql = "INSERT INTO `order_detailed`(`room_id` , `rombooked_id` , `amount` , `order_status`) VALUES ('$room_id' , '$roombooked_id' , '$amount' , '$status')";
         $result = $GLOBALS['connect']->query($sql);
-        if ($result) {
-            echo '<div class="susbok">Đặt phòng thành công</div>';
-        }
     }
 
     public function updateStatusRoombook($roombooked_id){
