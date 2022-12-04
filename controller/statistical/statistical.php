@@ -1,6 +1,6 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT kindRoom.*, COUNT(roombooked.kind_of_room_id) AS 'number' FROM roombooked INNER JOIN kindRoom ON roombooked.kind_of_room_id = kindRoom.kind_of_room_id  GROUP BY roombooked.kind_of_room_id";
+    $sql = "SELECT kindroom.*, COUNT(roombooked.kind_of_room_id) AS 'number' FROM roombooked INNER JOIN kindroom ON roombooked.kind_of_room_id = kindroom.kind_of_room_id  GROUP BY roombooked.kind_of_room_id";
     $show = $connect->query($sql);
     $show->execute();
     $data = $show->fetchAll();
