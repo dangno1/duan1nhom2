@@ -1,6 +1,6 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT kindRoom.kind_of_room, roomImage.image_room 
+    $sql = "SELECT kindRoom.kind_of_room, roomImage.image_room, roomImage.room_image_id
     FROM kindRoom INNER JOIN roomImage 
     ON kindRoom.kind_of_room_id = roomImage.kind_of_room_id";
     // SELECT kindRoom.kind_of_room, roomImage.image_room FROM kindRoom INNER JOIN roomImage 

@@ -26,7 +26,9 @@
             <a href="./order_detailed/order_detailed.php">
                 <h2>Order Detailed</h2>
             </a>
-            <h2>Statistical</h2>
+            <a href="./statistical/statistical.php">
+                <h2>Statistical</h2>
+            </a>
         </div>
         <div class="logout">
             <a href="../index.php">

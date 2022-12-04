@@ -93,8 +93,8 @@
                 <div>
                     <label for="">Status_Room</label>
                     <select name="trangThai"> <br>
-                        <option value="Còn trống">Còn trống</option>
-                        <option value="Đã được đặt">Đã được đặt</option>
+                        <option value="Có Thể Sử Dụng">Có Thể Sử Dụng</option>
+                        <option value="Bảo Trì">Bảo Trì</option>
                     </select>
                 </div>
                 <?php
