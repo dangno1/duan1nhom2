@@ -12,4 +12,12 @@ class Comment
 
         return $result;
     }
+
+    public function update($idCmt)
+    {
+        $sql = "UPDATE `comment` SET `status` = 'Đã Duyệt' WHERE `comment`.`comment_id` = {$idCmt}";
+        $result = $GLOBALS['connect']->query($sql);
+
+        return $result;
+    }
 }

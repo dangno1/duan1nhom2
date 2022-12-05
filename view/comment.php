@@ -8,8 +8,8 @@
             $today = date("Y/m/d");
             $maKH = $_SESSION['user_id'];
     
-            $sql = "INSERT INTO `comment` (`comment_id`, `kind_of_room_id`, `user_id`, `content_comment`, `date_created_comment`) 
-            VALUES (NULL, '{$id_room}', '{$maKH}', '{$title}', '{$today}')";
+            $sql = "INSERT INTO `comment` (`comment_id`, `kind_of_room_id`, `user_id`, `content_comment`, `date_created_comment`, `status`) 
+            VALUES (NULL, '{$id_room}', '{$maKH}', '{$title}', '{$today}', 'Chưa Duyệt')";
             $result = $connect->query($sql);
             
             echo "<script>alert('Cam on da binh luan ve san pham.')</script>";

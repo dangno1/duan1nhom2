@@ -67,6 +67,8 @@
                             <th>User</th>
                             <th>Noi Dung</th>
                             <th>Ngay Comment</th>
+                            <th>Status</th>
+                            <th>Duyệt</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -80,6 +82,8 @@
                             <td><?php echo $item['user_id'] ?></td>
                             <td><?php echo $item['content_comment'] ?></td>
                             <td><?php echo $item['date_created_comment'] ?></td>
+                            <td><?php echo $item['status'] ?></td>
+                            <td><a href="./update.php?comment_id=<?=$item['comment_id']?>"><button>Duyệt</button></a></td>
                             <td>
                                 <a onclick="return confirm('Do you want delete?')"
                                     href="delete.php?id=<?php echo $item['comment_id'] ?>">Delete</a>
