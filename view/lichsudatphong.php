@@ -129,6 +129,7 @@
                             <span class="text-inverse"><?php echo $item['end_time'] ?></span>
                         </div>
                     </div>
+                    <?php require("./danhgia.php") ?>
                 </div>
                 <div class="invoice-price-right">
                     <small>TOTAL</small> 
