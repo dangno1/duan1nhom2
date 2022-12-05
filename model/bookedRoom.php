@@ -9,8 +9,8 @@ class BookedRoom
         $sql = "INSERT INTO roombooked(kind_of_room_id, user_id, start_time, end_time,amount, total_money, status) VALUES ('$kind_of_room_id','$user_id','$start_time','$end_time','$amount','$total_money','Chưa Duyệt')";
         $result = $GLOBALS['connect']->query($sql);
         if ($result) {
-            echo '<div class="susbok">Đơn Hàng Đã Được Thêm Vào Lịch Sử</div>';
-        } else echo '<div class="susbok">Đơn Hàng Đã Được Thêm Vào Lịch Sử</div>';
+            echo "<script>alert('Dat Thanh Cong')</script>";
+        } else echo "<script>alert('Dat Thanh Cong')</script>";
     }
     public function getDataBookedRoom(){
         $sql = "SELECT rb.rombooked_id , rb.user_id , rb.kind_of_room_id , rb.start_time ,rb.end_time ,rb.amount ,
