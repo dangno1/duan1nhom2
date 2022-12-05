@@ -1,12 +1,12 @@
 <?php
 require '../../model/OrderDetailed.php';
 $order = new orderDetailed();
-$list_order_detailed = $order->getDataOrderDetailed();
+
 if (isset($_POST['search_detailed'])){
     $data_search = $_POST['search_detailed'];
-    $list_order_detailed = $order->searchOrderDetailed($data_search);
-} else if ($list_order_detailed < 0){
-    $list_order_detailed = '';
+    $data_search == '' ? $list_order_detailed = $order->getDataOrderDetailed() : $list_order_detailed = $order->searchOrderDetailed($data_search);
+} else {
+    $list_order_detailed = $order->getDataOrderDetailed();
 }
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 $date = date("Y-m-d");
@@ -69,8 +69,8 @@ $date = date("Y-m-d");
             </div>
             <hr>
             <div class="hangHoa">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <input type="text" name="search_detailed" placeholder="Nhập User name...">
+                <form action="" method="post" enctype="multipart/form-data" class="search">
+                    <input type="text" name="search_detailed" placeholder="phone number...">
                     <input type="submit" value="Tìm kiếm">
                 </form>
                 <table>
@@ -80,6 +80,7 @@ $date = date("Y-m-d");
                             <th>Kind of room</th>
                             <th>Room</th>
                             <th>User name</th>
+                            <th>Number phone</th>
                             <th>start time</th>
                             <th>End time</th>
                             <th>Amount</th>
@@ -97,13 +98,14 @@ $date = date("Y-m-d");
                             <td><?=$item['name_room']?></td>
                             <td><?=$item['kind_of_room']?></td>
                             <td><?=$item['name_user']?></td>
+                            <td><?=$item['phone_number_user']?></td>
                             <td><?=$item['start_time']?></td>
                             <td><?=$item['end_time']?></td>
                             <td><?=$item['amount']?> người</td>
                             <td><?=$item['total_money']?> VND</td>
                             <td>
                                 <?php
-                                if ($date >= $item['end_time'] && $item['order_status'] == 'Đang sử dụng'){
+                                if ($date >= $item['end_time'] && $item['order_status'] == 'Đang Sử Dụng'){
                                 ?>
                                     <a href="update.php?room_id=<?=$item['room_id']?>&order_id=<?=$item['id_order_detailed']?>"><button>Trả phòng</button></a>
                                 <?php

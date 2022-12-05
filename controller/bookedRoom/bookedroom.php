@@ -3,12 +3,12 @@
     require('../../model/bookedRoom.php');
     require('../../model/room.php');
     $bookedRoom = new BookedRoom();
-    $list = $bookedRoom->getDataBookedRoom();
+
     if (isset($_POST['search_detailed'])){
         $data_search = $_POST['search_detailed'];
-        $list = $bookedRoom->searchBookedRoom($data_search);
-    } else if ($list < 0){
-        $list = '';
+        $data_search == '' ? $list = $bookedRoom->getDataBookedRoom() : $list = $bookedRoom->searchBookedRoom($data_search);
+    } else{
+        $list = $bookedRoom->getDataBookedRoom();
     }
         date_default_timezone_set("Asia/Ho_Chi_Minh");
 ?>
@@ -70,8 +70,8 @@
             </div>
             <hr>
             <div class="hangHoa">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <input type="text" name="search_detailed" placeholder="Nhập User name...">
+                <form action="" method="post" enctype="multipart/form-data" class="search">
+                    <input type="text" name="search_detailed" placeholder="phone number...">
                     <input type="submit" value="Tìm kiếm">
                 </form>
                 <table>
@@ -80,6 +80,7 @@
                             <th class="id">id</th>
                             <th>Kind of room</th>
                             <th>User name</th>
+                            <th>Number phone</th>
                             <th>start time</th>
                             <th>End time</th>
                             <th>Amount</th>
@@ -96,6 +97,7 @@
                             <td class="id"><?=$item['rombooked_id']?></td>
                             <td><?=$item['kind_of_room']?></td>
                             <td><?=$item['name_user']?></td>
+                            <td><?=$item['phone_number_user']?></td>
                             <td><?=$item['start_time']?></td>
                             <td><?=$item['end_time']?></td>
                             <td><?=$item['amount']?> người</td>
@@ -112,27 +114,30 @@
 
                                     <select name="room_order">
                                         <?php
-                                                $list_room = $bookedRoom->getDataRoom($item['kind_of_room_id']);
-                                                foreach ($list_room as $value_room) {
-                                                    ?>
+                                        $list_room = $bookedRoom->getDataRoom($item['kind_of_room_id']);
+                                        foreach ($list_room as $value_room) {
+                                        ?>
                                         <option value="<?=$value_room['room_id']?>"><?=$value_room['name_room']?>
                                         </option>
                                         <?php
-                                                }
-                                                ?>
+                                        }
+                                        ?>
                                     </select>
                                     <button type="submit">OK</button>
-
                                     <?php
-                                            } else{
-                                        ?>
+                                            if (empty($value_room)){
+                                                echo '<a href="huyBookedRoom.php?id='.$item['rombooked_id'].'">
+                                                      <input type="button" value="Hủy"></a>';
+                                            }
+                                    } else{
+                                    ?>
 
                                     <select disabled>
                                         <option value="">Đang chờ</option>
                                     </select>
                                     <?php
-                                            }
-                                        ?>
+                                        }
+                                    ?>
                                 </form>
                             </td>
                         </tr>
