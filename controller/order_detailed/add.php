@@ -3,12 +3,23 @@ require '../../model/OrderDetailed.php';
 if (isset($_POST['room_order']) && isset($_GET['rombooked_id'])){
     $room_id = $_POST['room_order'];
     $roombooked_id = $_GET['rombooked_id'];
+    $amount = $_GET['amount'];
+    $amount_max = $_GET['amount_max'];
+    $order = new orderDetailed();
+    if ($amount > $amount_max ){
+        $order->add($room_id,$roombooked_id,$amount_max,'Đang sử dụng');
+        $order->updateAmountRoombook($roombooked_id, $amount , $amount_max);
+    } else{
+        $sql = "select `amount` from `roombooked` where `rombooked_id` = '$roombooked_id'";
+        $result = $GLOBALS['connect']->query($sql);
+        $amount = $result->fetch();
+        $order->updateStatusRoombook($roombooked_id);
+        $order->add($room_id,$roombooked_id,$amount['amount'],'Đang sử dụng');
+    }
+
+    $order->updateStatusRoom($room_id,'Bảo trì');
+    $list_order_detailed = $order->getDataOrderDetailed();
 }
-$order = new orderDetailed();
-$order->add($room_id,$roombooked_id,'Đang sử dụng');
-$order->updateStatusRoombook($roombooked_id);
-$order->updateStatusRoom($room_id,'Bảo trì');
-$list_order_detailed = $order->getDataOrderDetailed();
 ?>
 <script>
 alert('thêm thành công')
