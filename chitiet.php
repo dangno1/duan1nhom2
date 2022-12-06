@@ -197,8 +197,8 @@
         <?php
             }
         ?>
-    <?php require('./view/footer.php'); ?>
-    <script>
+        <?php require('./view/footer.php'); ?>
+        <script>
         let price = document.getElementById('price_room');
 
         document.getElementById('add').onclick = function(event) {

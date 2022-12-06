@@ -95,8 +95,8 @@ $date = date("Y-m-d");
                 ?>
                         <tr>
                             <td><?=$item['id_order_detailed']?></td>
-                            <td><?=$item['name_room']?></td>
                             <td><?=$item['kind_of_room']?></td>
+                            <td><?=$item['name_room']?></td>
                             <td><?=$item['name_user']?></td>
                             <td><?=$item['phone_number_user']?></td>
                             <td><?=$item['start_time']?></td>
@@ -107,7 +107,9 @@ $date = date("Y-m-d");
                                 <?php
                                 if ($date >= $item['end_time'] && $item['order_status'] == 'Đang Sử Dụng'){
                                 ?>
-                                    <a href="update.php?room_id=<?=$item['room_id']?>&order_id=<?=$item['id_order_detailed']?>"><button>Trả phòng</button></a>
+                                <a
+                                    href="update.php?room_id=<?=$item['room_id']?>&order_id=<?=$item['id_order_detailed']?>"><button>Trả
+                                        phòng</button></a>
                                 <?php
                                 }else {
                                     echo '<input disabled type="submit" name="traphong" value="Trả phòng" >                                         ';

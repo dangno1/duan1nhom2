@@ -104,7 +104,8 @@
                             <td><?=$item['total_money']?></td>
                             <td><?=$item['status']?></td>
                             <td>
-                                <form action="../order_detailed/add.php?rombooked_id=<?=$item['rombooked_id']?>&amount=<?=$item['amount']?>&amount_max=<?=$item['quantity_max']?>"
+                                <form
+                                    action="../order_detailed/add.php?rombooked_id=<?=$item['rombooked_id']?>&amount=<?=$item['amount']?>&amount_max=<?=$item['quantity_max']?>"
                                     method="post" enctype="multipart/form-data">
                                     <?php
                                         $date = date("Y-m-d");
