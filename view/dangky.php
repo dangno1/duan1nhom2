@@ -7,7 +7,7 @@
         $pass = $_POST['pass'];
         $email = $_POST['email'];
 
-        $sql = "SELECT * FROM `user` WhERE `mail_user` = '{$email}'";
+        $sql = "SELECT * FROM `user` WhERE `mail_user` = '{$email}' OR `phone_number_user` = '{$phone}'";
         $show = $connect->query($sql);
         $show->execute();
         $Array_mail = $show->fetch();
@@ -15,7 +15,7 @@
         if($name == "" || $pass == "" || $email == "" || $phone == "") {
             echo "<script>alert('Phai Nhap Het Cac Truong!!!')</script>";
         } else if($Array_mail) {
-            echo "<script>alert('Email Da Ton Tai!!!')</script>";
+            echo "<script>alert('Email Da Ton Tai Hoac So Dien Thoai Da Ton Tai!!!')</script>";
         } else {
             $data = [
                 'name_user' => $name,
