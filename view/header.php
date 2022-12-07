@@ -5,8 +5,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="">home</a></li>
-                <li><a href="">room</a></li>
+                <li><a href="../index.php">home</a></li>
+                <li><a href="./view/htroom.php">room</a></li>
                 <li><a href="">about</a></li>
                 <li><a href="./view/lichsudatphong.php">Hotel Booking History</a></li>
             </ul>
@@ -26,6 +26,7 @@
             } else {
         ?>
             <div class="sign-in__sign-out">
+                <a href="./view/htuser.php"><i class="fas fa-user"></i></a>
                 <a href="./view/dangxuat.php"><button>Logout</button></a>
             </div>
         <?php

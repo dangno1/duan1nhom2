@@ -1,8 +1,9 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,14 @@
     <title>Home</title>
     <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./view/css/style.css">
-    <!-- /opt/lampp/htdocs/test/duAn1_nhom2/view/css/style.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body> 
-    <?php require('./view/header.php')?>
-    <?php require('./view/banner.php')?>
-    <?php require('./view/body.php')?>
-    <?php require('./view/footer.php')?>
+
+<body>
+    <?php require('./view/header.php') ?>
+    <?php require('./view/banner.php') ?>
+    <?php require('./view/body.php') ?>
+    <?php require('./view/footer.php') ?>
 </body>
+
 </html>
