@@ -10,7 +10,7 @@
     } else if ($list < 0){
         $list = '';
     }
-        date_default_timezone_set("Asia/Ho_Chi_Minh");
+    date_default_timezone_set("Asia/Ho_Chi_Minh");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,7 @@
                 <a href="../user/user.php">
                     <h2>User</h2>
                 </a><br>
-                <a href="bookedroom.php">
+                <a href="../bookedRoom/bookedroom.php">
                     <h2>Booked Room</h2>
                 </a><br>
                 <a href="../comment/cmt.php">
@@ -54,12 +54,12 @@
                 <a href="../order_detailed/order_detailed.php">
                     <h2>Order Detailed</h2>
                 </a>
-                <a href="#">
+                <a href="../statistical/statistical.php">
                     <h2>Statistical</h2>
                 </a>
             </div>
             <div class="logout">
-                <a href="../../index.php">
+                <a href="../dangXuat.php">
                     <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
                 </a>
             </div>

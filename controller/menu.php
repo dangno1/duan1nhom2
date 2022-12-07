@@ -31,7 +31,7 @@
             </a>
         </div>
         <div class="logout">
-            <a href="../index.php">
+            <a href="./dangXuat.php">
                 <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
             </a>
         </div>
