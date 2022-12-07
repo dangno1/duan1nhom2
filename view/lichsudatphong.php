@@ -168,7 +168,7 @@
     <?php 
         } else {
     ?>
-    <h2>bạn chưa đăng nhập</h2>
+    <h2>Bạn chưa đăng nhập</h2>
     <?php
         }
     ?>

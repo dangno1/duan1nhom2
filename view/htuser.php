@@ -11,19 +11,21 @@ $list = $show->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<div class="container">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="./css/deitails.css">
-        <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./css/user.css">
-    </head>
 
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/deitails.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/user.css">
+</head>
+
+<body>
+    <div class="container">
         <header>
             <div class="logo">
                 <a href="../index.php"><img src="../view/img/logo.png" alt=""></a>
@@ -51,7 +53,7 @@ $list = $show->fetch();
             } else {
             ?>
                 <div class="sign-in__sign-out">
-                    <a href="htuser.php"><i class="fas fa-user"></i></a>
+                    <a href="htuser.php"><i class="fas fa-user" ></i></a>
                     <a href="../view/dangxuat.php"><button>Logout</button></a>
                 </div>
             <?php
@@ -63,6 +65,7 @@ $list = $show->fetch();
                 <h1>Thông tin user</h1>
 
                 <div class="tt">
+                    <div class="anh"><img src="../view/img/avata.png" alt=""></div> 
                     <label for="">Name user</label>
                     <div class="ht"><?php echo $list['name_user'] ?></div>
                     <label for="">Email</label>
@@ -73,8 +76,24 @@ $list = $show->fetch();
 
             </div>
         </main>
-    </body>
-    </style>
-</div>
+    </div>
+    <footer>
+        <div class="footer">
+            <p class="text">
+                All material herein © 2005–2022 Agoda Company Pte. Ltd. All Rights Reserved. <br> <br>
+                Agoda is part of Booking Holdings Inc., the world leader in online travel & related services.
+            </p>
+            <p class="icon-footer">
+                <img src="../view/img/ft1.png" alt="">
+                <img src="../view/img/ft2.png" alt="">
+                <img src="../view/img/ft3.png" alt="">
+                <img src="../view/img/ft4.png" alt="">
+                <img src="../view/img/ft5.png" alt="">
+                <img src="../view/img/ft6.png" alt="">
+            </p>
+        </div>
+    </footer>
+</body>
+
 
 </html>
