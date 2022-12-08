@@ -6,7 +6,7 @@
 
         $kind_of_room_id = $_GET['kind_of_room_id'];
 
-        $sql = "SELECT * FROM `kindRoom` WHERE `kind_of_room_id` = $kind_of_room_id";
+        $sql = "SELECT * FROM `kindroom` WHERE `kind_of_room_id` = $kind_of_room_id";
         $result = $connect->query($sql);
         $result->execute();
         $kindRoom = $result->fetch();

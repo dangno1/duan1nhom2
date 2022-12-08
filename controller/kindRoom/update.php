@@ -5,7 +5,7 @@
 
     $id = (int)$_GET['id'];
     // lay du lieu cu
-    $sql = "SELECT * FROM `kindRoom` WHERE kind_of_room_id = {$id}";
+    $sql = "SELECT * FROM `kindroom` WHERE kind_of_room_id = {$id}";
     $result = $GLOBALS['connect']->query($sql);
     $listKindRoom = $result->fetch();
 

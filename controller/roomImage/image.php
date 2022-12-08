@@ -1,8 +1,8 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT kindroom.kind_of_room, roomImage.image_room, roomImage.room_image_id
-    FROM kindroom INNER JOIN roomImage 
-    ON kindroom.kind_of_room_id = roomImage.kind_of_room_id";
+    $sql = "SELECT kindroom.kind_of_room, roomimage.image_room, roomimage.room_image_id
+    FROM kindroom INNER JOIN roomimage 
+    ON kindroom.kind_of_room_id = roomimage.kind_of_room_id";
 
     $show = $connect->query($sql);
     $show->execute();
