@@ -18,7 +18,7 @@
         $room_img = $result->fetchAll();
 
         //get comment
-        $commentSql = "SELECT comment.content_comment, user.name_user FROM comment INNER JOIN user ON comment.user_id = user.user_id WHERE  comment.status ='Đã Duyệt'";
+        $commentSql = "SELECT comment.content_comment, user.name_user FROM comment INNER JOIN user ON comment.user_id = user.user_id WHERE  comment.status ='Đã Duyệt' AND comment.kind_of_room_id = $kind_of_room_id";
         $result = $connect->query($commentSql);
         $result->execute();
         $comments = $result->fetchAll();
