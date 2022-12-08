@@ -1,10 +1,9 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT kindRoom.kind_of_room, roomImage.image_room, roomImage.room_image_id
-    FROM kindRoom INNER JOIN roomImage 
-    ON kindRoom.kind_of_room_id = roomImage.kind_of_room_id";
-    // SELECT kindRoom.kind_of_room, roomImage.image_room FROM kindRoom INNER JOIN roomImage 
-    // ON kindRoom.kind_of_room_id = roomImage.kind_of_room_id;
+    $sql = "SELECT kindroom.kind_of_room, roomimage.image_room, roomimage.room_image_id
+    FROM kindroom INNER JOIN roomimage 
+    ON kindroom.kind_of_room_id = roomimage.kind_of_room_id";
+
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -27,19 +26,33 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php"><h2 class="kind">Kind Of Room</h2></a>
-                <a href="../room/room.php"><h2>Room</h2></a> <br>
-                <a href="../roomImage/image.php"><h2>Room Image</h2></a>
-                <a href="../user/user.php"><h2>User</h2></a><br>
-                <a href="../bookedRoom/bookedroom.php"><h2>Booked Room</h2></a>
-                <a href="../comment/cmt.php"><h2>Comment</h2></a>
+                <a href="../kindRoom/kindRoom.php">
+                    <h2 class="kind">Kind Of Room</h2>
+                </a>
+                <a href="../room/room.php">
+                    <h2>Room</h2>
+                </a> <br>
+                <a href="../roomImage/image.php">
+                    <h2>Room Image</h2>
+                </a>
+                <a href="../user/user.php">
+                    <h2>User</h2>
+                </a><br>
+                <a href="../bookedRoom/bookedroom.php">
+                    <h2>Booked Room</h2>
+                </a><br>
+                <a href="../comment/cmt.php">
+                    <h2>Comment</h2>
+                </a>
                 <a href="../order_detailed/order_detailed.php">
                     <h2>Order Detailed</h2>
                 </a>
-                <h2>Statistical</h2>
+                <a href="../statistical/statistical.php">
+                    <h2>Statistical</h2>
+                </a>
             </div>
             <div class="logout">
-                <a href="../../index.php">
+                <a href="../dangXuat.php">
                     <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
                 </a>
             </div>

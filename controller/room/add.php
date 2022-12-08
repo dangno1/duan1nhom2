@@ -1,7 +1,7 @@
 <?php
     require('../../model/room.php');
 
-    $sql = "SELECT * FROM `kindRoom`";
+    $sql = "SELECT * FROM `kindroom`";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();

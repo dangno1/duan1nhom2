@@ -11,7 +11,7 @@ class KindRoom
         $describe = $data['describe'];
         $image = $data['image'];
 
-        $sql = "INSERT INTO `kindRoom` (`kind_of_room_id`, `kind_of_room`, `price`, `describe`, `image`) 
+        $sql = "INSERT INTO `kindroom` (`kind_of_room_id`, `kind_of_room`, `price`, `describe`, `image`) 
         VALUES (NULL, '{$title}', '{$price}', '{$describe}', '{$image}')";
 
         $conn = $GLOBALS['connect'];
@@ -28,8 +28,8 @@ class KindRoom
         $describe = $kind_of_room['describe'];
         $image = $kind_of_room['image'];
 
-        $sql = "UPDATE `kindRoom` SET `kind_of_room` = '{$title}', `price` = '{$price}', `describe` = '{$describe}', `image` = '{$image}' 
-        WHERE `kindRoom`.`kind_of_room_id` = {$id}";
+        $sql = "UPDATE `kindroom` SET `kind_of_room` = '{$title}', `price` = '{$price}', `describe` = '{$describe}', `image` = '{$image}' 
+        WHERE `kindroom`.`kind_of_room_id` = {$id}";
         
         $result = $GLOBALS['connect']->query($sql);
 
@@ -38,8 +38,8 @@ class KindRoom
     public function delete($id_kindRoom)
     {
         $id = $id_kindRoom['kind_of_room_id'];
-        $sql = "DELETE FROM `kindRoom` 
-        WHERE `kindRoom`.`kind_of_room_id` = {$id}";
+        $sql = "DELETE FROM `kindroom` 
+        WHERE `kindroom`.`kind_of_room_id` = {$id}";
         $result = $GLOBALS['connect']->query($sql);
 
         return $result;
@@ -47,7 +47,7 @@ class KindRoom
 
     public function show_kindRoom()
     {
-        $sql = "SELECT * FROM `kindRoom`";
+        $sql = "SELECT * FROM `kindroom`";
         $result = $GLOBALS['connect']->query($sql);
         $list = $result->fetchAll();
         return $list;

@@ -7,8 +7,15 @@
         $pass = $_POST['pass'];
         $email = $_POST['email'];
 
+        $sql = "SELECT * FROM `user` WhERE `mail_user` = '{$email}' OR `phone_number_user` = '{$phone}'";
+        $show = $connect->query($sql);
+        $show->execute();
+        $Array_mail = $show->fetch();
+
         if($name == "" || $pass == "" || $email == "" || $phone == "") {
-            echo "phai nhap het cac cot";
+            echo "<script>alert('Phai Nhap Het Cac Truong!!!')</script>";
+        } else if($Array_mail) {
+            echo "<script>alert('Email Da Ton Tai Hoac So Dien Thoai Da Ton Tai!!!')</script>";
         } else {
             $data = [
                 'name_user' => $name,
@@ -46,7 +53,7 @@
                 <input type="email" class="form-input" name="email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại">
+                <input type="tel" class="form-input" name="phone" pattern="(09|03|07|08|05)+([0-9]{8})" placeholder="Số điện thoại">
             </div>
             <div class="form-group">
                 <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu">

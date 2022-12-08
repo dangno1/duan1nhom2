@@ -1,6 +1,6 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT room.room_id,room.name_room,kindRoom.kind_of_room, room.status FROM room INNER JOIN kindRoom ON room.kind_of_room_id = kindRoom.kind_of_room_id;";
+    $sql = "SELECT room.room_id,room.name_room,kindroom.kind_of_room, room.status FROM room INNER JOIN kindroom ON room.kind_of_room_id = kindroom.kind_of_room_id;";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
@@ -28,7 +28,7 @@
             <div class="category-1">
                 <a href="../kindRoom/kindRoom.php">
                     <h2 class="kind">Kind Of Room</h2>
-                </a> <br>
+                </a>
                 <a href="../room/room.php">
                     <h2>Room</h2>
                 </a> <br>
@@ -37,18 +37,22 @@
                 </a>
                 <a href="../user/user.php">
                     <h2>User</h2>
-                </a> <br>
-                <h2>Booked Room</h2>
+                </a><br>
+                <a href="../bookedRoom/bookedroom.php">
+                    <h2>Booked Room</h2>
+                </a><br>
                 <a href="../comment/cmt.php">
                     <h2>Comment</h2>
                 </a>
                 <a href="../order_detailed/order_detailed.php">
                     <h2>Order Detailed</h2>
                 </a>
-                <h2>Statistical</h2>
+                <a href="../statistical/statistical.php">
+                    <h2>Statistical</h2>
+                </a>
             </div>
             <div class="logout">
-                <a href="../../index.php">
+                <a href="../dangXuat.php">
                     <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
                 </a>
             </div>
