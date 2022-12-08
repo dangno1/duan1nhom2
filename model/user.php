@@ -8,7 +8,7 @@ class user
     {
         $phone = $data['phone_number_user'];
         $name = $data['name_user'];
-        $pass =md5($data['password_user']);
+        $pass = md5($data['password_user']);
         $email = $data['mail_user'];
 
         $sql = "INSERT INTO `user` (`user_id`, `name_user`, `phone_number_user`, `password_user`, `status`, `id_role`, `mail_user`) 
@@ -24,7 +24,7 @@ class user
     {
         $phone = $data['phone_number_user'];
         $name = $data['name_user'];
-        $pass =md5($data['password_user']);
+        $pass = md5($data['password_user']);
         $email = $data['mail_user'];
 
         $sql = "INSERT INTO `user` (`user_id`, `name_user`, `phone_number_user`, `password_user`, `status`, `id_role`, `mail_user`) 
@@ -36,11 +36,12 @@ class user
         return $result;
     }
 
-    public function update($data, $idUser) {
+    public function update($data, $idUser)
+    {
 
         $phone = $data['phone_number_user'];
         $name = $data['name_user'];
-        $pass =md5($data['password_user']);
+        $pass = md5($data['password_user']);
         $email = $data['mail_user'];
 
         $sql = "UPDATE `user` SET `name_user` = '{$name}', `phone_number_user` = '{$phone}', `password_user` = '{$pass}', `mail_user` = '{$email}' 

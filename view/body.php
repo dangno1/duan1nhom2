@@ -71,7 +71,7 @@ $list = $show->fetchAll();
                             <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                         </div>
                     </a>
-                    <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
+                    <strong><?php echo $item['kind_of_room'] ?></strong>
                     <span class="price"><?php echo $item['price'] ?> VNĐ</span>
                     <a><button class="book_room">ĐẶT PHÒNG</button></a>
                 </div>
@@ -81,3 +81,13 @@ $list = $show->fetchAll();
         </div>
     </div>
 </main>
+<style>
+    .content_item strong{
+        font-weight: bold;
+    margin: 15px 0;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    }
+</style>

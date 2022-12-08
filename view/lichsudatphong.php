@@ -32,9 +32,9 @@
             <nav>
                 <ul>
                     <li><a href="../index.php">home</a></li>
-                    <li><a href="">room</a></li>
+                    <li><a href="./htroom.php">room</a></li>
                     <li><a href="">about</a></li>
-                    <li><a href="./view/lichsudatphong.php">Hotel Booking History</a></li>
+                    <li><a href="./lichsudatphong.php">Hotel Booking History</a></li>
                 </ul>
             </nav>
 
@@ -49,7 +49,8 @@
                 } else {
             ?>
             <div class="sign-in__sign-out">
-                <a href="../view/dangxuat.php"><button>Logout</button></a>
+            <a href="./htuser.php"><i class="fas fa-user"></i></a>
+                <a href="./dangxuat.php"><button>Logout</button></a>
             </div>
             <?php
                 }
@@ -167,7 +168,7 @@
     <?php 
         } else {
     ?>
-    <h2>bạn chưa đăng nhập</h2>
+    <h2>Bạn chưa đăng nhập</h2>
     <?php
         }
     ?>

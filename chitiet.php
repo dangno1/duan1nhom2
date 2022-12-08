@@ -34,6 +34,8 @@
     <title>Chi Tiet</title>
     <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./view/css/deitails.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
