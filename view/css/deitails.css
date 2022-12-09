@@ -484,10 +484,17 @@ footer {
 
     h3 {
         margin-left: 20px;
-        color: #707573;
+        color: black;
         font-weight: 700;
     }
 
+    .h3_bottom h3{
+        color: black;
+        padding-top: 20px;
+        margin: 20px 0px;
+        font-size: 30px;
+        text-align: center;
+    }
     .room-next {
         color: #707573;
         font-weight: 700;
@@ -594,12 +601,14 @@ footer {
     }
 
     .tile span {
-        color: #B0B0B0;
-        font-size: 25px;
+        color: black;
+        font-size: 50px;
+        margin-bottom: 20px;
     }
 
     .tile h2 {
         padding: 10px 0;
+        margin-top: 20px;
     }
 
     .deitail-room {
@@ -630,8 +639,10 @@ footer {
     }
 
     .room-desc h3 {
-        font-size: 25px;
+        color: black;
         padding-top: 20px;
+        margin: 20px 0px;
+        font-size: 30px;
     }
 
     .room-desc p {
@@ -662,11 +673,6 @@ footer {
         border-radius: 15px;
         margin-right: 50px;
         box-shadow: 0px 8px 15px rgba(145, 145, 146, 0.3);
-    }
-
-    .night {
-        color: #E5E5E5;
-        font-size: 30px;
     }
 
     .date-room {
@@ -846,11 +852,15 @@ footer {
         max-width: 100%;
     }
 }
-
+textarea{
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
 h5.username {
     font-size: 18px;
     padding-left: 35px;
     padding-top: 10px;
+    margin-bottom: 15px;
 }
 
 .comment-content {

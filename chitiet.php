@@ -112,20 +112,18 @@
                         </div>
                         <?php endforeach;?>
                         <?php endif;?>
-                        <hr>
                     </div>
                 </div>
                 <div class="room-price">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="price">
                             <h4>Bắt Đầu Đặt</h4>
-                            <input readonly="False" name="price_room" id="price_room" value="<?=$kindRoom['price']?>"
+                            <input readonly="False" name="price_room" id="price_room" value="<?=$kindRoom['price'] ?>VND"
                                 class="price-item">
-                            <div class="night">VND OVERNIGHT</div>
                         </div>
                         <div class="date-room">
                             <div class="pick-date">
-                                <h4>Chọn ngày Vào</h4>
+                                <h4>Chọn ngày đến</h4>
                                 <input name="start_time" type="date" id="dt" class="calendar" required>
                                 <h4>Chọn ngày trả phòng</h4>
                                 <input name="end_time" type="date" id="de" class="calendar" onchange="dateEnd()"
@@ -170,7 +168,7 @@
                     </form>
                 </div>
             </div>
-            <h3> Khám phá Khách sạn</h3>
+            <div class="h3_bottom"><h3> Khám phá Khách sạn</h3></div>
             <div class="room-next">
                 <div class="zoom next">
                     <img src="./view/img/deitail/next.jpg" alt="">

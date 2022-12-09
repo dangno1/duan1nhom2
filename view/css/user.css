@@ -43,4 +43,7 @@ footer{
     border-radius: 130px;
     margin-bottom: 15px;
 }
-
+.ht a{
+    text-decoration: none;
+    color: black;
+}

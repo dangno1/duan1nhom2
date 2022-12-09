@@ -62,7 +62,7 @@ $list = $show->fetch();
         </header>
         <main>
             <div class="container">
-                <h1>Thông tin user</h1>
+                <h1>Thông Tin User</h1>
 
                 <div class="tt">
                     <div class="anh"><img src="../view/img/avata.png" alt=""></div> 
