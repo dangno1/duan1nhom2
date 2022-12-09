@@ -115,9 +115,8 @@ nav ul li a:hover {
     margin: 30px 0;
 }
 
-
-.search{
-    margin-bottom:20px ;
+.search {
+    margin-bottom: 20px;
     width: 350px;
     height: 50px;
     border: 1px solid#3252DF;
@@ -126,8 +125,9 @@ nav ul li a:hover {
     padding-left: 20px;
     font-size: 18px;
 }
+
 .submit {
-    margin-bottom:20px ;
+    margin-bottom: 20px;
     width: 100px;
     height: 50px;
     background-color: #3252DF;
@@ -141,8 +141,6 @@ nav ul li a:hover {
     grid-template-columns: 350px 100px;
     height: 50px;
 }
-
-
 
 .banner_item .banner_search button:hover {
     background-color: rgb(255, 97, 97);
@@ -178,11 +176,11 @@ nav ul li a:hover {
     margin-top: 70px;
     margin-bottom: 50px;
     text-transform: capitalize;
-    
+
 }
 
 .content_item {
-    margin-top:20px ;
+    margin-top: 20px;
     background-color: rgb(244, 244, 244);
     height: 350px;
     border-radius: 10px;
@@ -220,10 +218,6 @@ nav ul li a:hover {
     font-size: 20px
 }
 
-
-
-
-
 footer {
     padding: 50px;
     padding-top: 48px;
@@ -237,4 +231,29 @@ footer {
 .footer {
     max-width: 1506px;
     margin: 0 auto;
+}
+
+.page {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.page ul{
+    display: inline-block;
+    text-decoration: none;
+}
+
+.page ul a {
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+}
+
+.content_item strong{
+    font-weight: bold;
+    margin: 15px 0;
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
 }

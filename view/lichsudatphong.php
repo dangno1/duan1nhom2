@@ -6,13 +6,13 @@
         $username = $_SESSION['name_user'];
         $userID = $_SESSION['user_id'];
         
-        
         $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
         $result = $connect->query($sql_user);
         $result->execute();
         $user_infor = $result->fetch();
         
-        $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,roombooked.total_money,kindroom.describe,roombooked.start_time,roombooked.end_time,roombooked.amount,roombooked.status FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id WHERE roombooked.user_id = $userID";
+        $sql_imageroom = "SELECT kindroom.kind_of_room,kindroom.image,roombooked.total_money,kindroom.describe,roombooked.start_time,roombooked.end_time,roombooked.amount,roombooked.status 
+        FROM kindroom INNER JOIN roombooked ON kindroom.kind_of_room_id = roombooked.kind_of_room_id WHERE roombooked.user_id = $userID ORDER BY roombooked.created_time DESC";
         $result = $connect->query($sql_imageroom);
         $result->execute();
         $room_infor = $result->fetchAll();
@@ -160,9 +160,6 @@
                     <img src="./img/ft6.png" alt="">
                 </p>
             </div>
-
-
-
         </footer>
     </div>
     <?php 
@@ -172,5 +169,4 @@
     <?php
         }
     ?>
-    <!-- end invoice-footer -->
 </div>

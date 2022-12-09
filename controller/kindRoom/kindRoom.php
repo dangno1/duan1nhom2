@@ -1,9 +1,27 @@
 <?php
     require('../../model/connect.php');
-    $sql = "SELECT * FROM `kindroom`";
+    $sql = "SELECT count(*) FROM `kindroom`";
     $show = $connect->query($sql);
     $show->execute();
-    $list = $show->fetchAll();
+    // so ban ghi trong database
+    $totalPage = $show->fetchColumn();
+
+    $limit = 6;
+    $page = ceil($totalPage / $limit);
+
+    if(isset($_GET['page'])) {
+        $paging = $_GET['page'];  
+    } else {
+        $paging = 1;
+    }
+
+    // lay ban ghi tiep theo
+    $offset = $limit * ($paging - 1);
+
+    $sql_limit = "SELECT * FROM `kindroom` limit $limit offset $offset";
+    $show_limit = $connect->query($sql_limit);
+    $show_limit->execute();
+    $list_limit = $show_limit->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +97,7 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($list as $item) {
+                        foreach ($list_limit as $item) {
                         ?>
                             <tr>
                             <td><?php echo $item['kind_of_room_id'] ?></td>
@@ -97,6 +115,15 @@
                         ?>
                     </tbody>
                 </table>
+                <div class="page">
+                    <?php
+                        for($i = 1; $i <= $page; $i++) {
+                    ?>
+                        <ul><a href="kindRoom.php?page=<?php echo $i;?>"><?php echo $i; ?></a></ul>
+                    <?php
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </div>

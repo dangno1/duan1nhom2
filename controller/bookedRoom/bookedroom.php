@@ -107,37 +107,21 @@
                                 <form
                                     action="../order_detailed/add.php?rombooked_id=<?=$item['rombooked_id']?>&amount=<?=$item['amount']?>&amount_max=<?=$item['quantity_max']?>"
                                     method="post" enctype="multipart/form-data">
-                                    <?php
-                                        $date = date("Y-m-d");
-                                        $date_start = date("{$item['start_time']}");
-                                        if ($date >= $date_start) {
-                                    ?>
-
                                     <select name="room_order">
                                         <?php
-                                        $list_room = $bookedRoom->getDataRoom($item['kind_of_room_id']);
-                                        foreach ($list_room as $value_room) {
+                                            $list_room = $bookedRoom->getDataRoom($item['kind_of_room_id']);
+                                            foreach ($list_room as $value_room) {
                                         ?>
                                         <option value="<?=$value_room['room_id']?>"><?=$value_room['name_room']?>
                                         </option>
                                         <?php
-                                        }
+                                            }
                                         ?>
                                     </select>
                                     <button type="submit">OK</button>
                                     <?php
-                                            if (empty($value_room)){
-                                                echo '<a href="huyBookedRoom.php?id='.$item['rombooked_id'].'">
-                                                      <input type="button" value="Hủy"></a>';
-                                            }
-                                    } else{
-                                    ?>
-
-                                    <select disabled>
-                                        <option value="">Đang chờ</option>
-                                    </select>
-                                    <?php
-                                        }
+                                        echo '<a href="huyBookedRoom.php?id='.$item['rombooked_id'].'">
+                                        <input type="button" value="Hủy"></a>';
                                     ?>
                                 </form>
                             </td>

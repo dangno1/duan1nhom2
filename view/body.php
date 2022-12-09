@@ -1,9 +1,9 @@
 <?php
 require('model/connect.php');
-$sql = "SELECT * FROM `kindroom`";
-$show = $connect->query($sql);
-$show->execute();
-$list = $show->fetchAll();
+    $sql = "SELECT * FROM `kindroom`";
+    $show = $connect->query($sql);
+    $show->execute();
+    $list = $show->fetchAll();
 ?>
 <main>
     <div class="banner_search">
@@ -25,69 +25,55 @@ $list = $show->fetchAll();
                 } else {
                     echo "Tìm thấy kết quả với từ khóa: " . $timkiem . "<br>"
         ?>
-                    <main>
-                        <div class="room">
-
-                            <div class="content">
-                                <?php
-                                foreach ($count as $item) {
-                                ?>
-                                    <div class="content_item">
-                                        <form action="" method="POST">
-                                            <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
-                                                <div class="content_item_img">
-                                                    <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
-                                                </div>
-                                            </a>
-                                            <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
-                                            <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                                            <a><button class="book_room">ĐẶT PHÒNG</button></a>
-                                        </form>
+        <main>
+            <div class="room">
+                <div class="content">
+                    <?php
+                    foreach ($count as $item) {
+                    ?>
+                        <div class="content_item">
+                            <form action="" method="POST">
+                                <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
+                                    <div class="content_item_img">
+                                        <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                                     </div>
-                                <?php
-                                }
-                                ?>
-                            </div>
+                                </a>
+                                <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
+                                <span class="price"><?php echo $item['price'] ?> VNĐ</span>
+                                <a><button class="book_room">ĐẶT PHÒNG</button></a>
+                            </form>
                         </div>
-                    </main>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </main>
         <?php
                 }
             }
         }
-
         ?>
-
-
     </div>
     <div class="room">
         <h2>Kind Of Room</h2>
-        <div class="content">
-            <?php
-            foreach ($list as $item) {
-            ?>
-                <div class="content_item">
-                    <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
-                        <div class="content_item_img">
-                            <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
-                        </div>
-                    </a>
-                    <strong><?php echo $item['kind_of_room'] ?></strong>
-                    <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                    <a><button class="book_room">ĐẶT PHÒNG</button></a>
-                </div>
-            <?php
-            }
-            ?>
-        </div>
+            <div class="content">
+                <?php
+                foreach ($list as $item) {
+                ?>
+                    <div class="content_item">
+                        <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
+                            <div class="content_item_img">
+                                <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
+                            </div>
+                        </a>
+                        <strong><?php echo $item['kind_of_room'] ?></strong>
+                        <span class="price"><?php echo $item['price'] ?> VNĐ</span>
+                        <a><button class="book_room">ĐẶT PHÒNG</button></a>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
     </div>
 </main>
-<style>
-    .content_item strong{
-        font-weight: bold;
-    margin: 15px 0;
-    font-size: 25px;
-    color: black;
-    text-decoration: none;
-    display: inline-block;
-    }
-</style>
