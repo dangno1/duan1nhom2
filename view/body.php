@@ -38,11 +38,10 @@ $list = $show->fetchAll();
                                                 <div class="content_item_img">
                                                     <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                                                 </div>
-                                                <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p> <br>
+                                                <strong><?php echo $item['kind_of_room'] ?></strong> <br>
                                                 <span class="price"><?php echo $item['price'] ?> VNĐ</span> <br>
-                                                <a><button class="book_room">ĐẶT PHÒNG</button></a>
+                                                <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>"><button class="book_room">ĐẶT PHÒNG</button></a>
                                             </a>
-
                                         </form>
                                     </div>
                                 <?php
@@ -82,13 +81,3 @@ $list = $show->fetchAll();
         </div>
     </div>
 </main>
-<style>
-    .content_item strong {
-        font-weight: bold;
-        margin: 15px 0;
-        font-size: 25px;
-        color: black;
-        text-decoration: none;
-        display: inline-block;
-    }
-</style>

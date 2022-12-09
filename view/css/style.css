@@ -216,8 +216,12 @@ nav ul li a:hover {
 }
 
 .content_item strong {
+    font-weight: bold;
     margin: 15px 0;
-    font-size: 35px
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
 }
 .content_item span{
     margin: 20px 0px;
@@ -228,12 +232,8 @@ nav ul li a:hover {
 .book_room{
     height: 50px;
     width: 50%;
+    border-radius: 30px;
 }
-
-
-
-
-
 footer {
     padding: 50px;
     padding-top: 48px;
@@ -247,4 +247,8 @@ footer {
 .footer {
     max-width: 1506px;
     margin: 0 auto;
+}
+form{
+    margin-top: -250px;
+    margin-bottom: 300px;
 }
