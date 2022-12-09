@@ -59,7 +59,7 @@
         </div>
         <hr>
         <div class="hangHoa">
-            <a href="add.php"><button>ADD Admin</button></a>
+            <button class="nut-add"><a href="add.php">ADD Admin</a></button>
             <table>
                 <thead>
                 <tr>

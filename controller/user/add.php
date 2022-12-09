@@ -8,7 +8,7 @@
         $email = $_POST['email'];
 
         if($name == "" || $pass == "" || $email == "" || $phone == "") {
-            echo "phai nhap het cac cot";
+            // echo "phai nhap het cac cot";
         } else {
             $data = [
                 'name_user' => $name,
@@ -64,19 +64,19 @@
             <form action="" method="POST" class="form-login">
                 <div class="form-group">
                     <label for="">Tên đăng nhập</label> <br>
-                    <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập">
+                    <input type="text" class="form-input" name="user" placeholder="Tên đăng nhập" required>
                 </div>
                 <div class="form-group">
                     <label for="">Email</label> <br>
-                    <input type="email" class="form-input" name="email" placeholder="Email">
+                    <input type="email" class="form-input" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-group">
                     <label for="">Số điện thoại</label> <br>
-                    <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại">
+                    <input type="phone" class="form-input" name="phone" placeholder="Số điện thoại" required>
                 </div>
                 <div class="form-group">
                     <label for="">Mật Khẩu</label> <br>
-                    <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu">
+                    <input type="password" class="form-input" name="pass" placeholder="Mật Khẩu" required>
                 </div>
                 <input type="submit" value="Đăng ký" name="btn_submit" class="form-submit">
             </form>
