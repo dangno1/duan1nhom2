@@ -17,7 +17,7 @@
     // lay ban ghi tiep theo
     $offset = $limit * ($paging - 1);
 
-    $sql_limit = "SELECT * FROM `comment` limit $limit offset $offset";
+    $sql_limit = "SELECT * FROM `comment` ORDER BY `comment`.`date_created_comment` DESC  limit $limit offset $offset";
     $show_limit = $connect->query($sql_limit);
     $show_limit->execute();
     $list_limit = $show_limit->fetchAll();

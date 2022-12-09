@@ -88,7 +88,8 @@
                             <th>Name Room</th>
                             <th>Kind Of Room ID</th>
                             <th>Status Room</th>
-                            <th>Delete and Update</th>
+                            <th>Ẩn Phòng</th>
+                            <th>Update</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,11 +101,8 @@
                             <td><?php echo $item['name_room'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
                             <td><?php echo $item['status'] ?></td>
-                            <td>
-                                <a onclick="return confirm('Do you want delete?')"
-                                    href="delete.php?id=<?php echo $item['room_id'] ?>">Delete</a>
-                                <a href="update.php?id=<?php echo $item['room_id'] ?>">Update</a>
-                            </td>
+                            <td><a href="delete.php?id=<?php echo $item['room_id'] ?>"><button>Ẩn</button></a></td>
+                            <td><a href="update.php?id=<?php echo $item['room_id'] ?>">Update</a></td>
                         </tr>
                         <?php
                             }

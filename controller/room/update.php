@@ -102,8 +102,8 @@
                     <select name="trangThai">
                         <option selected value="<?php echo $list_room['status']?>"><?php echo $list_room['status']?>
                         </option>
-                        <option value="Còn trống">Còn trống</option>
-                        <option value="Đã được đặt">Đã được đặt</option>
+                        <option value="Có thể sử dụng">Có thể sử dụng</option>
+                        <option value="Bảo trì">Bảo trì</option>
                     </select>
                 </div>
                 <?php

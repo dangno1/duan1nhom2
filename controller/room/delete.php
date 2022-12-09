@@ -8,7 +8,7 @@
     ];
 
     $room = new Room();
-    $room->delete($roomId);
+    $room->update_status($roomId);
     if($connect) {
         header('location:room.php');
     }

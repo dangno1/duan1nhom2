@@ -33,10 +33,10 @@ class Room
         return $result;
     }
 
-    public function delete($roomId)
+    public function update_status($roomId)
     {
         $id = $roomId['room_id'];
-        $sql = "DELETE FROM `room` WHERE `room`.`room_id` = {$id}";
+        $sql = "UPDATE `room` SET `status` = 'Bảo trì' WHERE `room`.`room_id` = {$id}";
         $result = $GLOBALS['connect']->query($sql);
 
         return $result;
