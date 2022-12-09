@@ -25,82 +25,82 @@ $date = date("Y-m-d");
 </head>
 
 <body>
-<div class="admin">
-    <div class="category">
-        <div class="logo">
-            <a href="../quanTri.php"><img src="../../view/img/logo.png" alt=""></a>
+    <div class="admin">
+        <div class="category">
+            <div class="logo">
+                <a href="../quanTri.php"><img src="../../view/img/logo.png" alt=""></a>
+            </div>
+            <hr>
+            <div class="category-1">
+                <a href="../kindRoom/kindRoom.php">
+                    <h2 class="kind">Kind Of Room</h2>
+                </a>
+                <a href="../room/room.php">
+                    <h2>Room</h2>
+                </a> <br>
+                <a href="../roomImage/image.php">
+                    <h2>Room Image</h2>
+                </a>
+                <a href="../user/user.php">
+                    <h2>User</h2>
+                </a><br>
+                <a href="../bookedRoom/bookedroom.php">
+                    <h2>Booked Room</h2>
+                </a><br>
+                <a href="../comment/cmt.php">
+                    <h2>Comment</h2>
+                </a>
+                <a href="../order_detailed/order_detailed.php">
+                    <h2>Order Detailed</h2>
+                </a>
+                <a href="../statistical/statistical.php">
+                    <h2>Statistical</h2>
+                </a>
+            </div>
+            <div class="logout">
+                <a href="../dangXuat.php">
+                    <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
+                </a>
+            </div>
         </div>
-        <hr>
-        <div class="category-1">
-            <a href="../kindRoom/kindRoom.php">
-                <h2 class="kind">Kind Of Room</h2>
-            </a>
-            <a href="../room/room.php">
-                <h2>Room</h2>
-            </a> <br>
-            <a href="../roomImage/image.php">
-                <h2>Room Image</h2>
-            </a>
-            <a href="../user/user.php">
-                <h2>User</h2>
-            </a><br>
-            <a href="../bookedRoom/bookedroom.php">
-                <h2>Booked Room</h2>
-            </a><br>
-            <a href="../comment/cmt.php">
-                <h2>Comment</h2>
-            </a>
-            <a href="../order_detailed/order_detailed.php">
-                <h2>Order Detailed</h2>
-            </a>
-            <a href="../statistical/statistical.php">
-                <h2>Statistical</h2>
-            </a>
-        </div>
-        <div class="logout">
-            <a href="../dangXuat.php">
-                <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
-            </a>
-        </div>
-    </div>
-    <div class="content">
-        <div>
-            <h1>Order Detailed</h1>
-        </div>
-        <hr>
-        <div class="hangHoa">
-            <table>
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Kind of room</th>
-                    <th>Room</th>
-                    <th>User name</th>
-                    <th>Number phone</th>
-                    <th>start time</th>
-                    <th>End time</th>
-                    <th>Amount</th>
-                    <th>Total money</th>
-                    <th>Trả phòng</th>
-                    <th>Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
+        <div class="content">
+            <div>
+                <h1>Order Detailed</h1>
+            </div>
+            <hr>
+            <div class="hangHoa">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Kind of room</th>
+                            <th>Room</th>
+                            <th>User name</th>
+                            <th>Number phone</th>
+                            <th>start time</th>
+                            <th>End time</th>
+                            <th>Amount</th>
+                            <th>Total money</th>
+                            <th>Trả phòng</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
                 foreach ($list_order_detailed as $item) {
                     ?>
-                    <tr>
-                        <td><?=$item['id_order_detailed']?></td>
-                        <td><?=$item['kind_of_room']?></td>
-                        <td><?=$item['name_room']?></td>
-                        <td><?=$item['name_user']?></td>
-                        <td><?=$item['phone_number_user']?></td>
-                        <td><?=$item['start_time']?></td>
-                        <td><?=$item['end_time']?></td>
-                        <td><?=$item['amount']?> người</td>
-                        <td><?=$item['total_money']?> VND</td>
-                        <td>
-                            <?php
+                        <tr>
+                            <td><?=$item['id_order_detailed']?></td>
+                            <td><?=$item['kind_of_room']?></td>
+                            <td><?=$item['name_room']?></td>
+                            <td><?=$item['name_user']?></td>
+                            <td><?=$item['phone_number_user']?></td>
+                            <td><?=$item['start_time']?></td>
+                            <td><?=$item['end_time']?></td>
+                            <td><?=$item['amount']?> người</td>
+                            <td><?=$item['total_money']?> VND</td>
+                            <td>
+                                <?php
                             if ($date >= $item['end_time'] && $item['order_status'] == 'Đang Sử Dụng'){
                                 ?>
                                 <a
@@ -111,19 +111,19 @@ $date = date("Y-m-d");
                                 echo '<input disabled type="submit" name="traphong" value="Trả phòng" >                                         ';
                             }
                             ?>
-                        </td>
-                        <td><?=$item['order_status']?></td>
-                    </tr>
-                    <?php
+                            </td>
+                            <td><?=$item['order_status']?></td>
+                        </tr>
+                        <?php
                 }
                 ?>
-                </tbody>
-            </table>
-            <a href="order_detailed.php">
-                <button style="cursor: pointer">Quay lại</button></a>
+                    </tbody>
+                </table>
+                <a href="order_detailed.php">
+                    <button style="cursor: pointer">Quay lại</button></a>
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>
