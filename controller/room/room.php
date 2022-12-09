@@ -1,9 +1,26 @@
 <?php 
     require('../../model/connect.php');
-    $sql = "SELECT room.room_id,room.name_room,kindroom.kind_of_room, room.status FROM room INNER JOIN kindroom ON room.kind_of_room_id = kindroom.kind_of_room_id;";
+    $sql = "SELECT count(*) FROM `room`";
     $show = $connect->query($sql);
     $show->execute();
-    $list = $show->fetchAll();
+   // so ban ghi trong database
+    $totalPage = $show->fetchColumn();
+
+    $limit = 10;
+    $page = ceil($totalPage / $limit);
+
+    if(isset($_GET['page'])) {
+        $paging = $_GET['page'];  
+    } else {
+        $paging = 1;
+    }
+    // lay ban ghi tiep theo
+    $offset = $limit * ($paging - 1);
+
+    $sql_limit = "SELECT room.room_id,room.name_room,kindroom.kind_of_room, room.status FROM room INNER JOIN kindroom ON room.kind_of_room_id = kindroom.kind_of_room_id limit $limit offset $offset";
+    $show_limit = $connect->query($sql_limit);
+    $show_limit->execute();
+    $list_limit = $show_limit->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +93,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            foreach ($list as $item) {
+                            foreach ($list_limit as $item) {
                         ?>
                         <tr>
                             <td><?php echo $item['room_id'] ?></td>
@@ -94,6 +111,15 @@
                         ?>
                     </tbody>
                 </table>
+                <div class="page">
+                    <?php
+                        for($i = 1; $i <= $page; $i++) {
+                    ?>
+                        <ul><a href="room.php?page=<?php echo $i;?>"><?php echo $i; ?></a></ul>
+                    <?php
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </div>

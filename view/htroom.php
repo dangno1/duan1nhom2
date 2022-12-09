@@ -1,22 +1,32 @@
 <?php
-require('../model/connect.php');
-require('../model/room.php');
-require('../model/kindRoom.php');
-session_start();
-if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
-    $username = $_SESSION['name_user'];
-    $userID = $_SESSION['user_id'];
+    require('../model/connect.php');
+    require('../model/room.php');
+    require('../model/kindRoom.php');
 
-    $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
-    $result = $connect->query($sql_user);
-    $result->execute();
-    $user_infor = $result->fetch();
-
-    $sql = "SELECT kindroom.kind_of_room_id,kindroom.kind_of_room, room.name_room, kindroom.price, kindroom.describe, kindroom.image  FROM `room` INNER JOIN `kindroom` ON room.kind_of_room_id = kindroom.kind_of_room_id";
+    $sql = "SELECT count(*) FROM `room`";
     $show = $connect->query($sql);
     $show->execute();
-    $list = $show->fetchAll();
-}
+    // so ban ghi trong database
+    $totalPage = $show->fetchColumn();
+
+    $limit = 6;
+    $page = ceil($totalPage / $limit);
+
+    if(isset($_GET['page'])) {
+        $paging = $_GET['page'];  
+    } else {
+        $paging = 1;
+    }
+
+    // lay ban ghi tiep theo
+    $offset = $limit * ($paging - 1);
+
+    $sql_limit = "SELECT kindroom.kind_of_room_id,kindroom.kind_of_room, room.name_room, kindroom.price, kindroom.describe, kindroom.image  
+    FROM `room` INNER JOIN `kindroom` ON room.kind_of_room_id = kindroom.kind_of_room_id limit $limit offset $offset";
+    $show_limit = $connect->query($sql_limit);
+    $show_limit->execute();
+    $list_limit = $show_limit->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +46,6 @@ if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
 
 <body>
     <div class="container">
-
         <header>
             <div class="logo">
                 <a href="../index.php"><img src="../view/img/logo.png" alt=""></a>
@@ -68,40 +77,39 @@ if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
             }
             ?>
         </header>
-        <?php
-        if (!empty($user_infor)) {
-        ?>
-            <div class="room">
-                <h2>Room</h2>
-                <div class="content_room">
-                    <?php
-                    foreach ($list as $item) {
-                    ?>
-                        <div class="content_item_room">
-                            <a href="../chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
-                                <strong><?php echo $item['kind_of_room'] ?></strong><br>
-                                <p><?php echo $item['name_room'] ?></p>
-                                <div class="img_room">
-                                    <img src="../controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="250px">
-                                </div>
-                                <p><?php echo $item['price'] ?><span>VND</span></p>
-                                <p><?php echo $item['describe'] ?></p>
-                            </a>
+        <div class="room">
+            <h2>Room</h2>
+            <div class="content_room">
+                <?php
+                foreach ($list_limit as $item) {
+                ?>
+                    <div class="content_item_room">
+                        <a href="../chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>">
+                            <strong><?php echo $item['kind_of_room'] ?></strong><br>
+                            <p><?php echo $item['name_room'] ?></p>
+                            <div class="img_room">
+                                <img src="../controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="250px">
+                            </div>
+                            <p><?php echo $item['price'] ?><span>VND</span></p>
+                            <p><?php echo $item['describe'] ?></p>
+                        </a>
 
-                        </div>
-                    <?php
-                    }
-                    ?>
-                </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
+            <div class="page">
+                <?php
+                    for($i = 1; $i <= $page; $i++) {
+                ?>
+                    <ul><a href="htroom.php?page=<?php echo $i;?>"><?php echo $i; ?></a></ul>
+                <?php
+                    }
+                ?>
+            </div>
+        </div>
     </div>
-<?php
-        } else {
-?>
-    <h2>bạn chưa đăng nhập</h2>
-<?php
-        }
-?>
 <footer>
     <div class="footer">
         <p class="text">

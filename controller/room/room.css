@@ -43,3 +43,18 @@ tr td{
     border: 2px solid black;
 }
 
+.page {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.page ul{
+    display: inline-block;
+    text-decoration: none;
+}
+
+.page ul a {
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+}
