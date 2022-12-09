@@ -31,8 +31,3 @@
         </div>
     </div>
 </div>
-<style>
-    .til h2 {
-        text-align: center;
-    }
-</style>
