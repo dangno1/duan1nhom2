@@ -1,14 +1,15 @@
 <?php
-require('../../model/connect.php');
-require('../../model/OrderDetailed.php');
-$bookedRoom = new orderDetailed();
+require '../../model/OrderDetailed.php';
+$order = new orderDetailed();
 
-if (isset($_POST['search_detailed'])){
-    $data_search = $_POST['search_detailed'];
-    $data_search == '' ? $list = $bookedRoom->showorderDetailed() : $list = $bookedRoom->searchOrderDetailed($data_search);
-} else{
-    $list = $bookedRoom->showorderDetailed();
+
+
+if (isset($_GET['user'])){
+    $user = $_GET['user'];
+    $list_order_detailed = $order->getDataOrderDetailed($user);
 }
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+$date = date("Y-m-d");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@ if (isset($_POST['search_detailed'])){
             <a href="../comment/cmt.php">
                 <h2>Comment</h2>
             </a>
-            <a href="order_detailed.php">
+            <a href="../order_detailed/order_detailed.php">
                 <h2>Order Detailed</h2>
             </a>
             <a href="../statistical/statistical.php">
@@ -68,34 +69,58 @@ if (isset($_POST['search_detailed'])){
         </div>
         <hr>
         <div class="hangHoa">
-            <form action="" method="post" enctype="multipart/form-data" class="search">
-                <input type="text" name="search_detailed" placeholder="phone number...">
-                <input type="submit" value="Tìm kiếm">
-            </form>
             <table>
                 <thead>
                 <tr>
-
+                    <th>id</th>
+                    <th>Kind of room</th>
+                    <th>Room</th>
                     <th>User name</th>
                     <th>Number phone</th>
-                    <th>Chi tiết</th>
+                    <th>start time</th>
+                    <th>End time</th>
+                    <th>Amount</th>
+                    <th>Total money</th>
+                    <th>Trả phòng</th>
+                    <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                foreach ($list as $item) {
+                foreach ($list_order_detailed as $item) {
                     ?>
                     <tr>
-
+                        <td><?=$item['id_order_detailed']?></td>
+                        <td><?=$item['kind_of_room']?></td>
+                        <td><?=$item['name_room']?></td>
                         <td><?=$item['name_user']?></td>
                         <td><?=$item['phone_number_user']?></td>
-                        <td><a href="order_detailed_user.php?user=<?=$item['name_user']?>"><button>Chi tiết</button></a></td>
+                        <td><?=$item['start_time']?></td>
+                        <td><?=$item['end_time']?></td>
+                        <td><?=$item['amount']?> người</td>
+                        <td><?=$item['total_money']?> VND</td>
+                        <td>
+                            <?php
+                            if ($date >= $item['end_time'] && $item['order_status'] == 'Đang Sử Dụng'){
+                                ?>
+                                <a
+                                    href="update.php?room_id=<?=$item['room_id']?>&order_id=<?=$item['id_order_detailed']?>&user=<?=$item['name_user']?>"><button>Trả
+                                        phòng</button></a>
+                                <?php
+                            }else {
+                                echo '<input disabled type="submit" name="traphong" value="Trả phòng" >                                         ';
+                            }
+                            ?>
+                        </td>
+                        <td><?=$item['order_status']?></td>
                     </tr>
                     <?php
                 }
                 ?>
                 </tbody>
             </table>
+            <a href="order_detailed.php">
+                <button style="cursor: pointer">Quay lại</button></a>
         </div>
     </div>
 </div>

@@ -18,7 +18,6 @@ if (isset($_POST['room_order']) && isset($_GET['rombooked_id'])){
     }
 
     $order->updateStatusRoom($room_id,'Bảo trì');
-    $list_order_detailed = $order->getDataOrderDetailed();
 }
 ?>
 <script>
