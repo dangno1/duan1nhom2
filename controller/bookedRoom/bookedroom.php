@@ -71,8 +71,8 @@
             <hr>
             <div class="hangHoa">
                 <form action="" method="post" enctype="multipart/form-data" class="search">
-                    <input type="text" name="search_detailed" placeholder="phone number...">
-                    <input type="submit" value="Tìm kiếm">
+                    <input class="timkiem" type="text" name="search_detailed" placeholder="phone number...">
+                    <input class="submit" type="submit" value="Tìm kiếm">
                 </form>
                 <table>
                     <thead>
@@ -113,7 +113,7 @@
                                         if ($date >= $date_start) {
                                     ?>
 
-                                    <select name="room_order">
+                                    <select class="buttton" name="room_order">
                                         <?php
                                         $list_room = $bookedRoom->getDataRoom($item['kind_of_room_id']);
                                         foreach ($list_room as $value_room) {
@@ -128,7 +128,8 @@
                                     <?php
                                             if (empty($value_room)){
                                                 echo '<a href="huyBookedRoom.php?id='.$item['rombooked_id'].'">
-                                                      <input type="button" value="Hủy"></a>';
+                                                <button type="button">Hủy</button>';
+                                                 //   <input type="button" value="Hủy"></a>
                                             }
                                     } else{
                                     ?>

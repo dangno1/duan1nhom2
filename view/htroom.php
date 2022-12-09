@@ -3,20 +3,11 @@ require('../model/connect.php');
 require('../model/room.php');
 require('../model/kindRoom.php');
 session_start();
-if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
-    $username = $_SESSION['name_user'];
-    $userID = $_SESSION['user_id'];
-
-    $sql_user = "SELECT * FROM `user` WHERE user_id = $userID";
-    $result = $connect->query($sql_user);
-    $result->execute();
-    $user_infor = $result->fetch();
-
     $sql = "SELECT kindroom.kind_of_room_id,kindroom.kind_of_room, room.name_room, kindroom.price, kindroom.describe, kindroom.image  FROM `room` INNER JOIN `kindroom` ON room.kind_of_room_id = kindroom.kind_of_room_id";
     $show = $connect->query($sql);
     $show->execute();
     $list = $show->fetchAll();
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,9 +59,6 @@ if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
             }
             ?>
         </header>
-        <?php
-        if (!empty($user_infor)) {
-        ?>
             <div class="room">
                 <h2>Room</h2>
                 <div class="content_room">
@@ -95,13 +83,6 @@ if (isset($_SESSION['name_user']) && isset($_SESSION['user_id'])) {
                 </div>
             </div>
     </div>
-<?php
-        } else {
-?>
-    <h2>bạn chưa đăng nhập</h2>
-<?php
-        }
-?>
 <footer>
     <div class="footer">
         <p class="text">

@@ -888,3 +888,19 @@ img {
     grid-template-columns: 1fr;
     grid-gap: 20px;
 } */
+
+.example {
+    width: 120%;
+    height: 350px;
+    overflow-y: scroll;
+  }
+  
+ 
+  .example::-webkit-scrollbar {
+      display: none;
+  }
+  
+
+  .example {
+    -ms-overflow-style: none;
+  }

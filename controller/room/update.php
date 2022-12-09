@@ -83,7 +83,7 @@
                     <input type="text" name="title" id="" required value="<?php echo $list_room['name_room']?>">
                 </div>
                 <div>
-                    <label for="">Kind Of Room ID</label>
+                    <label for="">Kind Of Room ID</label> <br>
                     <select name="idKindRoom" id="" required>
                         <option selected value="<?php echo $list_kindroom_id['kind_of_room_id']?>">
                             <?php echo $list_kindroom_id['kind_of_room']?></option>
@@ -97,8 +97,8 @@
                         ?>
                     </select>
                 </div>
-                <div>
-                    <label for="">Status_Room</label>
+                <div> 
+                    <label for="">Status_Room</label> <br>
                     <select name="trangThai">
                         <option selected value="<?php echo $list_room['status']?>"><?php echo $list_room['status']?>
                         </option>

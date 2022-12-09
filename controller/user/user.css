@@ -1,4 +1,58 @@
-input {
+.nut-add a {
+    text-decoration: none;
+    color: black;
+}
+
+.nut-add {
+    width: 80px;
+    height: 30px;
+    background-color: #ba69bc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th {
+    background-color: #ba69bc;
+    color: black;
+    height: 50px;
+}
+
+td a {
+    text-decoration: none;
+    color: black;
+}
+
+tr {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+tr td {
+    background-color: rgb(214, 210, 205);
+    height: 50px;
+}
+
+th,
+td {
+    border: 2px solid black;
+    padding: 15px;
+}
+
+input{
     width: 95%;
     height: 30px;
     border: 2px solid black;
@@ -9,8 +63,26 @@ input {
     margin: 15px 0px;
     margin-left: 15px;
 }
-
-.form-submit {
+textarea{
+    width: 95%;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 17px;
+    padding-left: 10px;
+    margin: 15px 0px;
+    margin-left: 15px;
+}
+select{
+    margin: 20px 0px;
+    margin-left: 15px;
+    padding: 10px;
+}
+label{
+    margin-left: 15px;
+    font-size: 20px;
+}
+.form-submit{
     width: 80px;
     height: 30px;
     background-color: aqua;
@@ -20,7 +92,3 @@ input {
     border: 1px solid black;
 }
 
-label {
-    margin-left: 15px;
-    font-size: 20px;
-}
