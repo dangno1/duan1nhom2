@@ -26,12 +26,20 @@ class orderDetailed
         $GLOBALS['connect']->query($sql);
     }
 
-    public function getDataOrderDetailed()
+    public function getDataOrderDetailed($user)
     {
-        $sql = "SELECT r.name_room , r.room_id , od.id_order_detailed , od.order_status , kr.kind_of_room , od.amount , us.name_user, 
-        us.phone_number_user , rb.start_time , rb.end_time , rb.total_money , rb.status  FROM (((order_detailed od left JOIN 
-        roombooked rb ON od.rombooked_id = rb.rombooked_id) left JOIN user us ON us.user_id = rb.user_id) left JOIN 
-        kindroom kr ON kr.kind_of_room_id = rb.kind_of_room_id) left JOIN room r ON r.room_id = od.room_id ORDER BY od.id_order_detailed DESC;";
+        $sql = "SELECT r.name_room , r.room_id , od.id_order_detailed , od.order_status , kr.kind_of_room , od.amount , us.name_user,
+        us.phone_number_user , rb.start_time , rb.end_time , rb.total_money , rb.status  FROM (((order_detailed od left JOIN
+        roombooked rb ON od.rombooked_id = rb.rombooked_id) left JOIN user us ON us.user_id = rb.user_id) left JOIN
+        kindroom kr ON kr.kind_of_room_id = rb.kind_of_room_id) left JOIN room r ON r.room_id = od.room_id where us.name_user = '$user' ORDER BY od.id_order_detailed DESC";
+        $result = $GLOBALS['connect']->query($sql);
+        $list = $result->fetchAll();
+        return $list;
+    }
+
+    public function showorderDetailed()
+    {
+        $sql = "SELECT DISTINCT roombooked.user_id, user.phone_number_user , user.name_user FROM user INNER JOIN roombooked ON user.user_id = roombooked.user_id";
         $result = $GLOBALS['connect']->query($sql);
         $list = $result->fetchAll();
         return $list;
@@ -44,10 +52,8 @@ class orderDetailed
     }
 
     public function searchOrderDetailed($data_search){
-        $sql = "SELECT r.name_room , r.room_id , od.id_order_detailed , od.order_status , kr.kind_of_room , od.amount , us.name_user, 
-        us.phone_number_user , rb.start_time , rb.end_time , rb.total_money , rb.status  FROM (((order_detailed od left JOIN 
-        roombooked rb ON od.rombooked_id = rb.rombooked_id) left JOIN user us ON us.user_id = rb.user_id) left JOIN 
-        kindroom kr ON kr.kind_of_room_id = rb.kind_of_room_id) left JOIN room r ON r.room_id = od.room_id where us.phone_number_user like '$data_search' ORDER BY od.id_order_detailed DESC;";
+        $sql = "SELECT DISTINCT roombooked.user_id, roombooked.rombooked_id , user.phone_number_user , user.name_user FROM user 
+        INNER JOIN roombooked ON user.user_id = roombooked.user_id where user.phone_number_user like '$data_search'";
         $result = $GLOBALS['connect']->query($sql);
         $list = $result->fetchAll();
         return $list;
