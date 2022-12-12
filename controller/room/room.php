@@ -101,7 +101,7 @@
                             <td><?php echo $item['name_room'] ?></td>
                             <td><?php echo $item['kind_of_room'] ?></td>
                             <td><?php echo $item['status'] ?></td>
-                            <td><a href="delete.php?id=<?php echo $item['room_id'] ?>"><button>Ẩn</button></a></td>
+                            <td><a href="delete.php?id=<?php echo $item['room_id'] ?>"><button class="nut-add">Ẩn</button></a></td>
                             <td><a href="update.php?id=<?php echo $item['room_id'] ?>">Update</a></td>
                         </tr>
                         <?php

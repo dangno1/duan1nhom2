@@ -41,3 +41,32 @@
 .content h1{
     text-align: center;
 }
+
+.categoryh {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+.tillerh {
+    padding: 30px 30px;
+    margin: 20px;
+    border: 3px solid black;
+    background-color: #cfd5ea;
+
+}
+
+.tillerh:hover {
+    background-color: #ba69bc;
+    border: 0px;
+}
+
+.tillerh a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+}
+.til h2 {
+    text-align: center;
+}
