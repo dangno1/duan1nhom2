@@ -62,11 +62,11 @@ $list = $show->fetch();
         </header>
         <main>
             <div class="container">
-                <h1>Thông tin user</h1>
+                <h1>Thông Tin User</h1>
 
                 <div class="tt">
                     <div class="anh"><img src="../view/img/avata.png" alt=""></div> 
-                    <label for="">Name user</label>
+                    <label for="">User name</label>
                     <div class="ht"><?php echo $list['name_user'] ?></div>
                     <label for="">Email</label>
                     <div class="ht"><?php echo $list['mail_user'] ?></div>

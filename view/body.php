@@ -38,9 +38,9 @@ require('model/connect.php');
                                         <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                                     </div>
                                 </a>
-                                <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
-                                <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                                <a><button class="book_room">ĐẶT PHÒNG</button></a>
+                                <strong><?php echo $item['kind_of_room'] ?></strong> <br>
+                                <span class="price"><?php echo $item['price'] ?> VNĐ</span> <br>
+                                <a  href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>"><button class="book_room">ĐẶT PHÒNG</button></a>
                             </form>
                         </div>
                     <?php
@@ -67,9 +67,9 @@ require('model/connect.php');
                                 <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                             </div>
                         </a>
-                        <strong><?php echo $item['kind_of_room'] ?></strong>
-                        <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                        <a><button class="book_room">ĐẶT PHÒNG</button></a>
+                        <strong><?php echo $item['kind_of_room'] ?></strong> <br>
+                        <span class="price"><?php echo $item['price'] ?> VNĐ</span> <br>
+                        <a href="./chitiet.php?kind_of_room_id=<?php echo $item['kind_of_room_id'] ?>"><button class="book_room">ĐẶT PHÒNG</button></a>
                     </div>
                 <?php
                 }
