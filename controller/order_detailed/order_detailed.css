@@ -1,12 +1,7 @@
-.nut-add a {
-    text-decoration: none;
-    color: black;
-}
-
-.nut-add {
+button{
     width: 80px;
     height: 30px;
-    background-color: aqua;
+    background-color: #ba69bc;
     border-radius: 10px;
     margin-bottom: 10px;
     border: 1px solid black;
@@ -18,19 +13,19 @@ table {
     font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 table th {
-    background-color: brown;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
+    background-color: #ba69bc;
+    color: black;
     height: 50px;
-    border: 2px solid black;
 }
 
 td a {
     text-decoration: none;
-    color: aliceblue;
+    color: black;
 }
 
 tr {
@@ -42,12 +37,16 @@ tr {
 }
 
 tr td {
-    background-color: sienna;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
+    background-color: rgb(214, 210, 205);
     height: 50px;
-    border: 2px solid black;
 }
+
+th,
+td {
+    border: 2px solid black;
+    padding: 15px;
+}
+
 
 .hangHoa .search input:nth-child(1){
     width: 250px;

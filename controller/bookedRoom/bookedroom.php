@@ -118,7 +118,7 @@
                                             }
                                         ?>
                                     </select>
-                                    <button type="submit">OK</button>
+                                    <button class="chucnang" type="submit">OK</button>
                                     <?php
                                         echo '<a href="huyBookedRoom.php?id='.$item['rombooked_id'].'">
                                         <input type="button" value="Hủy"></a>';

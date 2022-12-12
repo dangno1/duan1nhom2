@@ -91,7 +91,7 @@
                     </select>
                 </div>
                 <div>
-                    <label for="">Status_Room</label>
+                    <label for="">Status_Room</label> <br>
                     <select name="trangThai"> <br>
                         <option value="Có Thể Sử Dụng">Có Thể Sử Dụng</option>
                         <option value="Bảo Trì">Bảo Trì</option>
