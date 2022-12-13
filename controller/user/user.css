@@ -1,42 +1,11 @@
-input {
-    width: 95%;
-    height: 30px;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 5px 0;
-    font-size: 17px;
-    padding-left: 10px;
-    margin: 15px 0px;
-    margin-left: 15px;
-}
-
-.form-submit {
-    width: 80px;
-    height: 30px;
-    background-color: aqua;
+.add-admin {
+    padding: 7px 10px 7px 10px;
+    background-color: #aadbdb;
+    border: solid 1px gray;
     border-radius: 10px;
-    color: black;
-    margin-bottom: 10px;
-    border: 1px solid black;
+    margin-bottom: 9px;
 }
 
-label {
-    margin-left: 15px;
-    font-size: 20px;
-}
-
-.page {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.page ul{
-    display: inline-block;
-    text-decoration: none;
-}
-
-.page ul a {
-    padding: 10px;
-    font-size: 20px;
-    color: black;
+.add-admin:hover {
+    background-color: #09dbdb;
 }

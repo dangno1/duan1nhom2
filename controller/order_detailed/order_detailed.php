@@ -20,6 +20,7 @@ if (isset($_POST['search_detailed'])){
     <title>Quan Tri Kind Of Room</title>
     <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../quanTri.css">
+    <link rel="stylesheet" href="../kindRoom/kindRoom.css">
     <link rel="stylesheet" href="./order_detailed.css">
 </head>
 
@@ -31,40 +32,56 @@ if (isset($_POST['search_detailed'])){
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php">
-                    <h2 class="kind">Kind Of Room</h2>
-                </a>
-                <a href="../room/room.php">
-                    <h2>Room</h2>
-                </a> <br>
-                <a href="../roomImage/image.php">
-                    <h2>Room Image</h2>
-                </a>
-                <a href="../user/user.php">
-                    <h2>User</h2>
-                </a><br>
-                <a href="../bookedRoom/bookedroom.php">
-                    <h2>Booked Room</h2>
-                </a><br>
-                <a href="../comment/cmt.php">
-                    <h2>Comment</h2>
-                </a>
-                <a href="order_detailed.php">
-                    <h2>Order Detailed</h2>
-                </a>
-                <a href="../statistical/statistical.php">
-                    <h2>Statistical</h2>
-                </a>
+                <div class="test-1">
+                    <a href="../kindRoom/kindRoom.php">
+                        <i class="fa-regular fa-face-grin-wide"></i><p class="kind">Kind Of Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../room/room.php">
+                        <i class="fa-solid fa-face-grin-stars"></i><p>Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../roomImage/image.php">
+                        <i class="fa-regular fa-face-dizzy"></i><p>Room Image</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../user/user.php">
+                        <i class="fa-solid fa-face-laugh-squint"></i><p>User</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../bookedRoom/bookedroom.php">
+                        <i class="fa-regular fa-face-grin-squint-tears"></i><p>Booked Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../comment/cmt.php">
+                    <i class="fa-solid fa-face-grin-wink"></i><p>Comment</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../order_detailed/order_detailed.php">
+                    <i class="fa-regular fa-face-grin-tongue-wink"></i><p>Order Detailed</p>
+                    </a> 
+                </div> <br>
+                <div class="test-1">
+                    <a href="../statistical/statistical.php">
+                    <i class="fa-solid fa-face-kiss-wink-heart"></i><p>Statistical</p>
+                    </a>
+                </div> <br>
             </div>
             <div class="logout">
                 <a href="../dangXuat.php">
-                    <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
+                    <p><i class="fa-solid fa-right-from-bracket"></i> LogOut</p>
                 </a>
             </div>
         </div>
         <div class="content">
             <div>
-                <h1>Order Detailed</h1>
+                <h1><i class="fa-solid fa-ghost"></i> Order Detailed <i class="fa-solid fa-ghost"></i></h1>
             </div>
             <hr>
             <div class="hangHoa">
@@ -75,7 +92,6 @@ if (isset($_POST['search_detailed'])){
                 <table>
                     <thead>
                         <tr>
-
                             <th>User name</th>
                             <th>Number phone</th>
                             <th>Chi tiết</th>
@@ -83,18 +99,16 @@ if (isset($_POST['search_detailed'])){
                     </thead>
                     <tbody>
                         <?php
-                foreach ($list as $item) {
-                    ?>
+                            foreach ($list as $item) {
+                        ?>
                         <tr>
-
                             <td><?=$item['name_user']?></td>
                             <td><?=$item['phone_number_user']?></td>
-                            <td><a href="order_detailed_user.php?user=<?=$item['name_user']?>"><button>Chi
-                                        tiết</button></a></td>
+                            <td><a href="order_detailed_user.php?user=<?=$item['name_user']?>"><button class="update">Chi tiết</button></a></td>
                         </tr>
                         <?php
-                }
-                ?>
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>

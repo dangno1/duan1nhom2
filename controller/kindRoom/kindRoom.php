@@ -44,40 +44,56 @@
             </div>
             <hr>
             <div class="category-1">
-                <a href="../kindRoom/kindRoom.php">
-                    <h2 class="kind">Kind Of Room</h2>
-                </a>
-                <a href="../room/room.php">
-                    <h2>Room</h2>
-                </a> <br>
-                <a href="../roomImage/image.php">
-                    <h2>Room Image</h2>
-                </a>
-                <a href="../user/user.php">
-                    <h2>User</h2>
-                </a><br>
-                <a href="../bookedRoom/bookedroom.php">
-                    <h2>Booked Room</h2>
-                </a><br>
-                <a href="../comment/cmt.php">
-                    <h2>Comment</h2>
-                </a>
-                <a href="../order_detailed/order_detailed.php">
-                    <h2>Order Detailed</h2>
-                </a>
-                <a href="../statistical/statistical.php">
-                    <h2>Statistical</h2>
-                </a>
+                <div class="test-1">
+                    <a href="../kindRoom/kindRoom.php">
+                        <i class="fa-regular fa-face-grin-wide"></i><p class="kind">Kind Of Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../room/room.php">
+                        <i class="fa-solid fa-face-grin-stars"></i><p>Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../roomImage/image.php">
+                        <i class="fa-regular fa-face-dizzy"></i><p>Room Image</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../user/user.php">
+                        <i class="fa-solid fa-face-laugh-squint"></i><p>User</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../bookedRoom/bookedroom.php">
+                        <i class="fa-regular fa-face-grin-squint-tears"></i><p>Booked Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../comment/cmt.php">
+                    <i class="fa-solid fa-face-grin-wink"></i><p>Comment</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../order_detailed/order_detailed.php">
+                    <i class="fa-regular fa-face-grin-tongue-wink"></i><p>Order Detailed</p>
+                    </a> 
+                </div> <br>
+                <div class="test-1">
+                    <a href="../statistical/statistical.php">
+                    <i class="fa-solid fa-face-kiss-wink-heart"></i><p>Statistical</p>
+                    </a>
+                </div> <br>
             </div>
             <div class="logout">
                 <a href="../dangXuat.php">
-                    <h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2>
+                    <p><i class="fa-solid fa-right-from-bracket"></i> LogOut</p>
                 </a>
             </div>
         </div>
         <div class="content">
-            <div>
-                <h1>Kind Of Room</h1>
+            <div class="header-1">
+                <h1><i class="fa-solid fa-spider"></i> Kind Of Room <i class="fa-solid fa-spider"></i></h1>
             </div>
             <hr>
             <div class="hangHoa">
@@ -100,14 +116,14 @@
                         foreach ($list_limit as $item) {
                         ?>
                             <tr>
-                            <td><?php echo $item['kind_of_room_id'] ?></td>
-                            <td><?php echo $item['kind_of_room'] ?></td>
-                            <td><?php echo $item['price'] ?></td>
-                            <td><?php echo $item['describe'] ?></td>
-                            <td><img src="<?php echo $item['image'] ?>" width="100px" height="100px"></td>
+                                <td><?php echo $item['kind_of_room_id'] ?></td>
+                                <td><?php echo $item['kind_of_room'] ?></td>
+                                <td><?php echo $item['price'] ?></td>
+                                <td><?php echo $item['describe'] ?></td>
+                                <td><img src="<?php echo $item['image'] ?>" width="100px" height="100px"></td>
                                 <td>
-                                    <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['kind_of_room_id'] ?>">Delete</a>
-                                    <a href="update.php?id=<?php echo $item['kind_of_room_id'] ?>">Update</a>
+                                    <a onclick="return confirm('Do you want delete?')" href="delete.php?id=<?php echo $item['kind_of_room_id'] ?>"><button class="delete">Delete</button></a>
+                                    <a href="update.php?id=<?php echo $item['kind_of_room_id'] ?>"><button class="update">Update</button></a>
                                 </td>
                             </tr>
                         <?php
