@@ -34,8 +34,7 @@
     <title>Chi Tiet</title>
     <script src="https://kit.fontawesome.com/290fc3f375.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./view/css/deitails.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@500;700&display=swap"rel="stylesheet">
 </head>
 
 <body>
@@ -68,7 +67,16 @@
             <div class="produc">
                 <div class="room-desc">
                     <h3>Mô tả phòng</h3>
-                    <p><?php echo $kindRoom['describe'] ?></p>
+                    <p>Khách sạn đối tác của BigHotle trải rộng 63 tỉnh thành của Việt Nam, 
+                    bất kì nơi nào từ vùng núi cao đến biển đảo xa xôi, chúng tôi đều có thể cung cấp những sự lựa chọn nơi ở giá tốt, 
+                    chất lượng dành cho quý khách. Những chỗ ở do chúng tôi cung cấp không chỉ bao gồm khu nghỉ dưỡng cao cấp, 
+                    sang trọng mà còn có những khách sạn, nhà nghỉ bình dân, phù hợp với mọi đối tượng du khách. 
+                    Từ khu nghỉ dưỡng 5 sao đến nhà nghỉ giá cả phải chăng, chúng tôi đều có cho quý khách những sự lựa chọn chất lượng nhất.
+                    Bên cạnh đó, Vietnam Booking còn liên kết với những đối tác khách sạn quốc tế, 
+                    giúp người du lịch dễ dàng đặt khách sạn online ngay Việt Nam trước khi vi vu sang nước ngoài. 
+                    Khác với du lịch trong nước, xuất ngoại đòi hỏi quý khách phải chuẩn bị nhiều hơn, lên kế hoạch kĩ càng hơn vì cản trở ngôn ngữ, 
+                    chưa quen địa điểm,… Chính vì thế, đặt phòng online khách sạn quốc tế từ trang Vietnam Booking giúp bạn có chỗ ở chất
+                    <?php echo $kindRoom['describe'] ?></p>
                     <div class="room-uitil">
                         <div><i class="fa-solid fa-wifi"></i>
                             <p>Wife</p></i>
@@ -119,8 +127,7 @@
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="price">
                             <h4>Bắt Đầu Đặt</h4>
-                            <input readonly="False" name="price_room" id="price_room" value="<?=$kindRoom['price']?>"
-                                class="price-item">
+                            <input readonly="False" name="price_room" id="price_room" value="<?=$kindRoom['price']?>" class="price-item">
                             <div class="night">VND OVERNIGHT</div>
                         </div>
                         <div class="date-room">
@@ -188,10 +195,34 @@
             <?php
             require('./view/comment.php');
         ?>
-        </main>
-        <div id="wrapper">
-            <input type="checkbox" name="" class="switch-toggle" id="light-dark">
+        <div class="danh-gia">
+            <div class="img-danh-gia">
+                <img src="./view/img/deitail/image 3.png" alt="">    
+            </div>
+            <div class="text-danh-gia">
+                <h3>Bighotel</h3>
+                <div class="stars">
+                    <form action="">
+                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-2"></label>
+                    </form>
+                </div>
+                <p>Please Rate Bighotel Hotel By The Stars Above!!! Thank you.</p>
+                <!-- <button>Evaluate</button> -->
+            </div>
         </div>
+        </main>
+        <!-- <div id="wrapper">
+            <input type="checkbox" name="" class="switch-toggle" id="light-dark">
+        </div> -->
         <?php 
             } else {
         ?>

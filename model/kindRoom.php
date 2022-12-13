@@ -11,8 +11,8 @@ class KindRoom
         $describe = $data['describe'];
         $image = $data['image'];
 
-        $sql = "INSERT INTO `kindroom` (`kind_of_room_id`, `kind_of_room`, `price`, `describe`, `image`) 
-        VALUES (NULL, '{$title}', '{$price}', '{$describe}', '{$image}')";
+        $sql = "INSERT INTO `kindroom` (`kind_of_room_id`, `kind_of_room`, `price`, `describe`, `image`, `quantity_max`) 
+        VALUES (NULL, '{$title}', '{$price}', '{$describe}', '{$image}', '2')";
 
         $conn = $GLOBALS['connect'];
         $conn->exec($sql);

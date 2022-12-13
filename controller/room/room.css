@@ -3,58 +3,22 @@
     color: black;
 }
 .nut-add{
-    height: 30px;
+    height: 36px;
     background: aqua;
     border-radius: 10px;
     border: 1px solid black;
     margin-bottom: 20px;
 }
-table{
-    width: 100%;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-align: center;
-}
-table th{
-    background-color: brown;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
-    height: 50px;
-    border: 2px solid black;
-}
-td a{
-    text-decoration: none;
-    color: aliceblue;
 
-}
-tr {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-align: center;
-}
-tr td{
-    background-color: sienna;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
-    height: 50px;
-    border: 2px solid black;
+.hide {
+    padding: 5px 13px 5px 14px;
+    background-color: rgb(253, 0, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
 }
 
-.page {
-    text-align: center;
-    margin-top: 25px;
-}
+.hide:hover {
+    background-color: rgb(138, 9, 9);
 
-.page ul{
-    display: inline-block;
-    text-decoration: none;
-}
-
-.page ul a {
-    padding: 10px;
-    font-size: 20px;
-    color: black;
 }

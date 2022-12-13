@@ -37,10 +37,10 @@ require('model/connect.php');
                                     <div class="content_item_img">
                                         <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                                     </div>
+                                    <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
+                                    <span class="price"><?php echo $item['price'] ?> VNĐ</span>
+                                    <button class="book_room">ĐẶT PHÒNG</button>
                                 </a>
-                                <p class="loaiphong"><?php echo $item['kind_of_room'] ?></p>
-                                <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                                <a><button class="book_room">ĐẶT PHÒNG</button></a>
                             </form>
                         </div>
                     <?php
@@ -66,10 +66,10 @@ require('model/connect.php');
                             <div class="content_item_img">
                                 <img src="./controller/kindRoom/<?php echo $item['image'] ?>" width="100%" height="260px">
                             </div>
+                            <strong><?php echo $item['kind_of_room'] ?></strong> <br>
+                            <span class="price"><?php echo $item['price'] ?> VNĐ</span> <br>
+                            <button class="book_room">ĐẶT PHÒNG</button>
                         </a>
-                        <strong><?php echo $item['kind_of_room'] ?></strong>
-                        <span class="price"><?php echo $item['price'] ?> VNĐ</span>
-                        <a><button class="book_room">ĐẶT PHÒNG</button></a>
                     </div>
                 <?php
                 }

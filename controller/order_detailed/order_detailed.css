@@ -12,43 +12,6 @@
     border: 1px solid black;
 }
 
-table {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-table th {
-    background-color: brown;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
-    height: 50px;
-    border: 2px solid black;
-}
-
-td a {
-    text-decoration: none;
-    color: aliceblue;
-}
-
-tr {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-tr td {
-    background-color: sienna;
-    border-bottom: 2px solid #ffff;
-    color: aliceblue;
-    height: 50px;
-    border: 2px solid black;
-}
-
 .hangHoa .search input:nth-child(1){
     width: 250px;
     height: 40px;
@@ -65,4 +28,9 @@ tr td {
     border: 0;
     background-color: #d3d3d3;
     cursor: pointer;
+}
+
+
+input[type="submit"] {
+    margin-left: 0px;
 }

@@ -247,13 +247,36 @@ footer {
     padding: 10px;
     font-size: 20px;
     color: black;
+    text-decoration: none;
+}
+
+.page ul a:hover {
+    color: #002fff;
 }
 
 .content_item strong{
     font-weight: bold;
-    margin: 15px 0;
     font-size: 25px;
     color: black;
     text-decoration: none;
     display: inline-block;
+    padding: 9px;
+}
+
+form {
+    margin-top: -180px;
+    margin-bottom: 140px;
+}
+
+.content_item a {
+    text-decoration: none;
+    color: black;
+}
+
+.book_room:hover {
+    background-color: #F54748;
+}
+
+i.fas.fa-user {
+    font-size: 30px;
 }

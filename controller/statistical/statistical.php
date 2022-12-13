@@ -30,38 +30,56 @@
         </div>
         <hr>
         <div class="category-1">
-                <a href="../kindRoom/kindRoom.php">
-                    <h2 class="kind">Kind Of Room</h2>
-                </a>
-                <a href="../room/room.php">
-                    <h2>Room</h2>
-                </a> <br>
-                <a href="../roomImage/image.php">
-                    <h2>Room Image</h2>
-                </a>
-                <a href="../user/user.php">
-                    <h2>User</h2>
-                </a><br>
-                <a href="../bookedRoom/bookedroom.php">
-                    <h2>Booked Room</h2>
-                </a><br>
-                <a href="../comment/cmt.php">
-                    <h2>Comment</h2>
-                </a>
-                <a href="../order_detailed/order_detailed.php">
-                    <h2>Order Detailed</h2>
-                </a>
-                <a href="../statistical/statistical.php">
-                    <h2>Statistical</h2>
+                <div class="test-1">
+                    <a href="../kindRoom/kindRoom.php">
+                        <i class="fa-regular fa-face-grin-wide"></i><p class="kind">Kind Of Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../room/room.php">
+                        <i class="fa-solid fa-face-grin-stars"></i><p>Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../roomImage/image.php">
+                        <i class="fa-regular fa-face-dizzy"></i><p>Room Image</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../user/user.php">
+                        <i class="fa-solid fa-face-laugh-squint"></i><p>User</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../bookedRoom/bookedroom.php">
+                        <i class="fa-regular fa-face-grin-squint-tears"></i><p>Booked Room</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../comment/cmt.php">
+                    <i class="fa-solid fa-face-grin-wink"></i><p>Comment</p>
+                    </a>
+                </div> <br>
+                <div class="test-1">
+                    <a href="../order_detailed/order_detailed.php">
+                    <i class="fa-regular fa-face-grin-tongue-wink"></i><p>Order Detailed</p>
+                    </a> 
+                </div> <br>
+                <div class="test-1">
+                    <a href="../statistical/statistical.php">
+                    <i class="fa-solid fa-face-kiss-wink-heart"></i><p>Statistical</p>
+                    </a>
+                </div> <br>
+            </div>
+            <div class="logout">
+                <a href="../dangXuat.php">
+                    <p><i class="fa-solid fa-right-from-bracket"></i> LogOut</p>
                 </a>
             </div>
-        <div class="logout">
-            <a href="../dangXuat.php"><h2><i class="fa-solid fa-right-from-bracket"></i> LogOut</h2></a>
-        </div>
     </div>
     <div class="content">
         <div>
-            <h1>Thống Kê</h1>
+            <h1><i class="fa-solid fa-hippo"></i> Thống Kê <i class="fa-solid fa-hippo"></i></h1>
         </div>
         <hr>
         <div class="content-1">
@@ -91,16 +109,22 @@
                 <div id="piechart_3d" style="width: 800px; height: 600px;"></div>
             </div>
             <div class="two">
-                <div class="price-sum">
-                    <?php
-                        $sum = 0;
-                        foreach ($data as $item) {
-                            $sum = $sum + $item['price'];
-                        }
-                    ?>
-                    <h3>Tong Tien Thu Duoc La: </h3>
-                    <h4><?php echo $sum . "VND" ?></h4>
+                <?php
+                    $sum = 0;
+                    foreach ($data as $item) {
+                        $sum = $sum + $item['price'];
+                        $x = $item['number'] * $item['price'];
+                ?>
+                <div class="thong-ke">
+                    <h4>
+                        Tổng Số <?php echo $item['kind_of_room']; ?> Được Đặt Là : <?php echo $item['number'] . " Phòng"; ?><br>
+                        Tổng Số Tiền Từ <?php echo $item['kind_of_room']; ?> Là : <?php echo $x ."VNĐ"; ?> <br>
+                    </h4>
                 </div>
+                <?php
+                    }
+                ?>
+                <h3>Tổng Số Tiền Thu Được Là :<?php echo $sum . "VNĐ" ?></h3>
             </div>
         </div>
     </div>

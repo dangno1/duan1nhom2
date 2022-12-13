@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require('../model/connect.php');
     require('../model/room.php');
     require('../model/kindRoom.php');
@@ -12,7 +13,7 @@
     $limit = 6;
     $page = ceil($totalPage / $limit);
 
-    if(isset($_GET['page'])) {
+    if(!empty($_GET['page'])) {
         $paging = $_GET['page'];  
     } else {
         $paging = 1;
