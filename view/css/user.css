@@ -48,11 +48,11 @@ a.test01-1 {
     padding-left: 105px;
 }
 
-button:hover {
+.button01:hover {
     background-color: #cf8f8f;
 }
 
-button {
+.button01 {
     padding: 13px 103px 13px 107px;
     border: none;
     border-radius: 12px;
