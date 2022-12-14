@@ -44,3 +44,17 @@ footer{
     margin-bottom: 15px;
 }
 
+a.test01-1 {
+    padding-left: 105px;
+}
+
+button:hover {
+    background-color: #cf8f8f;
+}
+
+button {
+    padding: 13px 103px 13px 107px;
+    border: none;
+    border-radius: 12px;
+    background-color: #dedede;
+}
