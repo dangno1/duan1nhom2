@@ -48,21 +48,18 @@
         $kindRoom->update($id_kindRoom, $kind_of_room);
 
         // Img Room
-        $Id = [
-            'room_image_id' => $id,
-        ];
+        // $Id = [
+        //     'room_image_id' => $id,
+        // ];
 
         foreach($imageNames as $imagePath) {
-            $imageRoomData = [
-                // 'room_id' => $roomId,
+            $imageRoomData[] = [
                 'image_room' => $imagePath,
+                'kind_of_room_id' => $id
             ];
-            $imageRoom = new imageRoom();
-            $imageRoom->update($Id, $imageRoomData);
         }
-        // echo "<pre/>";
-        // var_dump($imageNames);
-        // die;
+        $imageRoom = new imageRoom();
+        $imageRoom->update($id, $imageRoomData);
 
         if($connect) {
             header('location:kindRoom.php');
