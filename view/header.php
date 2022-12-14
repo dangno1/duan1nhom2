@@ -7,7 +7,6 @@
             <ul>
                 <li><a href="./index.php">home</a></li>
                 <li><a href="./view/htroom.php?page=1">room</a></li>
-                <li><a href="">about</a></li>
                 <li><a href="./view/lichsudatphong.php">Hotel Booking History</a></li>
             </ul>
         </nav>

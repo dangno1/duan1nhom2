@@ -33,7 +33,6 @@
                 <ul>
                     <li><a href="../index.php">home</a></li>
                     <li><a href="./htroom.php">room</a></li>
-                    <li><a href="">about</a></li>
                     <li><a href="./lichsudatphong.php">Hotel Booking History</a></li>
                 </ul>
             </nav>
