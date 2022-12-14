@@ -10,9 +10,6 @@
         $show->execute();
         $user = $show->fetch();
 
-        // echo "<pre>";
-        // var_dump($user);
-        // die();
         if($user) {
             $role = $user['id_role'];
             $hoTen = $user['name_user'];
