@@ -102,8 +102,6 @@
                     <th>ID</th>
                     <th>UserName</th>
                     <th>Phone</th>
-                    <th>Password</th>
-                    <!-- <th>Status</th> -->
                     <th>Vai trò</th>
                     <th>Email</th>
 
@@ -117,7 +115,6 @@
                         <td><?php echo $item['user_id'] ?></td>
                         <td><?php echo $item['name_user'] ?></td>
                         <td><?php echo $item['phone_number_user'] ?></td>
-                        <td><?php echo $item['password_user'] ?></td>
                         <td>
                         <?php 
                             if($item['id_role'] == 1) {

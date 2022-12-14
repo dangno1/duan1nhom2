@@ -1,5 +1,5 @@
 <?php
-require('model/connect.php');
+    require('./model/connect.php');
     $sql = "SELECT * FROM `kindroom`";
     $show = $connect->query($sql);
     $show->execute();

@@ -158,7 +158,7 @@
                                 $end_time = $_POST['end_time'];
                                 $amount = $_POST['amount'];                       
                                 $price_room = $_POST['price_room'];
-                                $bookedRoom->add($kind_of_room_id, $user_id, $start_time, $end_time, $amount, $price_room,);
+                                $bookedRoom->add($kind_of_room_id, $user_id, $start_time, $end_time, $amount, $price_room);
                             } else{
                     ?>
                         <script>

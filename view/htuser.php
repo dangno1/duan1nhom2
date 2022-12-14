@@ -73,7 +73,7 @@ $list = $show->fetch();
                     <label for="">Phone</label>
                     <div class="ht"><?php echo $list['phone_number_user'] ?></div>
                 </div>
-
+                <a class="test01-1" href="./passWord.php"><button>Đổi Mật khẩu</button></a>
             </div>
         </main>
     </div>
